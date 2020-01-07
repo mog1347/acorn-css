@@ -1,0 +1,3 @@
+@each $c in $cursors{
+    .cursor-#{$c} { cursor: $c};
+}

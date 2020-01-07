@@ -1,1 +1,19 @@
-123123
+// stylelint-disable declaration-no-important
+
+//Theme colors
+@each $color, $value in $theme-colors {
+    @include bg-variant(".bg-#{$color}", $value, true);
+}
+
+//Mono colors
+.bg-white { background-color: $white !important; }
+.bg-white-25 { background-color: rgba($white, 0.25) !important; }
+.bg-white-50 { background-color: rgba($white, 0.5) !important; }
+.bg-white-75 { background-color: rgba($white, 0.75) !important; }
+
+.bg-black { background-color: $black !important; }
+.bg-black-25 { background-color: rgba($black, 0.25) !important; }
+.bg-black-50 { background-color: rgba($black, 0.5) !important; }
+.bg-black-75 { background-color: rgba($black, 0.75) !important; }
+
+.bg-transparent { background-color: transparent !important; }

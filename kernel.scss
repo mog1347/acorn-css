@@ -1,17 +1,36 @@
-/*!
- * Bootstrap v4.4.1 (https://getbootstrap.com/)
- * Copyright 2011-2019 The Bootstrap Authors
- * Copyright 2011-2019 Twitter, Inc.
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+/*
+ * KernelCSS
+ * Base on Bootstrap v4(current 4.4.1) (https://getbootstrap.com/)
+ * Extract only grid system and some useful utilities
+ * Licensed under MIT
  */
 
 @import "functions";
 @import "variables";
 @import "mixins";
+
 @import "root";
 @import "reboot";
-@import "type";
-@import "images";
 @import "grid";
+@import "type";
+//sort in alphabet
+@import "background";
+@import "borders";
+@import "clearfix";
+@import "cursor";
+@import "display";
+@import "divider";
+@import "embed";
+@import "flex";
+@import "float";
+@import "images";
+@import "overflow";
+@import "position";
+@import "screenreaders";
+@import "shadows";
+@import "sizing";
+@import "spacing";
+@import "text";
 @import "transitions";
-@import "utilities";
+@import "valign";
+@import "visibility";
