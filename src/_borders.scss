@@ -31,9 +31,9 @@
 //
 @each $size, $border-radius in $border-radii {
     @if $size == "normal" {
-        $size: '';
+        $size: "";
     } @else {
-        $size: '-' #{$size}
+        $size: "-#{$size}"
     }
     rounded#{$size} {
         @include border-radius($border-radius);

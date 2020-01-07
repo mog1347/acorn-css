@@ -1,5 +1,3 @@
-@import "../revive-variables";
-
 /****Options****/
 //Transition: keep the transition options available
 $enable-transitions: true !default;
@@ -19,6 +17,19 @@ $gray-600: #6c757d !default;
 $gray-700: #495057 !default;
 $gray-800: #343a40 !default;
 $gray-900: #212529 !default;
+
+$slate-100:#e5e7ec !default;
+$slate-200:#c7ccd7 !default;
+$slate-300:#aab2c1 !default;
+$slate-400:#8c97ac !default;
+$slate-500:#6f7c96 !default;
+$slate-600:#434b5c !default;
+$slate-700:#343a47 !default;
+$slate-800:#272c36 !default;
+$slate-900:#181b21 !default;
+
+
+
 $black: #000 !default;
 
 $grays: () !default;
@@ -64,7 +75,7 @@ $colors: map-merge((
     "gray-dark": $gray-800
 ), $colors);
 
-$primary: $revive-primary !default;
+$primary: $blue !default;
 $secondary: $gray-600 !default;
 $success: $green !default;
 $info: $cyan !default;
@@ -134,8 +145,8 @@ $sizes: map-merge((
 //
 // Settings for the `<body>` element.
 
-$body-bg: $revive-blue-gray-1000 !default;
-$body-color: $revive-blue-gray-100 !default;
+$body-bg: $slate-900 !default;
+$body-color: $slate-100 !default;
 $rem: 16px;
 
 
