@@ -1,0 +1,22 @@
+// stylelint-disable declaration-no-important
+
+// Contextual backgrounds
+
+@mixin background-color($selector, $color, $imp: null) {
+    #{$selector} {
+        background-color: $color $imp;
+    }
+}
+
+@mixin background-color-with-in($selector,$color,$imp){
+    #{$selector} {
+        background-color: $color $imp;
+    }
+    a#{$selector},
+    button#{$selector} {
+        @include hover-focus() {
+            background-color: darken($color, 10%) $imp;
+        }
+    }
+}
+

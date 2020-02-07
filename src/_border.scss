@@ -1,0 +1,97 @@
+// stylelint-disable property-blacklist, declaration-no-important
+
+//
+// Border
+//
+
+//Border-width (width default color and default style)
+@each $size, $length in $border-widths {
+    .bt-#{$size} { border-top: $length $border-style !important; }
+    .br-#{$size} { border-right: $length $border-style !important; }
+    .bb-#{$size} { border-bottom: $length $border-style !important; }
+    .bl-#{$size} { border-left: $length $border-style !important; }
+    .bx-#{$size} {
+        border-left: $length $border-style !important;
+        border-right: $length $border-style !important;
+    }
+    .by-#{$size} {
+        border-top: $length $border-style !important;
+        border-bottom: $length $border-style !important;
+    }
+    .b-#{$size} { border: $length $border-style !important; }
+}
+
+//Border color
+////theme color
+@each $color, $value in $theme-colors {
+    .bt-#{$color} { border-top-color: $value !important;}
+    .br-#{$color} { border-right-color: $value !important;}
+    .bb-#{$color} { border-bottom-color: $value !important;}
+    .bl-#{$color} { border-left-color: $value !important;}
+    .bx-#{$color} {
+        border-left-color: $value !important;
+        border-right-color: $value !important;
+    }
+    .by-#{$color} {
+        border-top-color: $value !important;
+        border-bottom-color: $value !important;
+    }
+    .b-#{$color} { border-color: $value !important;}
+}
+////color
+@if $enable-colors-class {
+    @each $color, $value in $colors {
+        .bt-#{$color} { border-top-color: $value !important;}
+        .br-#{$color} { border-right-color: $value !important;}
+        .bb-#{$color} { border-bottom-color: $value !important;}
+        .bl-#{$color} { border-left-color: $value !important;}
+        .bx-#{$color} {
+            border-left-color: $value !important;
+            border-right-color: $value !important;
+        }
+        .by-#{$color} {
+            border-top-color: $value !important;
+            border-bottom-color: $value !important;
+        }
+        .b-#{$color} { border-color: $value !important;}
+    }
+}
+
+//Border style
+@each $style in $border-styles {
+    .bt-#{$style} { border-top-style: $style !important;}
+    .br-#{$style} { border-right-style: $style !important;}
+    .bb-#{$style} { border-bottom-style: $style !important;}
+    .bl-#{$style} { border-left-style: $style !important;}
+    .bx-#{$style} {
+        border-left-style: $style !important;
+        border-right-style: $style !important;
+    }
+    .by-#{$style} {
+        border-top-style: $style !important;
+        border-bottom-style: $style !important;
+    }
+    .b-#{$style} { border-style: $style !important;}
+}
+
+
+//Border radius
+@each $size, $border-radius in $border-radii {
+    rounded#{infix($size)} {
+        @include border-radius($border-radius);
+    }
+    rounded-top#{infix($size)} {
+        @include border-top-radius($border-radius);
+    }
+    rounded-right#{infix($size)} {
+        @include border-right-radius($border-radius);
+    }
+    rounded-bottom#{infix($size)} {
+        @include border-bottom-radius($border-radius);
+    }
+    rounded-left#{infix($size)} {
+        @include border-left-radius($border-radius);
+    }
+}
+.rounded-circle { border-radius: 50% !important; }
+.rounded-pill { border-radius: $border-radius-pill !important; }

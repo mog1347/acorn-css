@@ -4,18 +4,19 @@
  * Extract only grid system and some useful utilities
  * Licensed under MIT
  */
-
+//
+$IMP: !important;
 @import "functions";
 @import "variables";
 @import "mixins";
-
+//
 @import "root";
 @import "reboot";
 @import "grid";
 @import "type";
 //sort in alphabet
 @import "background";
-@import "borders";
+@import "border";
 @import "clearfix";
 @import "cursor";
 @import "display";
@@ -23,14 +24,14 @@
 @import "embed";
 @import "flex";
 @import "float";
-@import "images";
+@import "image";
 @import "overflow";
 @import "position";
-@import "screenreaders";
-@import "shadows";
+@import "screenreader";
+@import "shadow";
 @import "sizing";
 @import "spacing";
 @import "text";
-@import "transitions";
+@import "transition";
 @import "valign";
 @import "visibility";

@@ -4,7 +4,9 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "sass": "node-sass src/kernel.scss -o dist/"
+        "watch-test": "sass --style=expanded --source-map --stop-on-error --watch ./test:./test_dist",
+        "sass-test": "sass --style=expanded --source-map --load-path=./test/modules --trace --stop-on-error ./test:./test_dist",
+        "sass-src": "sass --style=expanded --source-map --trace --stop-on-error ./src:./dist"
     },
     "keywords": [
         "css",
@@ -13,6 +15,6 @@
     "author": "",
     "license": "ISC",
     "devDependencies": {
-        "node-sass": "^4.13.0"
+        "sass": "^1.24.4"
     }
 }

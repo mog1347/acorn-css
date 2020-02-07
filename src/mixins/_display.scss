@@ -1,0 +1,7 @@
+@mixin display($value,$imp:null) {
+    @if index($displays,$value) ==null {
+        @warn "Potentially invalid value for #{$map-name}, displays list doesn't contain it !";
+    } @else {
+        display: $value $imp;
+    }
+}

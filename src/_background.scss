@@ -2,18 +2,19 @@
 
 //Theme colors
 @each $color, $value in $theme-colors {
-    @include bg-variant(".bg-#{$color}", $value, true);
+    @include background-color-with-in(".bg-#{$color}", $value, $IMP);
 }
 
-//Mono colors
-.bg-white { background-color: $white !important; }
-.bg-white-25 { background-color: rgba($white, 0.25) !important; }
-.bg-white-50 { background-color: rgba($white, 0.5) !important; }
-.bg-white-75 { background-color: rgba($white, 0.75) !important; }
+//Colors
+@each $color, $value in $colors {
+    @include background-color(".bg-#{$color}", $value, $IMP);
+}
 
-.bg-black { background-color: $black !important; }
-.bg-black-25 { background-color: rgba($black, 0.25) !important; }
-.bg-black-50 { background-color: rgba($black, 0.5) !important; }
-.bg-black-75 { background-color: rgba($black, 0.75) !important; }
-
-.bg-transparent { background-color: transparent !important; }
+.bg-white-25 {@include background-color(rgba($white, 0.25), $IMP);}
+.bg-white-50 {@include background-color(rgba($white, 0.5), $IMP);}
+.bg-white-75 { @include background-color(rgba($white, 0.75), $IMP);}
+.bg-black-25 { @include background-color(rgba($black, 0.25), $IMP);}
+.bg-black-50 { @include background-color(rgba($black, 0.5), $IMP); }
+.bg-black-75 { @include background-color(rgba($black, 0.75), $IMP);}
+.bg-custom {@include background-color(var(--nidaye), $IMP);}
+.bg-transparent { @include background-color(transparent, $IMP); }
