@@ -136,3 +136,8 @@
 @function infix($name) {
     @return if($name == "", "", "-#{$name}");
 }
+
+
+@function built-in-var($key){
+    @return map-get($B, $key);
+}

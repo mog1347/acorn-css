@@ -217,12 +217,6 @@ $line-height-lg: 1.5 !default;
 $line-height-sm: 1.5 !default;
 
 
-
-
-
-
-
-
 /*******BORDER*******/
 //Border-width
 $border-width: 1px !default; //default border width
@@ -400,3 +394,5 @@ $v-aligns: baseline, top, middle, bottom, text-bottom, text-top !default;
 $cursors: auto, default, pointer, crosshair, move, text, wait, help, not-allowed, zoom-in, zoom-out !default;
 
 
+$background-sizes: auto, contain, cover !default;
+$background-blend-modes: normal, multiply, screen, overlay, darken, lighten, color-dodge, color-burn, hard-light, soft-light, difference, exclusion, hue, saturation, color, luminosity !default;

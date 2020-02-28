@@ -1,20 +1,43 @@
-// stylelint-disable declaration-no-important
-
 //Theme colors
 @each $color, $value in $theme-colors {
-    @include background-color-with-in(".bg-#{$color}", $value, $IMP);
+    .#{$NS}bg-#{$color} {
+        @include background-color($value, $IMP);
+    }
+    a.#{$NS}bg-#{$color}, button.#{$NS}bg-#{$color} {
+        @include hover-focus() {
+            @include background-color(darken($value, 10%), $IMP);
+        }
+    }
 }
 
 //Colors
 @each $color, $value in $colors {
-    @include background-color(".bg-#{$color}", $value, $IMP);
+    .#{$NS}bg-#{$color} {
+        @include background-color($value, $IMP);
+    }
 }
 
-.bg-white-25 {@include background-color(rgba($white, 0.25), $IMP);}
-.bg-white-50 {@include background-color(rgba($white, 0.5), $IMP);}
-.bg-white-75 { @include background-color(rgba($white, 0.75), $IMP);}
-.bg-black-25 { @include background-color(rgba($black, 0.25), $IMP);}
-.bg-black-50 { @include background-color(rgba($black, 0.5), $IMP); }
-.bg-black-75 { @include background-color(rgba($black, 0.75), $IMP);}
-.bg-custom {@include background-color(var(--nidaye), $IMP);}
-.bg-transparent { @include background-color(transparent, $IMP); }
+.#{$NS}bg-white-25 {@include background-color(rgba($white, 0.25), $IMP);}
+.#{$NS}bg-white-50 {@include background-color(rgba($white, 0.5), $IMP);}
+.#{$NS}bg-white-75 {@include background-color(rgba($white, 0.75), $IMP);}
+.#{$NS}bg-black-25 {@include background-color(rgba($black, 0.25), $IMP);}
+.#{$NS}bg-black-50 {@include background-color(rgba($black, 0.5), $IMP);}
+.#{$NS}bg-black-75 {@include background-color(rgba($black, 0.75), $IMP);}
+.#{$NS}bg-transparent {@include background-color(transparent, $IMP);}
+
+
+//Blend Mode
+@each $value in $background-blend-modes {
+    .#{$NS}bg-blend-#{$value} {
+        @include background-blend-mode($value, $IMP);
+    }
+}
+
+//Size
+@each $value in $background-sizes {
+    .#{$NS}bg-size-#{$value} {
+        @include background-blend-mode($value, $IMP);
+    }
+}
+
+

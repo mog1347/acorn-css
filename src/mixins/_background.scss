@@ -1,22 +1,19 @@
-// stylelint-disable declaration-no-important
+@mixin background-color($value, $imp: null) {
+    background-color: $value $imp;
+}
 
-// Contextual backgrounds
-
-@mixin background-color($selector, $color, $imp: null) {
-    #{$selector} {
-        background-color: $color $imp;
+@mixin background-blend-mode($value,$imp:null) {
+    @if index($background-blend-modes,$value) == null {
+        @warn "Potentially invalid value for background-blend-modes list doesn't contain it !";
+    } @else {
+        background-blend-mode: $value $imp;
     }
 }
 
-@mixin background-color-with-in($selector,$color,$imp){
-    #{$selector} {
-        background-color: $color $imp;
-    }
-    a#{$selector},
-    button#{$selector} {
-        @include hover-focus() {
-            background-color: darken($color, 10%) $imp;
-        }
+@mixin background-size($value,$imp:null) {
+    @if index($background-sizes,$value) == null {
+        @warn "Potentially invalid value for background-sizes list doesn't contain it !";
+    } @else {
+        background-size: $value $imp;
     }
 }
-

@@ -1,0 +1,33 @@
+//Inset: Top Right Bottom Left
+@import "functions";
+@import "built-in-var";
+$NS:'k-';   //namespace
+
+@each $val in built-in-var(inset) {
+    .#{$NS}i-#{$val} {
+        top: $val;
+        right: $val;
+        bottom: $val;
+        left: $val;
+    }
+    .#{$NS}ix-#{$val} {
+        left: $val;
+        right: $val;
+    }
+    .#{$NS}iy-#{$val} {
+        top: $val;
+        bottom: $val;
+    }
+    .#{$NS}it-#{$val} {
+        top: $val;
+    }
+    .#{$NS}ir-#{$val} {
+        right: $val;
+    }
+    .#{$NS}ib-#{$val} {
+        bottom: $val;
+    }
+    .#{$NS}il-#{$val} {
+        left: $val;
+    }
+}

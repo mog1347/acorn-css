@@ -4,8 +4,17 @@
  * Extract only grid system and some useful utilities
  * Licensed under MIT
  */
-//
+//TODO add stylelint
+
+
+
 $IMP: !important;
+$NS:'k-';   //namespace
+$MS:'@';    //media symbol
+$SS:':';    //state symbol
+
+
+
 @import "functions";
 @import "variables";
 @import "mixins";

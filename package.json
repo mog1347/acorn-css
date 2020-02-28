@@ -5,8 +5,9 @@
     "main": "index.js",
     "scripts": {
         "watch-test": "sass --style=expanded --source-map --stop-on-error --watch ./test:./test_dist",
-        "sass-test": "sass --style=expanded --source-map --load-path=./test/modules --trace --stop-on-error ./test:./test_dist",
-        "sass-src": "sass --style=expanded --source-map --trace --stop-on-error ./src:./dist"
+        "sass-test": "sass --style=expanded --source-map --trace --stop-on-error ./src/_inset.scss:./dist/test.css",
+        "sass-src": "sass --style=expanded --source-map --trace --stop-on-error ./src:./dist",
+        "p": "postcss ./postcss/css/scroll.css --output ./postcss/css/dist/scroll.css"
     },
     "keywords": [
         "css",
@@ -15,6 +16,11 @@
     "author": "",
     "license": "ISC",
     "devDependencies": {
-        "sass": "^1.24.4"
+        "lodash": "^4.17.15",
+        "postcss": "^7.0.27",
+        "postcss-cli": "^7.1.0",
+        "postcss-selector-parser": "^6.0.2",
+        "sass": "^1.24.4",
+        "stylelint": "^13.0.0"
     }
 }
