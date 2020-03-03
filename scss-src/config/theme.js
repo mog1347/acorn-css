@@ -45,9 +45,9 @@ module.exports = {
     color: color,
 
     letterSpacing: {
-        "-n3": '-0.1em',
-        "-n2": '-0.05em',
-        "-n1": '-0.025em',
+        "n3": '-0.1em',
+        "n2": '-0.05em',
+        "n1": '-0.025em',
         0: '0',
         1: '0.025em',
         2: '0.05em',
