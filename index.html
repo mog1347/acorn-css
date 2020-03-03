@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>KernelCSS</title>
+    <style>
+    body {
+        margin: 0
+    }
+
+    .container {
+        margin: 0 auto;
+        width: 900px;
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .color-item {
+        width: calc( 900px / 9);
+        height: 100px;
+    }
+    .color-item-alt {
+        width: calc( 900px / 17);
+        height: 100px;
+    }
+    </style>
+    <link rel="stylesheet" href="dist/kernel.css">
+</head>
+<body>
+<div class="">
+
+    <div style="width: 1000px; height: 1000px; background-image: url(https://pics7.baidu.com/feed/e1fe9925bc315c607f5102cc25eb8715485477a9.jpeg?token=4f6af679d24da24d08c24b311276871e&s=63BB1DC714364F9E90A034F603005028
+    ); background-position:right; background-repeat:round;">
+
+    </div>
+
+    <div id="colorful" class="container"></div>
+    <div id="neutral" class="container"></div>
+</div>
+<script>
+let colorful = [
+        'red',
+        'volcano',
+        'orange',
+        'gold',
+        'yellow',
+        'lime',
+        'green',
+        'cyan',
+        'ocean',
+        'blue',
+        'purple',
+        'violet',
+        'magenta'
+    ],
+    neutral = ['gray', 'slate']
+
+for (let j = 0; j < colorful.length; j++) {
+    for (let i = 9; i > 0; i--) {
+        document.querySelector('#colorful').innerHTML +=
+            `<div class="color-item bg-${colorful[j]}-${i}"></div>`
+    }
+}
+for (let j = 0; j < neutral.length; j++) {
+    for (let i = 17; i > 0; i--) {
+        document.querySelector('#neutral').innerHTML +=
+            `<div class="color-item-alt bg-${neutral[j]}-${i}"></div>`
+    }
+}
+
+</script>
+</body>
+</html>

@@ -36,8 +36,11 @@
 //Size
 @each $value in $background-sizes {
     .#{$NS}bg-size-#{$value} {
+
+        : ;
         @include background-blend-mode($value, $IMP);
     }
 }
+
 
 

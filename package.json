@@ -6,8 +6,13 @@
     "scripts": {
         "watch-test": "sass --style=expanded --source-map --stop-on-error --watch ./test:./test_dist",
         "sass-test": "sass --style=expanded --source-map --trace --stop-on-error ./src/_inset.scss:./dist/test.css",
+        "a": "sass --style=expanded --source-map --trace --stop-on-error ./scss-src/test_map.scss:./dist/test.css",
         "sass-src": "sass --style=expanded --source-map --trace --stop-on-error ./src:./dist",
-        "p": "postcss ./postcss/css/scroll.css --output ./postcss/css/dist/scroll.css"
+        "p": "postcss ./postcss/css/at.pcss --output ./postcss/css/dist/at.scss",
+        "q": "node-sass --importer=./node_modules/node-sass-js-importer/dist/node-sass-js-importer.js  ./postcss/css/dist/at.scss --output ./postcss/css/dist/",
+        "b": "node-sass --importer=./node_modules/node-sass-js-importer/dist/node-sass-js-importer.js  ./json/test.scss --output ./json/test.css",
+        "c": "sass --style=expanded --source-map --trace --stop-on-error ./json/test.scss:./json/test.css",
+        "build": "node scss-src/kernel.js"
     },
     "keywords": [
         "css",
@@ -17,10 +22,14 @@
     "license": "ISC",
     "devDependencies": {
         "lodash": "^4.17.15",
+        "node-sass": "^4.13.1",
+        "node-sass-js-importer": "^4.0.1",
         "postcss": "^7.0.27",
         "postcss-cli": "^7.1.0",
-        "postcss-selector-parser": "^6.0.2",
-        "sass": "^1.24.4",
-        "stylelint": "^13.0.0"
+        "postcss-scss": "^2.0.0",
+        "postcss-selector-parser": "^6.0.2"
+    },
+    "dependencies": {
+        "color": "^3.1.2"
     }
 }
