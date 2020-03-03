@@ -1,6 +1,6 @@
 const
     _ = require('lodash'),
-    colors = require('./theme/colors')
+    color = require('./theme/color')
 
 module.exports = {
     namespace: "k",
@@ -8,14 +8,41 @@ module.exports = {
     pseudoClassSuffix: ':',
     pseudoElementSuffix: '$',
 
-    responsiveBreakpoints: {
+
+
+    responsiveBreakpoint: {
+        xs: "0",
         sm: "",
         md: "",
         lg: "",
         xl: "",
     },
 
-    colors: colors,
+    layout:{
+        disabled: false,
+        flex:{
+            disabled:false,
+            columnCount: 12,
+        },
+        grid:{
+            disabled:false,
+            maxColumnCount: 12,
+        }
+    },
+
+    container:{
+        disabled:false,
+        width:{
+            xs:"100%",
+            sm:"",
+            md:"",
+            lg:"",
+            xl:""
+        }
+    },
+
+
+    color: color,
 
     letterSpacing: {
         "-n3": '-0.1em',
@@ -48,7 +75,7 @@ module.exports = {
         6: '8px',
         7: '10px',
     },
-    //普通控制文字大小，font-size，间隔为等差数列，为0.125rem的倍数
+    //普通控制文字大小，font-size  = font-size-4，间隔为等差数列，为0.125rem的倍数
     fontSize: {
         1: '0.625rem',      //10px
         2: '0.75rem',       //12px
@@ -95,8 +122,25 @@ module.exports = {
         8: '16rem',         //256px
         9: '18rem',         //288px
         10: '20rem',        //320px
-        11: '22rem'         //352px
+        11: '22rem',         //352px
+        half: '50%',
+        full: '100%',
     },
+
     lineHeight: {},
+
+    shadow: {
+        default: 'sm',
+        none: 'none',
+        tn: '0 0 0 1px rgba(0, 0, 0, 0.05)',
+        xs: '0 1px 2px 0 rgba(0, 0, 0, 0.05)',
+        sm: '0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.05)',
+        md: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.05)',
+        lg: '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
+        xl: '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.05)',
+        hg: '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
+        inner: 'inset 0 2px 4px 0 rgba(0, 0, 0, 0.05)',
+    }
+
 
 }

@@ -1,0 +1,60 @@
+@mixin kernel($mixinName) {
+    @if $mixinName == "sr-only" {
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            border: 0;
+            margin: 0;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+        }
+    }
+
+    @if $mixinName == "not-sr-only" {
+        .not-sr-only {
+            position: static;
+            width: auto;
+            height: auto;
+            overflow: visible;
+            clip: auto;
+            white-space: normal;
+        }
+    }
+}
+
+@mixin build-property($class, $values, $property) {
+    @if type-of($values) == "map" {
+        @each $k, $v in $values {
+            .#{$class}-#{$k} {
+                @if type-of($property) == "list" {
+                    @each $p in $property {
+                        #{$p}: $v;
+                    }
+                }
+                @else {
+                    #{$property}: $v;
+                }
+            }
+        }
+    }
+
+    @if type-of($values) == "list" {
+        @each $v in $values {
+            .#{$class}-#{$v} {
+                @if type-of($property) == "list" {
+                    @each $p in $property {
+                        #{$p}: $v;
+                    }
+                }
+                @else {
+                    #{$property}: $v;
+                }
+            }
+        }
+    }
+}
+
+

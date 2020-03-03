@@ -3,7 +3,7 @@
  * Copyright 2020 FishEleven
  * Licensed under MIT (https://gitee.com/mog1347/kernel-css/LICENSE)
  */
-
+const _ = require('lodash');
 // only some useful pseudo class
 const pseudoClassRestrictions = [
     "link",
@@ -72,13 +72,13 @@ module.exports = function (theme) {
                 }
             },
             appearance: {
-                property: 'appearance',
+                property: "appearance",
                 values: {
-                    none: 'none'
+                    none: "none"
                 }
             },
 
-            //BackGround
+            //background
             backgroundAttachment: {
                 property: "background-attachment",
                 class: "bg-attach",
@@ -109,7 +109,11 @@ module.exports = function (theme) {
                 pseudoElement: ["before", "after"],
                 property: "background-color",
                 class: "bg",
-                values: theme.colors
+                values: _.merge(theme.color.colorful, theme.color.neutral, {
+                    black: "black",
+                    white: "white",
+                    transparent: "transparent"
+                })
             },
             backgroundOrigin: {
                 disabled: true,
@@ -141,48 +145,87 @@ module.exports = function (theme) {
                 class: "bg",
                 values: ["repeat", "no-repeat", "repeat-x", "repeat-y", "round", "space"]
             },
-            backgroundSize:{
+            backgroundSize: {
                 property: "background-size",
                 class: "bg",
                 values: ["auto", "cover", "contain"]
             },
 
-            //Border
-            borderColor:{
+            //border
+            borderCollapse: {
+                property: "border-collapse",
+                class: "b",
+                values: ["collapse", "separate"]
+            },
+            borderColor: {
                 pseudoClass: ["any-link", "hover", "active", "focus", "focus-within"],
                 pseudoElement: ["before", "after"],
                 property: "border-color",
                 class: "b",
-                values: theme.colors
+                values: _.assign(theme.colors, {transparent: "transparent"})
             },
-            borderStyle:{
+            borderStyle: {
                 pseudoClass: ["any-link", "hover", "active", "focus", "focus-within"],
                 pseudoElement: ["before", "after"],
                 property: "border-style",
                 class: "b",
-                values: ['none',]
+                values: ["none", "solid", "dotted", "dashed", "double"]
             },
-
-
-            borderWidth:{
-                property: "background-size",
-            },
-
-            borderCollapse:{
-                property:'border-collapse',
+            borderWidth: {
+                pseudoClass: ["any-link", "hover", "active", "focus", "focus-within"],
+                pseudoElement: ["before", "after"],
+                property: "border-width",
                 class: "b",
-                values: ["collapse", "separate"]
+                values: theme.borderWidth
+            },
+            borderTopWidth: {
+                pseudoClass: ["any-link", "hover", "active", "focus", "focus-within"],
+                pseudoElement: ["before", "after"],
+                property: "border-top-width",
+                class: "bt",
+                values: theme.borderWidth
+            },
+            borderRightWidth: {
+                pseudoClass: ["any-link", "hover", "active", "focus", "focus-within"],
+                pseudoElement: ["before", "after"],
+                property: "border-right-width",
+                class: "br",
+                values: theme.borderWidth
+            },
+            borderBottomWidth: {
+                pseudoClass: ["any-link", "hover", "active", "focus", "focus-within"],
+                pseudoElement: ["before", "after"],
+                property: "border-bottom-width",
+                class: "bb",
+                values: theme.borderWidth
+            },
+            borderLeftWidth: {
+                pseudoClass: ["any-link", "hover", "active", "focus", "focus-within"],
+                pseudoElement: ["before", "after"],
+                property: "border-left-width",
+                class: "bl",
+                values: theme.borderWidth
+            },
+            borderXWidth: {
+                pseudoClass: ["any-link", "hover", "active", "focus", "focus-within"],
+                pseudoElement: ["before", "after"],
+                property: ["border-left-width", "border-right-width"],
+                class: "bx",
+                values: theme.borderWidth
+            },
+            borderYWidth: {
+                pseudoClass: ["any-link", "hover", "active", "focus", "focus-within"],
+                pseudoElement: ["before", "after"],
+                property: ["border-top-width", "border-bottom-width"],
+                class: "by",
+                values: theme.borderWidth
             },
 
-            borderT: {},
-            borderY: {
-                class: "bx",
-                property: ["border-left", "border-right"],
-                values: {}
-            },
+            //box-Shadow
+
 
             screenReader: {
-                mixin: "screen-reader",
+                mixin: ["sr-only","not-sr-only"],
             }
             //
             // fontSize:{

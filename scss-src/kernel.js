@@ -15,6 +15,7 @@ const distPath = path.resolve(__dirname, '../dist/kernel.css'),
 function deleteNodeRequireCache(...filePath) {
     filePath.forEach((f) => delete require.cache[require.resolve(f)])
 }
+
 deleteNodeRequireCache(builtinConfigPath, themeConfigPath);
 
 const kernelFunc = require(builtinConfigPath),
@@ -27,7 +28,8 @@ let configScss = sassJsImporter.transformJSONtoSass(configJson),
 sass.render({
     data: configScss + kernelScss,
     outFile: distPath,
-    outputStyle: 'expanded'
+    includePaths: [path.resolve(__dirname, './scss')],
+    outputStyle: 'compact'
 }, function (err, result) {
     if (!err) {
         // No errors during the compilation, write this result on the disk
