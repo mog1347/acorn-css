@@ -1,0 +1,79 @@
+/*!
+ * Kernel CSS v1.0.0 (https://gitee.com/mog1347/kernel-css)
+ * Copyright 2020 FishEleven
+ * Licensed under MIT (https://gitee.com/mog1347/kernel-css/LICENSE)
+ */
+$suffixes: (
+    responsive: "@"
+);
+$responsive: (
+    disabled: false,
+    type: "up",
+    breakpoints: (
+        xs: null,
+        sm: 640px,
+        md: 768px,
+        lg: 1024px,
+        xl: 1280px
+    )
+);
+$container: (
+    disabled: false,
+    padding: 0,
+    centered: true
+);
+
+
+$breakpoints: map-get($responsive, "breakpoints");
+$responsive-type: map-get($responsive, "type");
+$responsive-suffix: map-get($suffixes, "responsive");
+
+@function breakpoint-width($name, $breakpoints: $breakpoints) {
+    @return map-get($breakpoints, $name);
+}
+@function prev-breakpoint-width($name,$breakpoints: $breakpoints, $breakpoint-names: map-keys($breakpoints)) {
+    $n: index($breakpoint-names, $name);
+    @return map-get($breakpoints, nth($breakpoint-names, $n - 1));
+}
+
+@function responsive-suffix($name, $breakpoints: $breakpoints) {
+    @return if(breakpoint-width($name, $breakpoints) == null, "", "#{$name}\\#{$responsive-suffix}");
+}
+
+
+@mixin media-breakpoint-up($name, $width) {
+    @if $width != null {
+        @media (min-width: $width) {
+            @content;
+        }
+    } @else {
+        @content;
+    }
+}
+
+@mixin media-breakpoint-down($name, $width) {
+    @if $width != null {
+        @media (max-width: $width) {
+            @content;
+        }
+    } @else {
+        @content;
+    }
+}
+
+
+@mixin build-responsive($type: $responsive-type) {
+    @if $type == "up" {
+        @each $name, $width in $breakpoints {
+            @include media-breakpoint-up($name, $width) {
+                @content($name, $width);
+            }
+        }
+    } @else if $type == "down" {
+        @each $name, $width in $breakpoints {
+            @include media-breakpoint-down($name, $width) {
+                @content($name, $width);
+            }
+        }
+    }
+}

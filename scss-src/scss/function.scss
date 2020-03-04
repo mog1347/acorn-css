@@ -1,0 +1,28 @@
+@function str-split($string, $separator) {
+    $split-arr: ();
+    $index: str-index($string, $separator);
+
+    @while $index != null {
+        $item: str-slice($string, 1, $index - 1);
+        $split-arr: append($split-arr, $item);
+        $string: str-slice($string, $index + 1);
+        $index: str-index($string, $separator);
+    }
+
+    $split-arr: append($split-arr, $string);
+
+    @return $split-arr;
+}
+
+
+@function map-get-path($map, $path) {
+    $keys: str-split($path, ".");
+    $index: 0;
+    $map-loop: $map;
+
+    @while nth($keys,$index) !=null {
+        $map-loop: map-get($map-loop, nth($keys, $index));
+        $index: $index+1;
+    }
+    @return $map-loop;
+}

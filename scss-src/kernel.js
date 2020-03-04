@@ -1,5 +1,5 @@
 const
-    sass = require('node-sass'),
+    sass = require('sass'),
     path = require('path'),
     fs = require('fs'),
     sassJsImporter = require('node-sass-js-importer')
@@ -26,10 +26,11 @@ let configScss = sassJsImporter.transformJSONtoSass(configJson),
     kernelScss = fs.readFileSync(kernelScssPath, 'utf-8')
 
 sass.render({
-    data: configScss + kernelScss,
+    // data: configScss + kernelScss,
+    data: kernelScss,
     outFile: distPath,
     includePaths: [path.resolve(__dirname, './scss')],
-    outputStyle: 'compact'
+    outputStyle: 'expanded'
 }, function (err, result) {
     if (!err) {
         // No errors during the compilation, write this result on the disk

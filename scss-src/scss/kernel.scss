@@ -1,33 +1,57 @@
 @import "mixin.scss";
+@import "responsive";
+@import "container";
 
-@each $key, $val in $builtin {
-    @if map-get($val,"disabled") != true {
-        //@if map-get($val,"pseudoClass") != null {
-        //
-        //}
-        //
-        //@if map-get($val,"pseudoElement") != null {
-        //
-        //}
-        $values: map-get($val, "values");
-        $property: map-get($val, "property");
-        $class: map-get($val, "class");
-        $mixin: map-get($val, "mixin");
 
-        @if $mixin == null {
-            @if $class == null {
-                $class: $property;
-            }
-
-            @if type-of($values) != "map" and type-of($values) != "list" {
-                @error "Values must be a map or list in : #{$key}";
-            }
-
-            @include build-property($class, $values, $property);
-        } @else {
-            @each $m in $mixin{
-                @include kernel($m);
-            }
+$alignSelf: (
+    property: "align-self",
+    values: (
+        auto: auto,
+        start: flex-start,
+        end: flex-end,
+        center: center,
+        baseline: baseline,
+        stretch: stretch
+    )
+);
+$p: map-get($alignSelf, "property");
+@each $k, $v in map-get($alignSelf, "values") {
+    @include build-responsive() using ($name, $width) {
+        .#{responsive-suffix($name)}#{$p}-#{$k} {
+            #{$p}: $v;
         }
     }
 }
+
+
+//@each $key, $val in $builtin {
+//    @if map-get($val,"disabled") != true {
+//        //@if map-get($val,"pseudoClass") != null {
+//        //
+//        //}
+//        //
+//        //@if map-get($val,"pseudoElement") != null {
+//        //
+//        //}
+//        $values: map-get($val, "values");
+//        $property: map-get($val, "property");
+//        $class: map-get($val, "class");
+//        $mixin: map-get($val, "mixin");
+//
+//        @if $mixin == null {
+//            @if $class == null {
+//                $class: $property;
+//            }
+//
+//            @if type-of($values) != "map" and type-of($values) != "list" {
+//                @error "Values must be a map or list in : #{$key}";
+//            }
+//
+//            @include build-property($class, $values, $property);
+//        } @else {
+//            @each $m in $mixin{
+//                @include kernel($m);
+//            }
+//        }
+//    }
+//}

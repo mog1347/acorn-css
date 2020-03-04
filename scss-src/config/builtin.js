@@ -43,6 +43,17 @@ const assignWithNative = function (obj) {
 
 module.exports = function (theme) {
     return {
+        namespace: theme.namespace,
+
+        suffixes: theme.suffixes,
+
+        responsive: theme.responsive,
+
+        container: theme.container,
+
+        layout: theme.layout,
+
+
         //follow alphabet
         builtin: {
             alignContent: {
@@ -117,11 +128,14 @@ module.exports = function (theme) {
                 pseudoElement: ["before", "after"],
                 property: "background-color",
                 class: "bg",
-                values: _.merge(theme.color.colorful, theme.color.neutral, {
-                    black: "black",
-                    white: "white",
-                    transparent: "transparent"
-                })
+                values: _.assign({},
+                    theme.variables.colors.colorful,
+                    theme.variables.colors.neutral,
+                    theme.variables.colors.lightDark, {
+                        black: "black",
+                        white: "white",
+                        transparent: "transparent"
+                    })
             },
             backgroundOrigin: {
                 disabled: true,
@@ -169,7 +183,12 @@ module.exports = function (theme) {
                 pseudoElement: ["before", "after"],
                 property: "border-color",
                 class: "b",
-                values: _.assign(theme.colors, {transparent: "transparent"})
+                values: _.assign({},
+                    theme.variables.colors.colorful,
+                    theme.variables.colors.neutral, {
+                        black: "black",
+                        white: "white"
+                    })
             },
             borderStyle: {
                 pseudoClass: ["any-link", "hover", "active", "focus", "focus-within"],
@@ -183,54 +202,54 @@ module.exports = function (theme) {
                 pseudoElement: ["before", "after"],
                 property: "border-width",
                 class: "b",
-                values: theme.borderWidth
+                values: theme.variables.borderWidths
             },
             borderTopWidth: {
                 pseudoClass: ["any-link", "hover", "active", "focus", "focus-within"],
                 pseudoElement: ["before", "after"],
                 property: "border-top-width",
                 class: "bt",
-                values: theme.borderWidth
+                values: theme.variables.borderWidths
             },
             borderRightWidth: {
                 pseudoClass: ["any-link", "hover", "active", "focus", "focus-within"],
                 pseudoElement: ["before", "after"],
                 property: "border-right-width",
                 class: "br",
-                values: theme.borderWidth
+                values: theme.variables.borderWidths
             },
             borderBottomWidth: {
                 pseudoClass: ["any-link", "hover", "active", "focus", "focus-within"],
                 pseudoElement: ["before", "after"],
                 property: "border-bottom-width",
                 class: "bb",
-                values: theme.borderWidth
+                values: theme.variables.borderWidths
             },
             borderLeftWidth: {
                 pseudoClass: ["any-link", "hover", "active", "focus", "focus-within"],
                 pseudoElement: ["before", "after"],
                 property: "border-left-width",
                 class: "bl",
-                values: theme.borderWidth
+                values: theme.variables.borderWidths
             },
             borderXWidth: {
                 pseudoClass: ["any-link", "hover", "active", "focus", "focus-within"],
                 pseudoElement: ["before", "after"],
                 property: ["border-left-width", "border-right-width"],
                 class: "bx",
-                values: theme.borderWidth
+                values: theme.variables.borderWidths
             },
             borderYWidth: {
                 pseudoClass: ["any-link", "hover", "active", "focus", "focus-within"],
                 pseudoElement: ["before", "after"],
                 property: ["border-top-width", "border-bottom-width"],
                 class: "by",
-                values: theme.borderWidth
+                values: theme.variables.borderWidths
             },
 
             //box-Shadow
             screenReader: {
-                mixin: ["sr-only","not-sr-only"],
+                mixin: ["sr-only", "not-sr-only"],
             },
 
 
@@ -239,43 +258,43 @@ module.exports = function (theme) {
                 responsive: true,
                 property: "margin",
                 class: "m",
-                value: _.assign(assignWithNative(theme.gap), {auto: 'auto'})
+                value: _.assign({}, assignWithNative(theme.variables.gaps), {auto: 'auto'})
             },
             marginBottom: {
                 responsive: true,
                 property: "margin-bottom",
                 class: "mb",
-                value: _.assign(assignWithNative(theme.gap), {auto: 'auto'})
+                value: _.assign({}, assignWithNative(theme.variables.gaps), {auto: 'auto'})
             },
             marginLeft: {
                 responsive: true,
                 property: "margin-left",
                 class: "ml",
-                value: _.assign(assignWithNative(theme.gap), {auto: 'auto'})
+                value: _.assign({}, assignWithNative(theme.variables.gaps), {auto: 'auto'})
             },
             marginRight: {
                 responsive: true,
                 property: "margin-right",
                 class: "mr",
-                value: _.assign(assignWithNative(theme.gap), {auto: 'auto'})
+                value: _.assign({}, assignWithNative(theme.variables.gaps), {auto: 'auto'})
             },
             marginTop: {
                 responsive: true,
                 property: "margin-top",
                 class: "mt",
-                value: _.assign(assignWithNative(theme.gap), {auto: 'auto'})
+                value: _.assign({}, assignWithNative(theme.variables.gaps), {auto: 'auto'})
             },
             marginY: {
                 responsive: true,
                 property: ["margin-top", "margin-bottom"],
                 class: "my",
-                value: _.assign(assignWithNative(theme.gap), {auto: 'auto'})
+                value: _.assign({}, assignWithNative(theme.variables.gaps), {auto: 'auto'})
             },
             marginX: {
                 responsive: true,
                 property: ["margin-left", "margin-right"],
                 class: "mx",
-                value: _.assign(assignWithNative(theme.gap), {auto: 'auto'})
+                value: _.assign({}, assignWithNative(theme.variables.gaps), {auto: 'auto'})
             },
 
             opacity: {
@@ -339,43 +358,43 @@ module.exports = function (theme) {
                 responsive: true,
                 property: "padding",
                 class: "p",
-                value: assignWithNative(theme.gap)
+                value: _.assign({}, assignWithNative(theme.variables.gaps))
             },
             paddingBottom: {
                 responsive: true,
                 property: "padding-bottom",
                 class: "pb",
-                value: assignWithNative(theme.gap)
+                value: _.assign({}, assignWithNative(theme.variables.gaps))
             },
             paddingLeft: {
                 responsive: true,
                 property: "padding-left",
                 class: "pl",
-                value: assignWithNative(theme.gap)
+                value: _.assign({}, assignWithNative(theme.variables.gaps))
             },
             paddingRight: {
                 responsive: true,
                 property: "padding-right",
                 class: "pr",
-                value: assignWithNative(theme.gap)
+                value: _.assign({}, assignWithNative(theme.variables.gaps))
             },
             paddingTop: {
                 responsive: true,
                 property: "padding-top",
                 class: "pt",
-                value: assignWithNative(theme.gap)
+                value: _.assign({}, assignWithNative(theme.variables.gaps))
             },
             paddingY: {
                 responsive: true,
                 property: ["padding-top", "padding-bottom"],
                 class: "py",
-                value: assignWithNative(theme.gap)
+                value: _.assign({}, assignWithNative(theme.variables.gaps))
             },
             paddingX: {
                 responsive: true,
                 property: ["padding-left", "padding-right"],
                 class: "px",
-                value: assignWithNative(theme.gap)
+                value: _.assign({}, assignWithNative(theme.variables.gaps))
             },
 
             pointerEvents: {
