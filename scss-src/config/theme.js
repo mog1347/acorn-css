@@ -9,7 +9,6 @@ module.exports = {
     pseudoElementSuffix: '$',
 
 
-
     responsiveBreakpoint: {
         xs: "0",
         sm: "",
@@ -18,26 +17,26 @@ module.exports = {
         xl: "",
     },
 
-    layout:{
+    layout: {
         disabled: false,
-        flex:{
-            disabled:false,
+        flex: {
+            disabled: false,
             columnCount: 12,
         },
-        grid:{
-            disabled:false,
+        grid: {
+            disabled: false,
             maxColumnCount: 12,
         }
     },
 
-    container:{
-        disabled:false,
-        width:{
-            xs:"100%",
-            sm:"",
-            md:"",
-            lg:"",
-            xl:""
+    container: {
+        disabled: false,
+        width: {
+            xs: "100%",
+            sm: "",
+            md: "",
+            lg: "",
+            xl: ""
         }
     },
 
@@ -140,6 +139,47 @@ module.exports = {
         xl: '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.05)',
         hg: '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
         inner: 'inset 0 2px 4px 0 rgba(0, 0, 0, 0.05)',
+    },
+    order: {
+        none: 0,
+        1: 1,
+        2: 2,
+        3: 3,
+        4: 4,
+        5: 5,
+        6: 6,
+        7: 7,
+        8: 8,
+        9: 9,
+        10: 10,
+        11: 11,
+        12: 12,
+        first: -9999,
+        last: 9999
+    },
+    opacity: {
+        100: 1,
+        90: 0.9,
+        80: 0.8,
+        70: 0.7,
+        60: 0.6,
+        50: 0.5,
+        40: 0.4,
+        30: 0.3,
+        20: 0.2,
+        10: 0.1,
+        0: 0
+    },
+    scale: {
+        0: 0,
+        50: 0.5,
+        75: 0.75,
+        90: 0.9,
+        95: 0.95,
+        100: 1,
+        105: 1.05,
+        125: 1.25,
+        150: 1.5
     }
 
 

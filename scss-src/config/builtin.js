@@ -34,11 +34,11 @@ const pseudoElementRestrictions = [
 ]
 
 const assignWithNative = function (obj) {
-    return _.assign(obj, _.transform(obj, function (result, value, key) {
+    return _.assign({}, obj, _.transform(obj, function (result, value, key) {
         if (key != 0) {
             result['n' + key] = '-' + value;
         }
-    }));
+    }, {}));
 };
 
 module.exports = function (theme) {
@@ -229,10 +229,10 @@ module.exports = function (theme) {
             },
 
             //box-Shadow
-            screenReader: {
-                mixin: ["sr-only","not-sr-only"],
-            },
 
+            screenReader: {
+                mixin: ["sr-only", "not-sr-only"],
+            },
 
             // Margin
             margin: {
@@ -280,46 +280,17 @@ module.exports = function (theme) {
 
             opacity: {
                 property: "opacity",
-                value: {
-                    100: 1,
-                    90: 0.9,
-                    80: 0.8,
-                    70: 0.7,
-                    60: 0.6,
-                    50: 0.5,
-                    40: 0.4,
-                    30: 0.3,
-                    20: 0.2,
-                    10: 0.1,
-                    0: 0
-                }
+                value: theme.opacity
             },
             order: {
                 responsive: true,
                 property: "order",
-                value: {
-                    none: 0,
-                    1: 1,
-                    2: 2,
-                    3: 3,
-                    4: 4,
-                    5: 5,
-                    6: 6,
-                    7: 7,
-                    8: 8,
-                    9: 9,
-                    10: 10,
-                    11: 11,
-                    12: 12,
-                    first: -9999,
-                    last: 9999
-                }
+                value: theme.order
             },
-            outlineNone: {
+            outline: {
                 property: "outline",
                 value: {none: 0}
             },
-
             // overflow
             overflow: {
                 property: "overflow",
@@ -391,6 +362,7 @@ module.exports = function (theme) {
                 class: "ps",
                 value: ['static', 'relative', 'absolute', 'fixed', 'sticky']
             },
+
             resize: {
                 property: "resize",
                 value: {
@@ -400,6 +372,56 @@ module.exports = function (theme) {
                     y: "vertical"
                 }
             },
+            rowGap: {
+                responsive: true,
+                property: "row-gap",
+                value: theme.gap
+            },
+
+            // transform
+            transform: {
+                mixin: ["transform"]
+            },
+            transformRotate: {
+                property: "--transform-rotate",
+                value: assignWithNative({
+                    0: '0',
+                    45: '45deg',
+                    90: "90deg",
+                    180: "180deg",
+                })
+            },
+            transformScale: {
+                responsive: true,
+                pseudoClass: ["hover", "focus"],
+                property: ["--transform-scale-x", "--transform-scale-y"],
+                value: theme.scale
+            },
+
+            tableLayout: {
+                property: "table-layout",
+                value: ['auto', "fixed"]
+            },
+            textAlign: {
+                responsive: true,
+                property: "text-align",
+                value: ["left", "right", "center", "justify"]
+            },
+            textDecoration: {
+                responsive: true,
+                pseudoClass: ["hover", "focus"],
+                property: "text-decoration",
+                value: _.assign({
+                    none: "none",
+                    underline: "underline",
+                    overline: "overline",
+                    through: "through",
+                    solid: "solid",
+                    dashed: "dashed",
+                    wavy: "wavy",
+                }, theme.colors)
+            },
+
             //
             // fontSize:{
             //
