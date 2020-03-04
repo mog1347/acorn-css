@@ -15,11 +15,15 @@ $responsive: (
         md: 768px,
         lg: 1024px,
         xl: 1280px
+        //xs: 639px,
+        //sm: 767px,
+        //md: 1023px,
+        //lg: 1279px,
+        //xl: null
     )
 );
 $container: (
     disabled: false,
-    padding: 0,
     centered: true
 );
 
@@ -33,7 +37,7 @@ $responsive-suffix: map-get($suffixes, "responsive");
 }
 @function prev-breakpoint-width($name,$breakpoints: $breakpoints, $breakpoint-names: map-keys($breakpoints)) {
     $n: index($breakpoint-names, $name);
-    @return map-get($breakpoints, nth($breakpoint-names, $n - 1));
+    @return if($n - 1 !=0, map-get($breakpoints, nth($breakpoint-names, $n - 1)), null);
 }
 
 @function responsive-suffix($name, $breakpoints: $breakpoints) {

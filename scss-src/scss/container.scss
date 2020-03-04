@@ -1,5 +1,9 @@
-@if map-get($container,"disabled") == false {
+@if not map-get($container,"disabled") {
     .container, .container-fluid {
+        @if map-get($container, "centered"){
+            margin-right: auto;
+            margin-left: auto;
+        }
         width: 100%;
     }
 
@@ -13,12 +17,12 @@
                 }
             }
         }
-    } @else if $type == "down" {
+    } @else if $responsive-type == "down" {
         @each $name, $width in $breakpoints {
             $prev-width: prev-breakpoint-width($name);
             @if $prev-width != null {
-                @include media-breakpoint-up($name, $width) {
-                    . container {
+                @include media-breakpoint-up($name, $prev-width + 1) {
+                    .container {
                         max-width: $prev-width + 1;
                     }
                 }

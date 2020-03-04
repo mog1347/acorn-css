@@ -15,8 +15,8 @@ $alignSelf: (
     )
 );
 $p: map-get($alignSelf, "property");
-@each $k, $v in map-get($alignSelf, "values") {
-    @include build-responsive() using ($name, $width) {
+@include build-responsive() using ($name, $width) {
+    @each $k, $v in map-get($alignSelf, "values") {
         .#{responsive-suffix($name)}#{$p}-#{$k} {
             #{$p}: $v;
         }
