@@ -26,9 +26,8 @@ module.exports = function (theme) {
 
         layout: theme.layout,
 
-
         //follow alphabet
-        atom: {
+        builtin: {
             alignContent: {
                 property: "align-content",
                 values: {
@@ -221,10 +220,11 @@ module.exports = function (theme) {
             },
 
             //box-Shadow
+            boxShadow:{},
 
-            screenReader: {
-                mixin: ["sr-only", "not-sr-only"],
-            },
+
+            fontSize:{},
+
 
             // Margin
             margin: {
@@ -268,6 +268,9 @@ module.exports = function (theme) {
                 property: ["margin-left", "margin-right"],
                 class: "mx",
                 value: _.assign({}, assignWithNative(theme.variables.gaps), {auto: 'auto'})
+            },
+            maxWidth: {
+
             },
 
             opacity: {
@@ -364,10 +367,14 @@ module.exports = function (theme) {
                     y: "vertical"
                 }
             },
+
             rowGap: {
                 responsive: true,
                 property: "row-gap",
                 value: theme.gap
+            },
+            screenReader: {
+                mixin: ["sr-only", "not-sr-only"],
             },
 
             // transform
@@ -414,26 +421,20 @@ module.exports = function (theme) {
                 }, theme.colors)
             },
 
-            //
-            // fontSize:{
-            //
-            // },
-            //
-            // width: {
-            //     class: "w-",
-            //     rp: true, pc: ["hover", ""], pe: [""],
-            //     map: {
-            //         0: "0",
-            //         1: "1px",
-            //         100: "100%",
-            //         "100-vw": "100vw",
-            //         auto: "auto"
-            //     }
-            // },
-            //
-            //
-            // //mw-
-            // maxWidth: {}
+            width: {
+                responsive: true,
+                pseudoClass: ["hover", "focus"],
+                pseudoElement: ["before", "after"],
+                property: "width",
+                class: "w",
+                values: {
+                    0: "0",
+                    1: "1px",
+                    100: "100%",
+                    "100-vw": "100vw",
+                    auto: "auto"
+                }
+            }
         }
     }
 }

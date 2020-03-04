@@ -1,6 +1,4 @@
-const
-    _ = require("lodash"),
-    colors = require("./theme/colors")
+const colors = require("./theme/colors")
 
 module.exports = {
     suffixes: {
@@ -11,6 +9,7 @@ module.exports = {
         pseudoElement: JSON.stringify("$")
     },
 
+    important: false,
     namespace: JSON.stringify(""),
     pseudoClass: {
         disabled: false
@@ -18,6 +17,9 @@ module.exports = {
     pseudoElement: {
         disabled: false
     },
+
+    // basicStyle: JSON.stringify(""),
+
     responsive: {
         disabled: false,
         type: JSON.stringify("up"),//"down"
@@ -36,26 +38,28 @@ module.exports = {
             // xl: null
         }
     },
-
     container: {
         disabled: false,
         padding: 0,
         centered: true
     },
-
-    flexLayout: {
-        disabled: false,
-        columnCount: 12,
-        gap: "1rem"
-    },
-    gridLayout: {
-        disabled: false,
-        columnCount: 12
+    layout: {
+        columns: 12,
+        flex: {disabled: false, gap: "1rem"},
+        grid: {disabled: false}
     },
 
+    useCssCustomProperties: true,
     variables: {
-        useCssCustomProperties: true,
         colors: colors,
+
+        //.letter-spacing-n3:{
+        //      letter-spacing:var(--letter-spacing-n3)
+        // }
+        //
+        //:root{
+        //      --letter-spacing-n3:"-0.1em"
+        // }
         letterSpacings: {
             "n3": "-0.1em",
             "n2": "-0.05em",
@@ -194,5 +198,7 @@ module.exports = {
             hg: "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
             inner: "inset 0 2px 4px 0 rgba(0, 0, 0, 0.05)"
         }
-    }
+    },
+
+    custom: {}
 }
