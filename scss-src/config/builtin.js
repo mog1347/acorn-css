@@ -220,10 +220,10 @@ module.exports = function (theme) {
             },
 
             //box-Shadow
-            boxShadow:{},
+            boxShadow: {},
 
 
-            fontSize:{},
+            fontSize: {},
 
 
             // Margin
@@ -269,18 +269,16 @@ module.exports = function (theme) {
                 class: "mx",
                 value: _.assign({}, assignWithNative(theme.variables.gaps), {auto: 'auto'})
             },
-            maxWidth: {
-
-            },
+            maxWidth: {},
 
             opacity: {
                 property: "opacity",
-                value: theme.opacity
+                value: theme.variables.opacity
             },
             order: {
                 responsive: true,
                 property: "order",
-                value: theme.order
+                value: theme.variables.order
             },
             outline: {
                 property: "outline",
@@ -367,12 +365,12 @@ module.exports = function (theme) {
                     y: "vertical"
                 }
             },
-
             rowGap: {
                 responsive: true,
                 property: "row-gap",
-                value: theme.gap
+                value: theme.variables.gap
             },
+
             screenReader: {
                 mixin: ["sr-only", "not-sr-only"],
             },
@@ -390,11 +388,41 @@ module.exports = function (theme) {
                     180: "180deg",
                 })
             },
-            transformScale: {
+            transformScaleX: {
                 responsive: true,
                 pseudoClass: ["hover", "focus"],
-                property: ["--transform-scale-x", "--transform-scale-y"],
-                value: theme.scale
+                property: "--transform-scale-x",
+                class: "scale-x",
+                value: theme.variables.scale
+            },
+            transformScaleY: {
+                responsive: true,
+                pseudoClass: ["hover", "focus"],
+                property: "--transform-scale-y",
+                class: "scale-y",
+                value: theme.variables.scale
+            },
+            transformTranslateX: {
+                responsive: true,
+                pseudoClass: ["hover", "focus"],
+                property: "--transform-translate-x",
+                class: "translate-x",
+                value: assignWithNative(_.assign({
+                    0: 0,
+                    50: 0.5,
+                    100: 1
+                }, theme.variables.gaps))
+            },
+            transformTranslateY: {
+                responsive: true,
+                pseudoClass: ["hover", "focus"],
+                property: "--transform-translate-y",
+                class: "translate-y",
+                value: assignWithNative(_.assign({
+                    0: 0,
+                    50: 0.5,
+                    100: 1
+                }, theme.variables.gaps))
             },
 
             tableLayout: {
@@ -420,7 +448,43 @@ module.exports = function (theme) {
                     wavy: "wavy",
                 }, theme.colors)
             },
+            textOverflow: {
+                mixin: ["text-clip", "text-ellipsis"]
+            },
 
+            userSelect: {
+                property: "user-select",
+                value: ["auto", "none", "text", "all", "contain"]
+            },
+            verticalAlign: {
+                property: "vertical-align",
+                value: ["baseline", "sub", "sup", "text-top", "text-bottom", "middle", "top", "bottom"]
+            },
+
+            // word-break： 默认normal 可选break-all keep-all break-word
+            // overflow-wrap(原名word-wrap)： 默认normal值，可选break-word
+            // word-break的break-word未列入标准，一般使用overflow-wrap的break-word值 两者效果一样
+            overflowWrap: {
+                property: ["overflow-wrap", "word-break"],
+                class: "text-break",
+                value: {
+                    normal: "normal",
+                    word: "break-word"
+                }
+            },
+            wordBreak: {
+                property: "word-break",
+                class: "text",
+                value: ["break-all", "keep-all"]
+            },
+            whiteSpace: {
+                property: "white-space",
+                class: "text",
+                value: {
+                    wrap: "normal",
+                    nowrap: "nowrap"
+                }
+            },
             width: {
                 responsive: true,
                 pseudoClass: ["hover", "focus"],
@@ -434,6 +498,12 @@ module.exports = function (theme) {
                     "100-vw": "100vw",
                     auto: "auto"
                 }
+            },
+
+            zIndex: {
+                property: "z-index",
+                class: "z",
+                values: theme.variables.zIndex
             }
         }
     }

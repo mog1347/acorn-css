@@ -36,6 +36,22 @@
             transform: translateX(var(--transform-translate-x)) translateY(var(--transform-translate-y)) rotate(var(--transform-rotate)) skewX(var(--transform-skew-x)) skewY(var(--transform-skew-y)) scaleX(var(--transform-scale-x)) scaleY(var(--transform-scale-y)) !important;
         }
     }
+
+    @if $mixinName == "text-clip" {
+        .text-clip {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: clip;
+        }
+    }
+
+    @if $mixinName == "text-ellipsis" {
+        .text-ellipsis {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    }
 }
 
 @mixin build-property($class, $values, $property) {
