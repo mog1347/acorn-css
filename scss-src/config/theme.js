@@ -183,6 +183,12 @@ module.exports = {
             125: 1.25,
             150: 1.5
         },
+        skew: {
+            0: 0,
+            3: 3,
+            6: 6,
+            12: 12,
+        },
         shadows: {
             default: "sm",
             none: "none",

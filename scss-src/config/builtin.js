@@ -222,6 +222,11 @@ module.exports = function (theme) {
             //box-Shadow
             boxShadow: {},
 
+            cursor: {
+                property: "cursor",
+                value: ["auto", "default", "none", "pointer", "wait", "text", "move", "not-allowed"]
+            },
+
 
             fontSize: {},
 
@@ -375,56 +380,6 @@ module.exports = function (theme) {
                 mixin: ["sr-only", "not-sr-only"],
             },
 
-            // transform
-            transform: {
-                mixin: ["transform"]
-            },
-            transformRotate: {
-                property: "--transform-rotate",
-                value: assignWithNative({
-                    0: '0',
-                    45: '45deg',
-                    90: "90deg",
-                    180: "180deg",
-                })
-            },
-            transformScaleX: {
-                responsive: true,
-                pseudoClass: ["hover", "focus"],
-                property: "--transform-scale-x",
-                class: "scale-x",
-                value: theme.variables.scale
-            },
-            transformScaleY: {
-                responsive: true,
-                pseudoClass: ["hover", "focus"],
-                property: "--transform-scale-y",
-                class: "scale-y",
-                value: theme.variables.scale
-            },
-            transformTranslateX: {
-                responsive: true,
-                pseudoClass: ["hover", "focus"],
-                property: "--transform-translate-x",
-                class: "translate-x",
-                value: assignWithNative(_.assign({
-                    0: 0,
-                    50: 0.5,
-                    100: 1
-                }, theme.variables.gaps))
-            },
-            transformTranslateY: {
-                responsive: true,
-                pseudoClass: ["hover", "focus"],
-                property: "--transform-translate-y",
-                class: "translate-y",
-                value: assignWithNative(_.assign({
-                    0: 0,
-                    50: 0.5,
-                    100: 1
-                }, theme.variables.gaps))
-            },
-
             tableLayout: {
                 property: "table-layout",
                 value: ['auto', "fixed"]
@@ -450,6 +405,102 @@ module.exports = function (theme) {
             },
             textOverflow: {
                 mixin: ["text-clip", "text-ellipsis"]
+            },
+            textTransform: {
+                property: "text-transform",
+                value: {
+                    none: "none",
+                    capitalize: "capitalize",
+                    uppercase: "uppercase",
+                    lowercase: "lowercase",
+                }
+            },
+
+            // transition
+            transition: {
+                mixin: ["transition"]
+            },
+            transitionProperty: {},
+            transitionDuration: {},
+            transitionTimingFunction: {},
+            transitionDelay: {},
+
+            // transform
+            transform: {
+                mixin: ["transform"]
+            },
+            transformOrigin: {
+                property: "transform-origin",
+                values: {
+                    "c": "center",
+                    "t": "top",
+                    "r": "right",
+                    "b": "bottom",
+                    "l": "left",
+                    "lb": "left bottom",
+                    "lt": "left top",
+                    "rb": "right bottom",
+                    "rt": "right top"
+                }
+            },
+            translateX: {
+                responsive: true,
+                pseudoClass: ["hover", "focus"],
+                property: "--transform-translate-x",
+                class: "translate-x",
+                value: assignWithNative(_.assign({
+                    0: 0,
+                    50: 0.5,
+                    100: 1
+                }, theme.variables.gaps))
+            },
+            translateY: {
+                responsive: true,
+                pseudoClass: ["hover", "focus"],
+                property: "--transform-translate-y",
+                class: "translate-y",
+                value: assignWithNative(_.assign({
+                    0: 0,
+                    50: 0.5,
+                    100: 1
+                }, theme.variables.gaps))
+            },
+            rotate: {
+                property: "--transform-rotate",
+                value: assignWithNative({
+                    0: '0',
+                    45: '45deg',
+                    90: "90deg",
+                    180: "180deg",
+                })
+            },
+            skewX: {
+                responsive: true,
+                pseudoClass: ["hover", "focus"],
+                property: "--transform-skew-x",
+                class: "skew-x",
+                value: assignWithNative(theme.variables.skew)
+            },
+            skewY: {
+                responsive: true,
+                pseudoClass: ["hover", "focus"],
+                property: "--transform-skew-y",
+                class: "skew-y",
+                value: assignWithNative(theme.variables.skew)
+            },
+            scaleX: {
+                responsive: true,
+                pseudoClass: ["hover", "focus"],
+                property: "--transform-scale-x",
+                class: "scale-x",
+                value: theme.variables.scale
+            },
+            scaleY: {
+                responsive: true,
+                pseudoClass: ["hover", "focus"],
+                property: "--transform-scale-y",
+                class: "scale-y",
+                value: theme.variables.scale
             },
 
             userSelect: {
