@@ -224,7 +224,7 @@ module.exports = function (theme) {
 
             cursor: {
                 property: "cursor",
-                value: ["auto", "default", "none", "pointer", "wait", "text", "move", "not-allowed"]
+                values: ["auto", "default", "none", "pointer", "wait", "text", "move", "not-allowed"]
             },
 
 
@@ -236,71 +236,71 @@ module.exports = function (theme) {
                 responsive: true,
                 property: "margin",
                 class: "m",
-                value: _.assign({}, assignWithNative(theme.variables.gaps), {auto: 'auto'})
+                values: _.assign({}, assignWithNative(theme.variables.gaps), {auto: 'auto'})
             },
             marginBottom: {
                 responsive: true,
                 property: "margin-bottom",
                 class: "mb",
-                value: _.assign({}, assignWithNative(theme.variables.gaps), {auto: 'auto'})
+                values: _.assign({}, assignWithNative(theme.variables.gaps), {auto: 'auto'})
             },
             marginLeft: {
                 responsive: true,
                 property: "margin-left",
                 class: "ml",
-                value: _.assign({}, assignWithNative(theme.variables.gaps), {auto: 'auto'})
+                values: _.assign({}, assignWithNative(theme.variables.gaps), {auto: 'auto'})
             },
             marginRight: {
                 responsive: true,
                 property: "margin-right",
                 class: "mr",
-                value: _.assign({}, assignWithNative(theme.variables.gaps), {auto: 'auto'})
+                values: _.assign({}, assignWithNative(theme.variables.gaps), {auto: 'auto'})
             },
             marginTop: {
                 responsive: true,
                 property: "margin-top",
                 class: "mt",
-                value: _.assign({}, assignWithNative(theme.variables.gaps), {auto: 'auto'})
+                values: _.assign({}, assignWithNative(theme.variables.gaps), {auto: 'auto'})
             },
             marginY: {
                 responsive: true,
                 property: ["margin-top", "margin-bottom"],
                 class: "my",
-                value: _.assign({}, assignWithNative(theme.variables.gaps), {auto: 'auto'})
+                values: _.assign({}, assignWithNative(theme.variables.gaps), {auto: 'auto'})
             },
             marginX: {
                 responsive: true,
                 property: ["margin-left", "margin-right"],
                 class: "mx",
-                value: _.assign({}, assignWithNative(theme.variables.gaps), {auto: 'auto'})
+                values: _.assign({}, assignWithNative(theme.variables.gaps), {auto: 'auto'})
             },
             maxWidth: {},
 
             opacity: {
                 property: "opacity",
-                value: theme.variables.opacity
+                values: theme.variables.opacity
             },
             order: {
                 responsive: true,
                 property: "order",
-                value: theme.variables.order
+                values: theme.variables.order
             },
             outline: {
                 property: "outline",
-                value: {none: 0}
+                values: {none: 0}
             },
             // overflow
             overflow: {
                 property: "overflow",
-                value: ["visible", "hidden", "scroll", "auto"]
+                values: ["visible", "hidden", "scroll", "auto"]
             },
             overflowX: {
                 property: "overflow-x",
-                value: ["visible", "hidden", "scroll", "auto"]
+                values: ["visible", "hidden", "scroll", "auto"]
             },
             overflowY: {
                 property: "overflow-y",
-                value: ["visible", "hidden", "scroll", "auto"]
+                values: ["visible", "hidden", "scroll", "auto"]
             },
 
             // padding
@@ -308,43 +308,43 @@ module.exports = function (theme) {
                 responsive: true,
                 property: "padding",
                 class: "p",
-                value: _.assign({}, assignWithNative(theme.variables.gaps))
+                values: _.assign({}, assignWithNative(theme.variables.gaps))
             },
             paddingBottom: {
                 responsive: true,
                 property: "padding-bottom",
                 class: "pb",
-                value: _.assign({}, assignWithNative(theme.variables.gaps))
+                values: _.assign({}, assignWithNative(theme.variables.gaps))
             },
             paddingLeft: {
                 responsive: true,
                 property: "padding-left",
                 class: "pl",
-                value: _.assign({}, assignWithNative(theme.variables.gaps))
+                values: _.assign({}, assignWithNative(theme.variables.gaps))
             },
             paddingRight: {
                 responsive: true,
                 property: "padding-right",
                 class: "pr",
-                value: _.assign({}, assignWithNative(theme.variables.gaps))
+                values: _.assign({}, assignWithNative(theme.variables.gaps))
             },
             paddingTop: {
                 responsive: true,
                 property: "padding-top",
                 class: "pt",
-                value: _.assign({}, assignWithNative(theme.variables.gaps))
+                values: _.assign({}, assignWithNative(theme.variables.gaps))
             },
             paddingY: {
                 responsive: true,
                 property: ["padding-top", "padding-bottom"],
                 class: "py",
-                value: _.assign({}, assignWithNative(theme.variables.gaps))
+                values: _.assign({}, assignWithNative(theme.variables.gaps))
             },
             paddingX: {
                 responsive: true,
                 property: ["padding-left", "padding-right"],
                 class: "px",
-                value: _.assign({}, assignWithNative(theme.variables.gaps))
+                values: _.assign({}, assignWithNative(theme.variables.gaps))
             },
 
             pointerEvents: {
@@ -352,18 +352,18 @@ module.exports = function (theme) {
                 pseudoClass: ["hover", "focus"],
                 property: "pointer-events",
                 class: "pe",
-                value: ['auto', 'none']
+                values: ['auto', 'none']
             },
             position: {
                 responsive: true,
                 property: "position",
                 class: "ps",
-                value: ['static', 'relative', 'absolute', 'fixed', 'sticky']
+                values: ['static', 'relative', 'absolute', 'fixed', 'sticky']
             },
 
             resize: {
                 property: "resize",
-                value: {
+                values: {
                     none: 'none',
                     both: 'both',
                     x: "horizontal",
@@ -373,7 +373,7 @@ module.exports = function (theme) {
             rowGap: {
                 responsive: true,
                 property: "row-gap",
-                value: theme.variables.gap
+                values: theme.variables.gap
             },
 
             screenReader: {
@@ -382,18 +382,18 @@ module.exports = function (theme) {
 
             tableLayout: {
                 property: "table-layout",
-                value: ['auto', "fixed"]
+                values: ['auto', "fixed"]
             },
             textAlign: {
                 responsive: true,
                 property: "text-align",
-                value: ["left", "right", "center", "justify"]
+                values: ["left", "right", "center", "justify"]
             },
             textDecoration: {
                 responsive: true,
                 pseudoClass: ["hover", "focus"],
                 property: "text-decoration",
-                value: _.assign({
+                values: _.assign({
                     none: "none",
                     underline: "underline",
                     overline: "overline",
@@ -408,7 +408,7 @@ module.exports = function (theme) {
             },
             textTransform: {
                 property: "text-transform",
-                value: {
+                values: {
                     none: "none",
                     capitalize: "capitalize",
                     uppercase: "uppercase",
@@ -418,19 +418,69 @@ module.exports = function (theme) {
 
             // transition
             transition: {
-                mixin: ["transition"]
+                mixin: ["transition", "no-transition"]
             },
-            transitionProperty: {},
-            transitionDuration: {},
-            transitionTimingFunction: {},
-            transitionDelay: {},
+            transitionProperty: {
+                property: "--transition-property",
+                class: "ts",
+                values: {
+                    none: "none",
+                    all: "all",
+                    color: "background-color, border-color, color, fill, stroke",
+                    space: "width, height, max-width, max-height, margin, padding",
+                    opacity: "opacity",
+                    shadow: "box-shadow",
+                    transform: "transform"
+                }
+
+            },
+            transitionDuration: {
+                property: "--transition-duration",
+                class: "ts-duration",
+                values: {
+                    0: "0s",
+                    250: "250ms",
+                    500: "500ms",
+                    1000: "1000ms",
+                    1500: "1500ms",
+                    2000: "2000ms",
+                    2500: "2500ms",
+                    3000: "3000ms"
+                }
+            },
+            transitionTimingFunction: {
+                property: "--transition-timing-function",
+                class: "ts",
+                values: {
+                    ease: "ease",
+                    "ease-in": "ease-in",
+                    "ease-out": "ease-out",
+                    "ease-in-out": "ease-in-out",
+                    linear: "linear"
+                }
+            },
+            transitionDelay: {
+                property: "--transition-delay",
+                class: "ts-delay",
+                values: {
+                    0: "0s",
+                    250: "250ms",
+                    500: "500ms",
+                    1000: "1000ms",
+                    1500: "1500ms",
+                    2000: "2000ms",
+                    2500: "2500ms",
+                    3000: "3000ms"
+                }
+            },
 
             // transform
             transform: {
-                mixin: ["transform"]
+                mixin: ["transform", "no-transform"]
             },
             transformOrigin: {
                 property: "transform-origin",
+                class: "tf-origin",
                 values: {
                     "c": "center",
                     "t": "top",
@@ -447,8 +497,8 @@ module.exports = function (theme) {
                 responsive: true,
                 pseudoClass: ["hover", "focus"],
                 property: "--transform-translate-x",
-                class: "translate-x",
-                value: assignWithNative(_.assign({
+                class: "tf-translate-x",
+                values: assignWithNative(_.assign({
                     0: 0,
                     50: 0.5,
                     100: 1
@@ -458,8 +508,8 @@ module.exports = function (theme) {
                 responsive: true,
                 pseudoClass: ["hover", "focus"],
                 property: "--transform-translate-y",
-                class: "translate-y",
-                value: assignWithNative(_.assign({
+                class: "tf-translate-y",
+                values: assignWithNative(_.assign({
                     0: 0,
                     50: 0.5,
                     100: 1
@@ -467,7 +517,8 @@ module.exports = function (theme) {
             },
             rotate: {
                 property: "--transform-rotate",
-                value: assignWithNative({
+                class: "tf-rotate",
+                values: assignWithNative({
                     0: '0',
                     45: '45deg',
                     90: "90deg",
@@ -478,38 +529,46 @@ module.exports = function (theme) {
                 responsive: true,
                 pseudoClass: ["hover", "focus"],
                 property: "--transform-skew-x",
-                class: "skew-x",
-                value: assignWithNative(theme.variables.skew)
+                class: "tf-skew-x",
+                values: assignWithNative(theme.variables.skew)
             },
             skewY: {
                 responsive: true,
                 pseudoClass: ["hover", "focus"],
                 property: "--transform-skew-y",
-                class: "skew-y",
-                value: assignWithNative(theme.variables.skew)
+                class: "tf-skew-y",
+                values: assignWithNative(theme.variables.skew)
+            },
+            scale: {
+                responsive: true,
+                pseudoClass: ["hover", "focus"],
+                property: ["--transform-scale-x", "--transform-scale-y"],
+                class: "tf-scale",
+                values: theme.variables.scale
             },
             scaleX: {
                 responsive: true,
                 pseudoClass: ["hover", "focus"],
                 property: "--transform-scale-x",
-                class: "scale-x",
-                value: theme.variables.scale
+                class: "tf-scale-x",
+                values: theme.variables.scale
             },
             scaleY: {
                 responsive: true,
                 pseudoClass: ["hover", "focus"],
                 property: "--transform-scale-y",
-                class: "scale-y",
-                value: theme.variables.scale
+                class: "tf-scale-y",
+                values: theme.variables.scale
             },
 
             userSelect: {
                 property: "user-select",
-                value: ["auto", "none", "text", "all", "contain"]
+                values: ["auto", "none", "text", "all", "contain"]
             },
             verticalAlign: {
                 property: "vertical-align",
-                value: ["baseline", "sub", "sup", "text-top", "text-bottom", "middle", "top", "bottom"]
+                class: "v-align",
+                values: ["baseline", "sub", "sup", "text-top", "text-bottom", "middle", "top", "bottom"]
             },
 
             // word-break： 默认normal 可选break-all keep-all break-word
@@ -518,7 +577,7 @@ module.exports = function (theme) {
             overflowWrap: {
                 property: ["overflow-wrap", "word-break"],
                 class: "text-break",
-                value: {
+                values: {
                     normal: "normal",
                     word: "break-word"
                 }
@@ -526,12 +585,12 @@ module.exports = function (theme) {
             wordBreak: {
                 property: "word-break",
                 class: "text",
-                value: ["break-all", "keep-all"]
+                values: ["break-all", "keep-all"]
             },
             whiteSpace: {
                 property: "white-space",
                 class: "text",
-                value: {
+                values: {
                     wrap: "normal",
                     nowrap: "nowrap"
                 }
