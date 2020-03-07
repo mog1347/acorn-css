@@ -11,7 +11,7 @@
         "p": "postcss ./postcss/css/at.pcss --output ./postcss/css/dist/at.scss",
         "q": "node-sass --importer=./node_modules/node-sass-js-importer/dist/node-sass-js-importer.js  ./postcss/css/dist/at.scss --output ./postcss/css/dist/",
         "b": "node-sass --importer=./node_modules/node-sass-js-importer/dist/node-sass-js-importer.js  ./json/test.scss --output ./json/test.css",
-        "c": "sass --style=expanded --source-map --trace --stop-on-error ./json/test.scss:./json/test.css",
+        "c": "sass --style=expanded ./scss-src/scss/mixin/flex-layout.scss:./test.css",
         "build": "node scss-src/kernel.js"
     },
     "keywords": [

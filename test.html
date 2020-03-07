@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>Document</title>
+    <link rel="stylesheet" href="test.css">
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        body{
+            margin: 0;
+        }
+
+        .d-flex{
+            display: flex;
+        }
+        .d-flex [class*="col"] div{
+            height: 100px;
+            background: gray;
+            border:1px dotted blue;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="d-flex row-no-gap sm@row-space-around md@row-space-between lg@row-space-evenly">
+        <div class="col-12 sm@col-6 md@col-4 lg@col-3"><div>1</div></div>
+        <div class="col-12 sm@col-6 md@col-4 lg@col-3"><div>2</div></div>
+        <div class="col-12 sm@col-6 md@col-4 lg@col-3"><div>3</div></div>
+        <div class="col-12 sm@col-6 md@col-4 lg@col-3"><div>4</div></div>
+    </div>
+    <div style="background:black;height: 200px"></div>
+</div>
+
+
+</body>
+</html>

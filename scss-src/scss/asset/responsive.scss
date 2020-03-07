@@ -1,0 +1,122 @@
+/*!
+ * Kernel CSS v1.0.0 (https://gitee.com/mog1347/kernel-css)
+ * Copyright 2020 FishEleven
+ * Licensed under MIT (https://gitee.com/mog1347/kernel-css/LICENSE)
+ */
+$suffixes: (
+    responsive: "@"
+);
+$responsive: (
+    disabled: false,
+    type: "up",
+    breakpoints: (
+        xs: null,
+        sm: 640px,
+        md: 768px,
+        lg: 1024px,
+        xl: 1280px
+    )
+);
+
+$breakpoints: map-get($responsive, "breakpoints");
+$responsive-type: map-get($responsive, "type");
+
+@function breakpoint-width($name, $breakpoints: $breakpoints) {
+    @return map-get($breakpoints, $name);
+}
+@function is-name-in-breakpoints($responsive-name,$responsive-names: map-keys($breakpoints)) {
+    $n: index($responsive-names, $name);
+    @return $n != null;
+}
+
+@mixin media-breakpoint-up($name, $width) {
+    @if $width != null {
+        @media (min-width: $width) {
+            @content;
+        }
+    } @else {
+        @content;
+    }
+}
+
+@mixin media-breakpoint-down($name, $width) {
+    @if $width != null {
+        @media (max-width: $width) {
+            @content;
+        }
+    } @else {
+        @content;
+    }
+}
+
+@mixin media-breakpoint($name, $width, $type: $responsive-type) {
+    @if $type == "up" {
+        @include media-breakpoint-up($name, $width) {
+            @content;
+        }
+    } @else if $type == "down" {
+        @include media-breakpoint-down($name, $width) {
+            @content;
+        }
+    }
+}
+
+@mixin build-responsive-container($type: $responsive-type, $responsive-names: map-keys($breakpoints)) {
+    @if $responsive-type == "up" {
+        @each $name, $width in $breakpoints {
+            @if $width != null {
+                @include media-breakpoint-up($name, $width) {
+                    @content($width);
+                }
+            }
+        }
+    } @else if $responsive-type == "down" {
+        @each $name, $width in $breakpoints {
+            $n: index($responsive-names, $name);
+            $prev-width: if($n - 1 != 0, map-get($breakpoints, nth($responsive-names, $n - 1)), null);
+            @if $prev-width != null {
+                @include media-breakpoint-up($name, $prev-width + 1) {
+                    @content($prev-width + 1);
+                }
+            }
+        }
+    }
+}
+
+@mixin build-responsive($responsive-names: null) {
+    @if $responsive-names != null {
+        @if type-of($responsive-names) == "string" {
+            $name: $responsive-names;
+            @if is-name-in-breakpoints($name) {
+                @error "Your passed an invalid responsive breakpoint name: #{$responsive-names}"
+            }
+            $width: breakpoint-width($name);
+            @include media-breakpoint($name, $width) {
+                @content($name, $width);
+            }
+
+        } @else if type-of($responsive-names) == "list" {
+            @each $name in $responsive-names {
+                @if is-name-in-breakpoints($name) {
+                    @error "Your passed invalid responsive breakpoint names: #{$responsive-names}"
+                }
+                $width: breakpoint-width($name);
+                @include media-breakpoint($name, $width) {
+                    @content($name, $width);
+                }
+            }
+        }
+    } @else {
+        @each $name, $width in $breakpoints {
+            @include media-breakpoint($name, $width) {
+                @content($name, $width);
+            }
+        }
+    }
+}
+
+@mixin preload-responsive() {
+    @each $name, $width in $breakpoints {
+        @content($name, $width);
+    }
+}

@@ -24,6 +24,15 @@ $p: map-get($alignSelf, "property");
 }
 
 
+
+
+
+@if not map-get($flexLayout,"disabled") {
+    $columns: map-get($flexLayout, "columns");
+    $gap: map-get($flexLayout, "gap");
+}
+
+
 //@each $key, $val in $builtin {
 //    @if map-get($val,"disabled") != true {
 //        //@if map-get($val,"pseudoClass") != null {

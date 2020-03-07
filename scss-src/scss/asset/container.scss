@@ -1,0 +1,27 @@
+$container: (
+    disabled: false,
+    padding: 1rem,
+    centered: true
+);
+
+$container-centered: map-get($container, "centered");
+$container-padding: map-get($container, "padding");
+
+@mixin build-container() {
+    .container, .container-fluid {
+        width: 100%;
+        @if $container-centered {
+            margin-right: auto;
+            margin-left: auto;
+        }
+        @if $container-padding != 0 and $container-padding !=  "0" {
+            padding-left: $container-padding;
+            padding-right: $container-padding;
+        }
+    }
+    @include build-responsive-container() using ($width) {
+        .container {
+            max-width: $width;
+        }
+    }
+}

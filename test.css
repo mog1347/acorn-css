@@ -1,0 +1,1125 @@
+/*!
+ * Kernel CSS v1.0.0 (https://gitee.com/mog1347/kernel-css)
+ * Copyright 2020 FishEleven
+ * Licensed under MIT (https://gitee.com/mog1347/kernel-css/LICENSE)
+ */
+/*!
+ * Kernel CSS v1.0.0 (https://gitee.com/mog1347/kernel-css)
+ * Copyright 2020 FishEleven
+ * Licensed under MIT (https://gitee.com/mog1347/kernel-css/LICENSE)
+ */
+/*!
+Bootstrap like flex layout
+[important]: delete "col-auto" to avoid conflict with grid layout.
+[important]: delete "row-cols-{n}" because of very few using.
+In some cases, if you really want to use "col-auto", you should consider to use "flex-none"
+
+<wrapper>:[require] d-flex
+    behaviour: row-space-between / row-space-around / row-space-evenly / row-no-gap
+    direction: [use flex classes]: flex-row / flex-column / flex-row-reverse / flex-column-reverse
+    wrap: [use flex classes]: flex-wrap /flex-wrap-reverse / flex-nowrap
+<item>:
+    width: col-1~12 / col
+    offset: col-offset-0~11
+    order: [important: define flex-order here]: flex-order-1~12 / flex-order-none / flex-order-first / flex-order-last
+
+[important: other flex properties will effect this layout]
+ */
+/*!
+ * Kernel CSS v1.0.0 (https://gitee.com/mog1347/kernel-css)
+ * Copyright 2020 FishEleven
+ * Licensed under MIT (https://gitee.com/mog1347/kernel-css/LICENSE)
+ */
+.container, .container-fluid {
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+  .container {
+    max-width: 640px;
+  }
+}
+@media (min-width: 768px) {
+  .container {
+    max-width: 768px;
+  }
+}
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1024px;
+  }
+}
+@media (min-width: 1280px) {
+  .container {
+    max-width: 1280px;
+  }
+}
+.xl\@row-no-gap, .xl\@row-space-evenly, .xl\@row-space-around, .xl\@row-space-between, .lg\@row-no-gap, .lg\@row-space-evenly, .lg\@row-space-around, .lg\@row-space-between, .md\@row-no-gap, .md\@row-space-evenly, .md\@row-space-around, .md\@row-space-between, .sm\@row-no-gap, .sm\@row-space-evenly, .sm\@row-space-around, .sm\@row-space-between, .row-no-gap, .row-space-evenly, .row-space-around, .row-space-between {
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.row-space-between {
+  margin: -0.5rem;
+  padding: 0;
+}
+.row-space-between > [class*=col] {
+  width: 100%;
+  padding: 0.5rem;
+}
+
+.row-space-around {
+  margin: 0;
+  padding: 0;
+}
+.row-space-around > [class*=col] {
+  width: 100%;
+  padding: 1rem;
+}
+
+.row-space-evenly {
+  margin: 0;
+  padding: 0.5rem;
+}
+.row-space-evenly > [class*=col] {
+  width: 100%;
+  padding: 0.5rem;
+}
+
+.row-no-gap {
+  margin: 0;
+  padding: 0;
+}
+.row-no-gap > [class*=col] {
+  width: 100%;
+  padding: 0;
+}
+
+@media (min-width: 640px) {
+  .sm\@row-space-between {
+    margin: -0.5rem;
+    padding: 0;
+  }
+  .sm\@row-space-between > [class*=col] {
+    width: 100%;
+    padding: 0.5rem;
+  }
+
+  .sm\@row-space-around {
+    margin: 0;
+    padding: 0;
+  }
+  .sm\@row-space-around > [class*=col] {
+    width: 100%;
+    padding: 1rem;
+  }
+
+  .sm\@row-space-evenly {
+    margin: 0;
+    padding: 0.5rem;
+  }
+  .sm\@row-space-evenly > [class*=col] {
+    width: 100%;
+    padding: 0.5rem;
+  }
+
+  .sm\@row-no-gap {
+    margin: 0;
+    padding: 0;
+  }
+  .sm\@row-no-gap > [class*=col] {
+    width: 100%;
+    padding: 0;
+  }
+}
+@media (min-width: 768px) {
+  .md\@row-space-between {
+    margin: -0.5rem;
+    padding: 0;
+  }
+  .md\@row-space-between > [class*=col] {
+    width: 100%;
+    padding: 0.5rem;
+  }
+
+  .md\@row-space-around {
+    margin: 0;
+    padding: 0;
+  }
+  .md\@row-space-around > [class*=col] {
+    width: 100%;
+    padding: 1rem;
+  }
+
+  .md\@row-space-evenly {
+    margin: 0;
+    padding: 0.5rem;
+  }
+  .md\@row-space-evenly > [class*=col] {
+    width: 100%;
+    padding: 0.5rem;
+  }
+
+  .md\@row-no-gap {
+    margin: 0;
+    padding: 0;
+  }
+  .md\@row-no-gap > [class*=col] {
+    width: 100%;
+    padding: 0;
+  }
+}
+@media (min-width: 1024px) {
+  .lg\@row-space-between {
+    margin: -0.5rem;
+    padding: 0;
+  }
+  .lg\@row-space-between > [class*=col] {
+    width: 100%;
+    padding: 0.5rem;
+  }
+
+  .lg\@row-space-around {
+    margin: 0;
+    padding: 0;
+  }
+  .lg\@row-space-around > [class*=col] {
+    width: 100%;
+    padding: 1rem;
+  }
+
+  .lg\@row-space-evenly {
+    margin: 0;
+    padding: 0.5rem;
+  }
+  .lg\@row-space-evenly > [class*=col] {
+    width: 100%;
+    padding: 0.5rem;
+  }
+
+  .lg\@row-no-gap {
+    margin: 0;
+    padding: 0;
+  }
+  .lg\@row-no-gap > [class*=col] {
+    width: 100%;
+    padding: 0;
+  }
+}
+@media (min-width: 1280px) {
+  .xl\@row-space-between {
+    margin: -0.5rem;
+    padding: 0;
+  }
+  .xl\@row-space-between > [class*=col] {
+    width: 100%;
+    padding: 0.5rem;
+  }
+
+  .xl\@row-space-around {
+    margin: 0;
+    padding: 0;
+  }
+  .xl\@row-space-around > [class*=col] {
+    width: 100%;
+    padding: 1rem;
+  }
+
+  .xl\@row-space-evenly {
+    margin: 0;
+    padding: 0.5rem;
+  }
+  .xl\@row-space-evenly > [class*=col] {
+    width: 100%;
+    padding: 0.5rem;
+  }
+
+  .xl\@row-no-gap {
+    margin: 0;
+    padding: 0;
+  }
+  .xl\@row-no-gap > [class*=col] {
+    width: 100%;
+    padding: 0;
+  }
+}
+.col-1 {
+  flex: 0 0 8.3333333333%;
+  max-width: 8.3333333333%;
+}
+
+.col-2 {
+  flex: 0 0 16.6666666667%;
+  max-width: 16.6666666667%;
+}
+
+.col-3 {
+  flex: 0 0 25%;
+  max-width: 25%;
+}
+
+.col-4 {
+  flex: 0 0 33.3333333333%;
+  max-width: 33.3333333333%;
+}
+
+.col-5 {
+  flex: 0 0 41.6666666667%;
+  max-width: 41.6666666667%;
+}
+
+.col-6 {
+  flex: 0 0 50%;
+  max-width: 50%;
+}
+
+.col-7 {
+  flex: 0 0 58.3333333333%;
+  max-width: 58.3333333333%;
+}
+
+.col-8 {
+  flex: 0 0 66.6666666667%;
+  max-width: 66.6666666667%;
+}
+
+.col-9 {
+  flex: 0 0 75%;
+  max-width: 75%;
+}
+
+.col-10 {
+  flex: 0 0 83.3333333333%;
+  max-width: 83.3333333333%;
+}
+
+.col-11 {
+  flex: 0 0 91.6666666667%;
+  max-width: 91.6666666667%;
+}
+
+.col-12 {
+  flex: 0 0 100%;
+  max-width: 100%;
+}
+
+.col {
+  flex-basis: 0;
+  flex-grow: 1;
+  max-width: 100%;
+}
+
+.flex-order-first {
+  order: -1;
+}
+
+.flex-order-last {
+  order: 13;
+}
+
+.flex-order-none {
+  order: 0;
+}
+
+.flex-order-1 {
+  order: 1;
+}
+
+.flex-order-2 {
+  order: 2;
+}
+
+.flex-order-3 {
+  order: 3;
+}
+
+.flex-order-4 {
+  order: 4;
+}
+
+.flex-order-5 {
+  order: 5;
+}
+
+.flex-order-6 {
+  order: 6;
+}
+
+.flex-order-7 {
+  order: 7;
+}
+
+.flex-order-8 {
+  order: 8;
+}
+
+.flex-order-9 {
+  order: 9;
+}
+
+.flex-order-10 {
+  order: 10;
+}
+
+.flex-order-11 {
+  order: 11;
+}
+
+.flex-order-12 {
+  order: 12;
+}
+
+.col-offset-0 {
+  margin-left: 0;
+}
+
+.col-offset-1 {
+  margin-left: 8.3333333333%;
+}
+
+.col-offset-2 {
+  margin-left: 16.6666666667%;
+}
+
+.col-offset-3 {
+  margin-left: 25%;
+}
+
+.col-offset-4 {
+  margin-left: 33.3333333333%;
+}
+
+.col-offset-5 {
+  margin-left: 41.6666666667%;
+}
+
+.col-offset-6 {
+  margin-left: 50%;
+}
+
+.col-offset-7 {
+  margin-left: 58.3333333333%;
+}
+
+.col-offset-8 {
+  margin-left: 66.6666666667%;
+}
+
+.col-offset-9 {
+  margin-left: 75%;
+}
+
+.col-offset-10 {
+  margin-left: 83.3333333333%;
+}
+
+.col-offset-11 {
+  margin-left: 91.6666666667%;
+}
+
+@media (min-width: 640px) {
+  .sm\@col-1 {
+    flex: 0 0 8.3333333333%;
+    max-width: 8.3333333333%;
+  }
+
+  .sm\@col-2 {
+    flex: 0 0 16.6666666667%;
+    max-width: 16.6666666667%;
+  }
+
+  .sm\@col-3 {
+    flex: 0 0 25%;
+    max-width: 25%;
+  }
+
+  .sm\@col-4 {
+    flex: 0 0 33.3333333333%;
+    max-width: 33.3333333333%;
+  }
+
+  .sm\@col-5 {
+    flex: 0 0 41.6666666667%;
+    max-width: 41.6666666667%;
+  }
+
+  .sm\@col-6 {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+
+  .sm\@col-7 {
+    flex: 0 0 58.3333333333%;
+    max-width: 58.3333333333%;
+  }
+
+  .sm\@col-8 {
+    flex: 0 0 66.6666666667%;
+    max-width: 66.6666666667%;
+  }
+
+  .sm\@col-9 {
+    flex: 0 0 75%;
+    max-width: 75%;
+  }
+
+  .sm\@col-10 {
+    flex: 0 0 83.3333333333%;
+    max-width: 83.3333333333%;
+  }
+
+  .sm\@col-11 {
+    flex: 0 0 91.6666666667%;
+    max-width: 91.6666666667%;
+  }
+
+  .sm\@col-12 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  .sm\@col {
+    flex-basis: 0;
+    flex-grow: 1;
+    max-width: 100%;
+  }
+
+  .sm\@flex-order-first {
+    order: -1;
+  }
+
+  .sm\@flex-order-last {
+    order: 13;
+  }
+
+  .sm\@flex-order-none {
+    order: 0;
+  }
+
+  .sm\@flex-order-1 {
+    order: 1;
+  }
+
+  .sm\@flex-order-2 {
+    order: 2;
+  }
+
+  .sm\@flex-order-3 {
+    order: 3;
+  }
+
+  .sm\@flex-order-4 {
+    order: 4;
+  }
+
+  .sm\@flex-order-5 {
+    order: 5;
+  }
+
+  .sm\@flex-order-6 {
+    order: 6;
+  }
+
+  .sm\@flex-order-7 {
+    order: 7;
+  }
+
+  .sm\@flex-order-8 {
+    order: 8;
+  }
+
+  .sm\@flex-order-9 {
+    order: 9;
+  }
+
+  .sm\@flex-order-10 {
+    order: 10;
+  }
+
+  .sm\@flex-order-11 {
+    order: 11;
+  }
+
+  .sm\@flex-order-12 {
+    order: 12;
+  }
+
+  .sm\@col-offset-0 {
+    margin-left: 0;
+  }
+
+  .sm\@col-offset-1 {
+    margin-left: 8.3333333333%;
+  }
+
+  .sm\@col-offset-2 {
+    margin-left: 16.6666666667%;
+  }
+
+  .sm\@col-offset-3 {
+    margin-left: 25%;
+  }
+
+  .sm\@col-offset-4 {
+    margin-left: 33.3333333333%;
+  }
+
+  .sm\@col-offset-5 {
+    margin-left: 41.6666666667%;
+  }
+
+  .sm\@col-offset-6 {
+    margin-left: 50%;
+  }
+
+  .sm\@col-offset-7 {
+    margin-left: 58.3333333333%;
+  }
+
+  .sm\@col-offset-8 {
+    margin-left: 66.6666666667%;
+  }
+
+  .sm\@col-offset-9 {
+    margin-left: 75%;
+  }
+
+  .sm\@col-offset-10 {
+    margin-left: 83.3333333333%;
+  }
+
+  .sm\@col-offset-11 {
+    margin-left: 91.6666666667%;
+  }
+}
+@media (min-width: 768px) {
+  .md\@col-1 {
+    flex: 0 0 8.3333333333%;
+    max-width: 8.3333333333%;
+  }
+
+  .md\@col-2 {
+    flex: 0 0 16.6666666667%;
+    max-width: 16.6666666667%;
+  }
+
+  .md\@col-3 {
+    flex: 0 0 25%;
+    max-width: 25%;
+  }
+
+  .md\@col-4 {
+    flex: 0 0 33.3333333333%;
+    max-width: 33.3333333333%;
+  }
+
+  .md\@col-5 {
+    flex: 0 0 41.6666666667%;
+    max-width: 41.6666666667%;
+  }
+
+  .md\@col-6 {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+
+  .md\@col-7 {
+    flex: 0 0 58.3333333333%;
+    max-width: 58.3333333333%;
+  }
+
+  .md\@col-8 {
+    flex: 0 0 66.6666666667%;
+    max-width: 66.6666666667%;
+  }
+
+  .md\@col-9 {
+    flex: 0 0 75%;
+    max-width: 75%;
+  }
+
+  .md\@col-10 {
+    flex: 0 0 83.3333333333%;
+    max-width: 83.3333333333%;
+  }
+
+  .md\@col-11 {
+    flex: 0 0 91.6666666667%;
+    max-width: 91.6666666667%;
+  }
+
+  .md\@col-12 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  .md\@col {
+    flex-basis: 0;
+    flex-grow: 1;
+    max-width: 100%;
+  }
+
+  .md\@flex-order-first {
+    order: -1;
+  }
+
+  .md\@flex-order-last {
+    order: 13;
+  }
+
+  .md\@flex-order-none {
+    order: 0;
+  }
+
+  .md\@flex-order-1 {
+    order: 1;
+  }
+
+  .md\@flex-order-2 {
+    order: 2;
+  }
+
+  .md\@flex-order-3 {
+    order: 3;
+  }
+
+  .md\@flex-order-4 {
+    order: 4;
+  }
+
+  .md\@flex-order-5 {
+    order: 5;
+  }
+
+  .md\@flex-order-6 {
+    order: 6;
+  }
+
+  .md\@flex-order-7 {
+    order: 7;
+  }
+
+  .md\@flex-order-8 {
+    order: 8;
+  }
+
+  .md\@flex-order-9 {
+    order: 9;
+  }
+
+  .md\@flex-order-10 {
+    order: 10;
+  }
+
+  .md\@flex-order-11 {
+    order: 11;
+  }
+
+  .md\@flex-order-12 {
+    order: 12;
+  }
+
+  .md\@col-offset-0 {
+    margin-left: 0;
+  }
+
+  .md\@col-offset-1 {
+    margin-left: 8.3333333333%;
+  }
+
+  .md\@col-offset-2 {
+    margin-left: 16.6666666667%;
+  }
+
+  .md\@col-offset-3 {
+    margin-left: 25%;
+  }
+
+  .md\@col-offset-4 {
+    margin-left: 33.3333333333%;
+  }
+
+  .md\@col-offset-5 {
+    margin-left: 41.6666666667%;
+  }
+
+  .md\@col-offset-6 {
+    margin-left: 50%;
+  }
+
+  .md\@col-offset-7 {
+    margin-left: 58.3333333333%;
+  }
+
+  .md\@col-offset-8 {
+    margin-left: 66.6666666667%;
+  }
+
+  .md\@col-offset-9 {
+    margin-left: 75%;
+  }
+
+  .md\@col-offset-10 {
+    margin-left: 83.3333333333%;
+  }
+
+  .md\@col-offset-11 {
+    margin-left: 91.6666666667%;
+  }
+}
+@media (min-width: 1024px) {
+  .lg\@col-1 {
+    flex: 0 0 8.3333333333%;
+    max-width: 8.3333333333%;
+  }
+
+  .lg\@col-2 {
+    flex: 0 0 16.6666666667%;
+    max-width: 16.6666666667%;
+  }
+
+  .lg\@col-3 {
+    flex: 0 0 25%;
+    max-width: 25%;
+  }
+
+  .lg\@col-4 {
+    flex: 0 0 33.3333333333%;
+    max-width: 33.3333333333%;
+  }
+
+  .lg\@col-5 {
+    flex: 0 0 41.6666666667%;
+    max-width: 41.6666666667%;
+  }
+
+  .lg\@col-6 {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+
+  .lg\@col-7 {
+    flex: 0 0 58.3333333333%;
+    max-width: 58.3333333333%;
+  }
+
+  .lg\@col-8 {
+    flex: 0 0 66.6666666667%;
+    max-width: 66.6666666667%;
+  }
+
+  .lg\@col-9 {
+    flex: 0 0 75%;
+    max-width: 75%;
+  }
+
+  .lg\@col-10 {
+    flex: 0 0 83.3333333333%;
+    max-width: 83.3333333333%;
+  }
+
+  .lg\@col-11 {
+    flex: 0 0 91.6666666667%;
+    max-width: 91.6666666667%;
+  }
+
+  .lg\@col-12 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  .lg\@col {
+    flex-basis: 0;
+    flex-grow: 1;
+    max-width: 100%;
+  }
+
+  .lg\@flex-order-first {
+    order: -1;
+  }
+
+  .lg\@flex-order-last {
+    order: 13;
+  }
+
+  .lg\@flex-order-none {
+    order: 0;
+  }
+
+  .lg\@flex-order-1 {
+    order: 1;
+  }
+
+  .lg\@flex-order-2 {
+    order: 2;
+  }
+
+  .lg\@flex-order-3 {
+    order: 3;
+  }
+
+  .lg\@flex-order-4 {
+    order: 4;
+  }
+
+  .lg\@flex-order-5 {
+    order: 5;
+  }
+
+  .lg\@flex-order-6 {
+    order: 6;
+  }
+
+  .lg\@flex-order-7 {
+    order: 7;
+  }
+
+  .lg\@flex-order-8 {
+    order: 8;
+  }
+
+  .lg\@flex-order-9 {
+    order: 9;
+  }
+
+  .lg\@flex-order-10 {
+    order: 10;
+  }
+
+  .lg\@flex-order-11 {
+    order: 11;
+  }
+
+  .lg\@flex-order-12 {
+    order: 12;
+  }
+
+  .lg\@col-offset-0 {
+    margin-left: 0;
+  }
+
+  .lg\@col-offset-1 {
+    margin-left: 8.3333333333%;
+  }
+
+  .lg\@col-offset-2 {
+    margin-left: 16.6666666667%;
+  }
+
+  .lg\@col-offset-3 {
+    margin-left: 25%;
+  }
+
+  .lg\@col-offset-4 {
+    margin-left: 33.3333333333%;
+  }
+
+  .lg\@col-offset-5 {
+    margin-left: 41.6666666667%;
+  }
+
+  .lg\@col-offset-6 {
+    margin-left: 50%;
+  }
+
+  .lg\@col-offset-7 {
+    margin-left: 58.3333333333%;
+  }
+
+  .lg\@col-offset-8 {
+    margin-left: 66.6666666667%;
+  }
+
+  .lg\@col-offset-9 {
+    margin-left: 75%;
+  }
+
+  .lg\@col-offset-10 {
+    margin-left: 83.3333333333%;
+  }
+
+  .lg\@col-offset-11 {
+    margin-left: 91.6666666667%;
+  }
+}
+@media (min-width: 1280px) {
+  .xl\@col-1 {
+    flex: 0 0 8.3333333333%;
+    max-width: 8.3333333333%;
+  }
+
+  .xl\@col-2 {
+    flex: 0 0 16.6666666667%;
+    max-width: 16.6666666667%;
+  }
+
+  .xl\@col-3 {
+    flex: 0 0 25%;
+    max-width: 25%;
+  }
+
+  .xl\@col-4 {
+    flex: 0 0 33.3333333333%;
+    max-width: 33.3333333333%;
+  }
+
+  .xl\@col-5 {
+    flex: 0 0 41.6666666667%;
+    max-width: 41.6666666667%;
+  }
+
+  .xl\@col-6 {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+
+  .xl\@col-7 {
+    flex: 0 0 58.3333333333%;
+    max-width: 58.3333333333%;
+  }
+
+  .xl\@col-8 {
+    flex: 0 0 66.6666666667%;
+    max-width: 66.6666666667%;
+  }
+
+  .xl\@col-9 {
+    flex: 0 0 75%;
+    max-width: 75%;
+  }
+
+  .xl\@col-10 {
+    flex: 0 0 83.3333333333%;
+    max-width: 83.3333333333%;
+  }
+
+  .xl\@col-11 {
+    flex: 0 0 91.6666666667%;
+    max-width: 91.6666666667%;
+  }
+
+  .xl\@col-12 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  .xl\@col {
+    flex-basis: 0;
+    flex-grow: 1;
+    max-width: 100%;
+  }
+
+  .xl\@flex-order-first {
+    order: -1;
+  }
+
+  .xl\@flex-order-last {
+    order: 13;
+  }
+
+  .xl\@flex-order-none {
+    order: 0;
+  }
+
+  .xl\@flex-order-1 {
+    order: 1;
+  }
+
+  .xl\@flex-order-2 {
+    order: 2;
+  }
+
+  .xl\@flex-order-3 {
+    order: 3;
+  }
+
+  .xl\@flex-order-4 {
+    order: 4;
+  }
+
+  .xl\@flex-order-5 {
+    order: 5;
+  }
+
+  .xl\@flex-order-6 {
+    order: 6;
+  }
+
+  .xl\@flex-order-7 {
+    order: 7;
+  }
+
+  .xl\@flex-order-8 {
+    order: 8;
+  }
+
+  .xl\@flex-order-9 {
+    order: 9;
+  }
+
+  .xl\@flex-order-10 {
+    order: 10;
+  }
+
+  .xl\@flex-order-11 {
+    order: 11;
+  }
+
+  .xl\@flex-order-12 {
+    order: 12;
+  }
+
+  .xl\@col-offset-0 {
+    margin-left: 0;
+  }
+
+  .xl\@col-offset-1 {
+    margin-left: 8.3333333333%;
+  }
+
+  .xl\@col-offset-2 {
+    margin-left: 16.6666666667%;
+  }
+
+  .xl\@col-offset-3 {
+    margin-left: 25%;
+  }
+
+  .xl\@col-offset-4 {
+    margin-left: 33.3333333333%;
+  }
+
+  .xl\@col-offset-5 {
+    margin-left: 41.6666666667%;
+  }
+
+  .xl\@col-offset-6 {
+    margin-left: 50%;
+  }
+
+  .xl\@col-offset-7 {
+    margin-left: 58.3333333333%;
+  }
+
+  .xl\@col-offset-8 {
+    margin-left: 66.6666666667%;
+  }
+
+  .xl\@col-offset-9 {
+    margin-left: 75%;
+  }
+
+  .xl\@col-offset-10 {
+    margin-left: 83.3333333333%;
+  }
+
+  .xl\@col-offset-11 {
+    margin-left: 91.6666666667%;
+  }
+}
+
+/*# sourceMappingURL=test.css.map */

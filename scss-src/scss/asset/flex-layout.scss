@@ -1,0 +1,130 @@
+/*!
+ * Kernel CSS v1.0.0 (https://gitee.com/mog1347/kernel-css)
+ * Copyright 2020 FishEleven
+ * Licensed under MIT (https://gitee.com/mog1347/kernel-css/LICENSE)
+ */
+/*!
+Bootstrap like flex layout
+[important]: delete "col-auto" to avoid conflict with grid layout.
+[important]: delete "row-cols-{n}" because of very few using.
+In some cases, if you really want to use "col-auto", you should consider to use "flex-none"
+
+<wrapper>:[require] d-flex
+    behaviour: row-space-between / row-space-around / row-space-evenly / row-no-gap
+    direction: [use flex classes]: flex-row / flex-column / flex-row-reverse / flex-column-reverse
+    wrap: [use flex classes]: flex-wrap /flex-wrap-reverse / flex-nowrap
+<item>:
+    width: col-1~12 / col
+    offset: col-offset-0~11
+    order: [important: define flex-order here]: flex-order-1~12 / flex-order-none / flex-order-first / flex-order-last
+
+[important: other flex properties will effect this layout]
+ */
+@import "responsive";
+@import "helper";
+
+$layout: (
+    flex: (
+        disabled: false,
+        columns: 12,
+        gap: 1rem
+    )
+);
+
+$flex-layout: map-get($layout, "flex");
+$flex-layout-columns: map-get($flex-layout, "columns");
+$flex-layout-gap: map-get($flex-layout, "gap");
+
+@mixin build-flex-layout-row($gap: $flex-layout-gap) {
+    %row {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    @include preload-responsive() using ($name, $width) {
+        @include class-content("row-space-between", $name) {
+            @extend %row;
+        }
+        @include class-content("row-space-around", $name) {
+            @extend %row;
+        }
+        @include class-content("row-space-evenly", $name) {
+            @extend %row;
+        }
+        @include class-content("row-no-gap", $name) {
+            @extend %row;
+        }
+    }
+
+    @include build-responsive() using ($name, $width) {
+        @include class-content("row-space-between", $name) {
+            margin: - $gap / 2;
+            padding: 0;
+            > [class*="col"] {
+                width: 100%;
+                padding: $gap / 2;
+            }
+        }
+        @include class-content("row-space-around", $name) {
+            margin: 0;
+            padding: 0;
+            > [class*="col"] {
+                width: 100%;
+                padding: $gap;
+            }
+        }
+        @include class-content("row-space-evenly", $name) {
+            margin: 0;
+            padding: $gap / 2;
+            > [class*="col"] {
+                width: 100%;
+                padding: $gap / 2;
+            }
+        }
+        @include class-content("row-no-gap", $name) {
+            margin: 0;
+            padding: 0;
+            > [class*="col"] {
+                width: 100%;
+                padding: 0;
+            }
+        }
+    }
+}
+
+@mixin build-flex-layout-col($columns: $flex-layout-columns, $gap: $flex-layout-gap) {
+
+    @include build-responsive() using ($name, $width) {
+        @for $i from 1 through $columns {
+            @include class-content("col-#{$i}", $name) {
+                flex: 0 0 percentage($i / $columns);
+                max-width: percentage($i / $columns);
+            }
+        }
+        @include class-content("col", $name) {
+            flex-basis: 0;
+            flex-grow: 1;
+            max-width: 100%;
+        }
+        @include class-content("flex-order-first", $name) {
+            order: -1;
+        }
+        @include class-content("flex-order-last", $name) {
+            order: $columns + 1;
+        }
+        @include class-content("flex-order-none", $name) {
+            order: 0;
+        }
+        @for $i from 1 through $columns {
+            @include class-content("flex-order-#{$i}", $name) {
+                order: $i;
+            }
+        }
+        @for $i from 0 through ($columns - 1) {
+            @include class-content("col-offset-#{$i}", $name) {
+                $num: $i / $columns;
+                margin-left: if($num == 0, 0, percentage($num));
+            }
+        }
+    }
+}

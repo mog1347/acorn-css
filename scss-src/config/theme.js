@@ -1,27 +1,22 @@
 const colors = require("./theme/colors")
 
 module.exports = {
-    suffixes: {
-        namespace: JSON.stringify("~"),
-        basic: JSON.stringify("-"),
-        responsive: JSON.stringify("@"),
-        pseudoClass: JSON.stringify(":"),
-        pseudoElement: JSON.stringify("$")
-    },
 
-    important: false,
     namespace: JSON.stringify(""),
-    pseudoClass: {
-        disabled: false
-    },
-    pseudoElement: {
-        disabled: false
-    },
+    useImportant: false,
+    //是否在display属性上使用!important
+    useImportantOnDisplay: false,
+    useCustomProperties: true,
+    negativeTag: "n",
 
-    // basicStyle: JSON.stringify(""),
+    pseudoClass: {
+        disabled: false,
+        suffix: JSON.stringify(":")
+    },
 
     responsive: {
         disabled: false,
+        suffix: JSON.stringify("@"),
         type: JSON.stringify("up"),//"down"
         breakpoints: {
             // when type is "up"
@@ -40,16 +35,22 @@ module.exports = {
     },
     container: {
         disabled: false,
-        padding: 0,
+        padding: "0",
         centered: true
     },
     layout: {
-        columns: 12,
-        flex: {disabled: false, gap: "1rem"},
-        grid: {disabled: false}
+        flex: {
+            disabled: false,
+            columns: 12,
+            gap: "1rem"
+        },
+        grid: {
+            disabled: false,
+            columns: 12,
+            rows: 6
+        }
     },
 
-    useCssCustomProperties: true,
     variables: {
         colors: colors,
 
@@ -212,5 +213,5 @@ module.exports = {
         }
     },
 
-    custom: {}
+    customizations: {}
 }

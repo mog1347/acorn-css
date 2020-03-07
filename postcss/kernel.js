@@ -10,7 +10,6 @@ const
     kernelOutputFilePath = path.resolve(__dirname, './css/test.css'),
     kernelOutput = fs.readFileSync(kernelOutputFilePath)
 
-
 function escapeClassName(className) {
     const node = parser.className()
     node.value = className

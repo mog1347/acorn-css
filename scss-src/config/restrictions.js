@@ -3,40 +3,29 @@
  * Copyright 2020 FishEleven
  * Licensed under MIT (https://gitee.com/mog1347/kernel-css/LICENSE)
  */
-// Restrictions on pseudo-class and pseudo-element
-const pseudoClassRestrictions = [
-    "link",
-    "visited",
-    "any-link",
-    "hover",
-    "active",
-    "focus",
-    "focus-within",
+const _ = require('lodash')
+// Restrict and translate pseudo-class
+const pseudoClasses = {
+    link: "link",
+    visited: "visited",
+    "any-link": "any-link",
+    hover: "hover",
+    active: "active",
+    focus: "focus",
+    "focus-within": "focus-within",
 
-    "checked",
-    "disabled",
-    "read-only",
-    "invalid",
-    "valid",
+    checked: "checked",
+    disabled: "disabled",
+    "read-only": "read-only",
+    invalid: "invalid",
+    valid: "valid",
 
-    "first-child",
-    "last-child",
-    "odd-child", //nth-child(odd)
-    "even-child" //nth-child(even)
-]
-const pseudoElementRestrictions = [
-    "before",
-    "after",
-    "placeholder",
-    "selection"
-]
-
-module.exports = {
-    isAllowedPseudoClass: function () {
-
-
-    },
-    isAllowedPseudoElement: function () {
-
-    }
+    "first-child": "first-child",
+    "last-child": "last-child",
+    "odd-child": "nth-child(odd)",
+    "even-child": "nth-child(even)"
+}
+module.exports.pseudoClasses = pseudoClasses
+module.exports.isAllowedPseudoClass = function (p) {
+    return _.has(pseudoClasses, p)
 }

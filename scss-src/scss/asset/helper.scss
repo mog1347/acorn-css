@@ -1,0 +1,56 @@
+$responsive-suffix: "@";
+$pseudo-class-suffix: ":";
+
+@function find-pseudo-class-name(){
+
+}
+
+@function class-name($class,$responsive-name: null,$pseudo-class-name: null) {
+    @if breakpoint-width($responsive-name) == null{
+        $responsive-name:null;
+    }
+
+    @if $responsive-name == null and $pseudo-class-name == null {
+        @return $class;
+    } @else if $responsive-name == null and $pseudo-class-name != null {
+        @return "#{$pseudo-class-name}\\#{$pseudo-class-suffix}#{$class}";
+    } @else if $responsive-name != null and $pseudo-class-name == null {
+        @return "#{$responsive-name}\\#{$responsive-suffix}#{$class}";
+    } @else {
+        @return "#{$responsive-name}\\#{$responsive-suffix}#{$pseudo-class-name}\\#{$pseudo-class-suffix}#{$class}";
+    }
+}
+
+@mixin class-content($class,$responsive-name:null,$pseudo-class-name:null) {
+    .#{class-name($class,$responsive-name,$pseudo-class-name)} {
+        @content;
+    }
+}
+
+@function str-split($string, $separator) {
+    $split-arr: ();
+    $index: str-index($string, $separator);
+
+    @while $index != null {
+        $item: str-slice($string, 1, $index - 1);
+        $split-arr: append($split-arr, $item);
+        $string: str-slice($string, $index + 1);
+        $index: str-index($string, $separator);
+    }
+
+    $split-arr: append($split-arr, $string);
+
+    @return $split-arr;
+}
+
+@function map-get-path($map, $path) {
+    $keys: str-split($path, ".");
+    $index: 0;
+    $map-loop: $map;
+
+    @while nth($keys,$index) !=null {
+        $map-loop: map-get($map-loop, nth($keys, $index));
+        $index: $index+1;
+    }
+    @return $map-loop;
+}
