@@ -1,28 +1,28 @@
 $responsive-suffix: "@";
 $pseudo-class-suffix: ":";
+$namespace: "k";
 
-@function find-pseudo-class-name(){
+@function find-pseudo-class-name() {
 
 }
 
-@function class-name($class,$responsive-name: null,$pseudo-class-name: null) {
-    @if breakpoint-width($responsive-name) == null{
-        $responsive-name:null;
+@function class-name($class,$responsive-name: null,$pseudo-class-name: null, $namespace: $namespace) {
+    @if breakpoint-width($responsive-name) == null {
+        $responsive-name: null;
     }
-
     @if $responsive-name == null and $pseudo-class-name == null {
-        @return $class;
+        @return "#{$namespace}-#{$class}";
     } @else if $responsive-name == null and $pseudo-class-name != null {
-        @return "#{$pseudo-class-name}\\#{$pseudo-class-suffix}#{$class}";
+        @return "#{$pseudo-class-name}\\#{$pseudo-class-suffix}#{$namespace}-#{$class}";
     } @else if $responsive-name != null and $pseudo-class-name == null {
-        @return "#{$responsive-name}\\#{$responsive-suffix}#{$class}";
+        @return "#{$responsive-name}\\#{$responsive-suffix}#{$namespace}-#{$class}";
     } @else {
-        @return "#{$responsive-name}\\#{$responsive-suffix}#{$pseudo-class-name}\\#{$pseudo-class-suffix}#{$class}";
+        @return "#{$responsive-name}\\#{$responsive-suffix}#{$pseudo-class-name}\\#{$pseudo-class-suffix}#{$namespace}-#{$class}";
     }
 }
 
-@mixin class-content($class,$responsive-name:null,$pseudo-class-name:null) {
-    .#{class-name($class,$responsive-name,$pseudo-class-name)} {
+@mixin class-content($class, $responsive-name: null, $pseudo-class-name: null, $namespace: $namespace) {
+    .#{class-name($class, $responsive-name, $pseudo-class-name, $namespace)} {
         @content;
     }
 }
@@ -48,7 +48,7 @@ $pseudo-class-suffix: ":";
     $index: 0;
     $map-loop: $map;
 
-    @while nth($keys,$index) !=null {
+    @while nth($keys,$index) != null {
         $map-loop: map-get($map-loop, nth($keys, $index));
         $index: $index+1;
     }

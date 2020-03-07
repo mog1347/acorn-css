@@ -61,13 +61,15 @@ $responsive-type: map-get($responsive, "type");
     }
 }
 
-@mixin build-responsive-container($type: $responsive-type, $responsive-names: map-keys($breakpoints)) {
+@mixin build-responsive-always-up($responsive-names: map-keys($breakpoints)) {
     @if $responsive-type == "up" {
         @each $name, $width in $breakpoints {
             @if $width != null {
-                @include media-breakpoint-up($name, $width) {
-                    @content($width);
+                @media (min-width: $width) {
+                    @content($name, $width);
                 }
+            } @else {
+                @content($name, $width);
             }
         }
     } @else if $responsive-type == "down" {
@@ -75,9 +77,37 @@ $responsive-type: map-get($responsive, "type");
             $n: index($responsive-names, $name);
             $prev-width: if($n - 1 != 0, map-get($breakpoints, nth($responsive-names, $n - 1)), null);
             @if $prev-width != null {
-                @include media-breakpoint-up($name, $prev-width + 1) {
-                    @content($prev-width + 1);
+                @media (min-width: $prev-width + 1) {
+                    @content($name, $prev-width + 1);
                 }
+            } @else {
+                @content($name, $prev-width + 1);
+            }
+        }
+    }
+}
+
+@mixin build-responsive-always-down($responsive-names: map-keys($breakpoints)) {
+    @if $responsive-type == "up" {
+        @each $name, $width in $breakpoints {
+            $n: index($responsive-names, $name);
+            $next-width: if($n + 1 != length($responsive-names) + 1, map-get($breakpoints, nth($responsive-names, $n + 1)), null);
+            @if $next-width != null {
+                @media (max-width: $next-width - 1) {
+                    @content($name, $next-width - 1);
+                }
+            } @else {
+                @content($name, $next-width - 1);
+            }
+        }
+    } @else if $responsive-type == "down" {
+        @each $name, $width in $breakpoints {
+            @if $width != null {
+                @media (max-width: $width) {
+                    @content($name, $width);
+                }
+            } @else {
+                @content($name, $width);
             }
         }
     }

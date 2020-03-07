@@ -71,8 +71,10 @@ module.exports = {
                     property: "align-content",
                     values: {
                         normal: "normal",
-                        start: "flex-start",
-                        end: "flex-end",
+                        start: "start",
+                        end: "end",
+                        "flex-start": "flex-start",
+                        "flex-end": "flex-end",
                         center: "center",
                         between: "space-between",
                         around: "space-around",
