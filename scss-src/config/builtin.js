@@ -5,7 +5,6 @@
  */
 const _ = require('lodash')
 
-
 function generateNegativeClasses(variableObj, negativeTag, useCustomProperties = false) {
     return _.assign({}, variableObj, _.transform(variableObj, function (result, value, key) {
         //TODO 优化对0值的判断
@@ -44,7 +43,6 @@ function checkAndTranslatePseudoClass() {
 
 }
 
-
 module.exports = {
     kernelFunction: function (theme) {
 
@@ -68,6 +66,7 @@ module.exports = {
 
             builtin: {
                 alignContent: {
+                    responsive: true,
                     property: "align-content",
                     values: {
                         normal: "normal",
@@ -76,33 +75,87 @@ module.exports = {
                         "flex-start": "flex-start",
                         "flex-end": "flex-end",
                         center: "center",
+                        baseline: "baseline",
                         between: "space-between",
                         around: "space-around",
-                        evenly: "space-evenly"
+                        evenly: "space-evenly",
+                        stretch: "stretch"
                     }
                 },
                 alignItems: {
+                    responsive: true,
                     property: "align-items",
                     values: {
                         normal: "normal",
-                        start: "flex-start",
-                        end: "flex-end",
+                        start: "start",
+                        end: "end",
+                        "flex-start": "flex-start",
+                        "flex-end": "flex-end",
                         center: "center",
                         baseline: "baseline",
-                        stretch: "stretch",
+                        stretch: "stretch"
                     }
                 },
                 alignSelf: {
+                    responsive: true,
                     property: "align-self",
                     values: {
                         auto: "auto",
-                        start: "flex-start",
-                        end: "flex-end",
+                        start: "start",
+                        end: "end",
+                        "flex-start": "flex-start",
+                        "flex-end": "flex-end",
                         center: "center",
                         baseline: "baseline",
                         stretch: "stretch",
                     }
                 },
+                justifyContent: {
+                    responsive: true,
+                    property: "justify-content",
+                    values: {
+                        normal: "normal",
+                        start: "start",
+                        end: "end",
+                        "flex-start": "flex-start",
+                        "flex-end": "flex-end",
+                        center: "center",
+                        baseline: "baseline",
+                        between: "space-between",
+                        around: "space-around",
+                        evenly: "space-evenly",
+                        stretch: "stretch"
+                    }
+                },
+                justifyItems: {
+                    responsive: true,
+                    property: "justify-items",
+                    values: {
+                        normal: "normal",
+                        start: "start",
+                        end: "end",
+                        "flex-start": "flex-start",
+                        "flex-end": "flex-end",
+                        center: "center",
+                        baseline: "baseline",
+                        stretch: "stretch"
+                    }
+                },
+                justifySelf: {
+                    responsive: true,
+                    property: "justify-self",
+                    values: {
+                        auto: "auto",
+                        start: "start",
+                        end: "end",
+                        "flex-start": "flex-start",
+                        "flex-end": "flex-end",
+                        center: "center",
+                        baseline: "baseline",
+                        stretch: "stretch",
+                    }
+                },
+
                 appearance: {
                     property: "appearance",
                     values: {
@@ -249,18 +302,296 @@ module.exports = {
                     class: "by",
                     values: variables.borderWidths
                 },
+                borderRadius: {
+                    property: "border-radius",
+                    class: "round",
+                    value: _.assign({}, {
+                        none: 0,
+                        half: "50%",
+                        full: "9999px"
+                    }, variables.borderRadius)
+                },
+                borderRadiusT: {
+                    property: ["border-top-left-radius", "border-top-right-radius"],
+                    class: "round-t",
+                    value: _.assign({}, {
+                        none: 0,
+                        half: "50%",
+                        full: "9999px"
+                    }, variables.borderRadius)
+                },
+                borderRadiusR: {
+                    property: ["border-top-right-radius", "border-bottom-right-radius"],
+                    class: "round-r",
+                    value: _.assign({}, {
+                        none: 0,
+                        half: "50%",
+                        full: "9999px"
+                    }, variables.borderRadius)
+                },
+                borderRadiusB: {
+                    property: ["border-bottom-right-radius", "border-bottom-left-radius"],
+                    class: "round-b",
+                    value: _.assign({}, {
+                        none: 0,
+                        half: "50%",
+                        full: "9999px"
+                    }, variables.borderRadius)
+                },
+                borderRadiusL: {
+                    property: ["border-top-left-radius", "border-bottom-left-radius"],
+                    class: "round-l",
+                    value: _.assign({}, {
+                        none: 0,
+                        half: "50%",
+                        full: "9999px"
+                    }, variables.borderRadius)
+                },
+                borderRadiusTL: {
+                    property: "border-top-left-radius",
+                    class: "round-tl",
+                    value: _.assign({}, {
+                        none: 0,
+                        half: "50%",
+                        full: "9999px"
+                    }, variables.borderRadius)
+                },
+                borderRadiusTR: {
+                    property: "border-top-right-radius",
+                    class: "round-tr",
+                    value: _.assign({}, {
+                        none: 0,
+                        half: "50%",
+                        full: "9999px"
+                    }, variables.borderRadius)
+                },
+                borderRadiusBR: {
+                    property: "border-bottom-right-radius",
+                    class: "round-br",
+                    value: _.assign({}, {
+                        none: 0,
+                        half: "50%",
+                        full: "9999px"
+                    }, variables.borderRadius)
+                },
+                borderRadiusBL: {
+                    property: "border-bottom-left-radius",
+                    class: "round-bl",
+                    value: _.assign({}, {
+                        none: 0,
+                        half: "50%",
+                        full: "9999px"
+                    }, variables.borderRadius)
+                },
 
                 //box-Shadow
+                boxShadow: {
+                    property: "box-shadow",
+                    values: []
+                },
+                boxSizing: {
+                    property: "box-sizing",
+                    class: "box",
+                    values: {
+                        content: "content-box",
+                        border: "border-box",
+                    }
+                },
                 boxShadow: {},
 
                 cursor: {
                     property: "cursor",
                     values: ["auto", "default", "none", "pointer", "wait", "text", "move", "not-allowed"]
                 },
+                color: {
+                    property: "color",
+                    class: "text",
+                    values: variables.colors
+                },
+                caretColor: {
+                    property: "caret-color",
+                    class: "caret",
+                    values: _.assign({}, variables.colors.colorfulMain, variables.colors.neutralMain)
+                },
+                clear: {
+                    property: "clear",
+                    values: ["none", "left", "right", "both"]
+                },
+                clearfix: {
+                    mixin: ["clearfix"]
+                },
 
+                display: {
+                    responsive: true,
+                    property: "display",
+                    class: "d",
+                    values: ["none", "inline", "block", "inline-block", "flex", "inline-flex", "grid", "inline-grid"]
+                },
+                direction: {
+                    property: "direction",
+                    values: ["ltr", "rtl"]
+                },
 
-                fontSize: {},
+                emptyCells: {
+                    property: "empty-cells",
+                    values: ["show", "hide"]
+                },
 
+                // flex
+                flex: {
+                    responsive: true,
+                    property: "flex",
+                    values: {
+                        init: "0 1 auto",
+                        none: "0 0 auto",
+                        fill: "1 0 auto",
+                        auto: "1 1 auto",
+                        equal: "1 1 0"
+                    }
+                },
+                flexBasis: {
+                    responsive: true,
+                    property: "flex-basis",
+                    values: ["0", "auto"]
+                },
+                flexGrow: {
+                    responsive: true,
+                    property: "flex-grow",
+                    values: ["0", "1"]
+                },
+                flexShrink: {
+                    responsive: true,
+                    property: "flex-shrink",
+                    values: ["0", "1"]
+                },
+                flexDirection: {
+                    responsive: true,
+                    property: "flex-direction",
+                    class: "flex",
+                    values: {
+                        row: "row",
+                        "row-reverse": "row-reverse",
+                        col: "column",
+                        "col-reverse": "column-reverse"
+                    }
+                },
+                flexWrap: {
+                    responsive: true,
+                    property: "flex-wrap",
+                    class: "flex",
+                    values: ["nowrap", "wrap", "wrap-reverse"]
+                },
+
+                // font
+                fontFamily: {
+                    property: "font-family",
+                    class: "font",
+                    values: variables.fontFamily
+                },
+                fontKerning: {
+                    property: "font-kerning",
+                    values: ["auto", "normal", "none"]
+                },
+                fontSize: {
+                    property: "font-size",
+                    values: variables.fontSize
+                },
+                fontStyle: {
+                    property: "font-style",
+                    class: "font",
+                    values: ["normal", "italic"]
+                },
+                fontWeight: {
+                    property: "font-weight",
+                    values: variables.fontWeight
+                },
+
+                gap: {
+                    property: "gap",
+                    values: variables.gaps
+                },
+
+                height: {
+                    responsive: true,
+                    pseudoClass: ["hover", "focus"],
+                    property: "height",
+                    class: "h",
+                    values: {
+                        0: "0",
+                        1: "1px",
+                        100: "100%",
+                        "100-vh": "100vh",
+                        auto: "auto"
+                    }
+                },
+
+                letterSpacings: {
+                    property: "letter-spacing",
+                    values: generateNegativeClasses(variables.letterSpacings)
+                },
+                lineBreak: {
+                    property: "line-break",
+                    values: ["auto", "loose", "normal", "strict", "anywhere"]
+                },
+                lineHeight: {
+                    property: "line-height",
+                    class: "line-h",
+                    values: variables.lineHeights
+                },
+                // inset
+                insetTop: {
+                    property: "top",
+                    class: "it",
+                    values: variables.inset
+                },
+                insetRight: {
+                    property: "right",
+                    class: "ir",
+                    values: variables.inset
+                },
+                insetBottom: {
+                    property: "bottom",
+                    class: "ib",
+                    values: variables.inset
+                },
+                insetLeft: {
+                    property: "left",
+                    class: "il",
+                    values: variables.inset
+                },
+                insetX: {
+                    property: ["left", "right"],
+                    class: "ix",
+                    values: {
+                        auto: "auto"
+                    }
+                },
+                insetY: {
+                    property: ["top", "bottom"],
+                    class: "iy",
+                    values: {
+                        auto: "auto"
+                    }
+                },
+                inset: {
+                    property: ["top", "right", "bottom", "left"],
+                    class: "i",
+                    values: {
+                        auto: "auto"
+                    }
+                },
+                // list
+                listStyleType: {
+                    property: "list-style-type",
+                    class: "list",
+                    values: ["none", "disc", "circle", "square", "decimal",
+                        "decimal-leading-zero", "lower-roman", "upper-roman", "lower-alpha", "upper-alpha"]
+                },
+                listStylePosition: {
+                    property: "list-style-position",
+                    class: "list",
+                    values: ["inside", "outside"]
+                },
 
                 // Margin
                 margin: {
@@ -306,8 +637,63 @@ module.exports = {
                     values: _.assign({}, generateNegativeClasses(variables.gaps), {auto: 'auto'})
                 },
 
-                maxWidth: {},
+                maxWidth: {
+                    property: "max-width",
+                    class: "max-w",
+                    values: ""
+                },
+                minWidth: {
+                    property: "min-width",
+                    class: "min-w",
+                    values: {
+                        0: 0,
+                        half: "50%",
+                        full: "100%",
+                        "half-screen": "50vw",
+                        screen: "100vw"
+                    }
+                },
+                maxHeight: {
+                    property: "max-height",
+                    class: "max-h",
+                    values: {
+                        0: 0,
+                        half: "50%",
+                        full: "100%",
+                        "half-screen": "50vh",
+                        screen: "100vh"
+                    }
+                },
+                minHeight: {
+                    property: "min-height",
+                    class: "min-h",
+                    values: {
+                        0: 0,
+                        half: "50%",
+                        full: "100%",
+                        "half-screen": "50vh",
+                        screen: "100vh"
+                    }
+                },
 
+                objectPosition: {
+                    property: "object-position",
+                    values: {
+                        "t": "top",
+                        "r": "right",
+                        "b": "bottom",
+                        "l": "left",
+                        "c": "center",
+                        "lb": "left bottom",
+                        "lt": "left top",
+                        "rb": "right bottom",
+                        "rt": "right top"
+                    }
+                },
+                objectFit: {
+                    property: "object-fit",
+                    values: ["contain", "cover", "fill", "none", "scale-down"]
+                },
                 opacity: {
                     property: "opacity",
                     values: variables.opacity
@@ -317,9 +703,32 @@ module.exports = {
                     property: "order",
                     values: variables.order
                 },
-                outline: {
-                    property: "outline",
-                    values: {none: 0}
+                // outline
+                outlineWidth: {
+                    property: "outline-width",
+                    values: variables.borderWidths
+                },
+                outlineStyle: {
+                    property: "outline-style",
+                    values: {
+                        none: "none",
+                        dotted: "dotted",
+                        dashed: "dashed",
+                        solid: "solid",
+                        double: "double",
+                        groove: "groove",
+                        ridge: "ridge",
+                        inset: "inset",
+                        outset: "outset"
+                    }
+                },
+                outlineColor: {
+                    property: "outline-color",
+                    values: _.assign({}, variables.colors.colorfulMain, variables.colors.neutralMain)
+                },
+                outlineOffset: {
+                    property: "outline-offset",
+                    values: variables.gaps
                 },
                 // overflow
                 overflow: {
@@ -379,7 +788,6 @@ module.exports = {
                     values: _.assign({}, generateNegativeClasses(variables.gaps))
                 },
 
-
                 pointerEvents: {
                     responsive: true,
                     pseudoClass: ["hover", "focus"],
@@ -410,7 +818,7 @@ module.exports = {
                 },
 
                 screenReader: {
-                    mixin: ["sr-only", "not-sr-only"],
+                    mixin: ["sr-only", "not-sr-only"]
                 },
 
                 tableLayout: {
@@ -422,19 +830,31 @@ module.exports = {
                     property: "text-align",
                     values: ["left", "right", "center", "justify"]
                 },
-                textDecoration: {
-                    responsive: true,
-                    pseudoClass: ["hover", "focus"],
-                    property: "text-decoration",
-                    values: _.assign({
+                textDecorationLine: {
+                    property: "text-decoration-line",
+                    class: "text-decr",
+                    values: {
                         none: "none",
                         underline: "underline",
                         overline: "overline",
-                        through: "through",
+                        through: "line-through"
+                    }
+                },
+                textDecorationColor: {
+                    property: "text-decoration-color",
+                    class: "text-decr",
+                    values: _.assign({}, variables.colors.colorfulMain, variables.colors.neutralMain)
+                },
+                textDecorationStyle: {
+                    property: "text-decoration-style",
+                    class: "text-decr",
+                    values: {
                         solid: "solid",
+                        double: "double",
+                        dotted: "dotted",
                         dashed: "dashed",
                         wavy: "wavy",
-                    }, theme.colors)
+                    }
                 },
                 textOverflow: {
                     mixin: ["text-clip", "text-ellipsis"]
@@ -448,7 +868,6 @@ module.exports = {
                         lowercase: "lowercase",
                     }
                 },
-
                 // transition
                 transition: {
                     mixin: ["transition", "no-transition"]
@@ -465,7 +884,6 @@ module.exports = {
                         shadow: "box-shadow",
                         transform: "transform"
                     }
-
                 },
                 transitionDuration: {
                     property: "--transition-duration",
@@ -506,14 +924,13 @@ module.exports = {
                         3000: "3000ms"
                     }
                 },
-
                 // transform
                 transform: {
                     mixin: ["transform", "no-transform"]
                 },
                 transformOrigin: {
                     property: "transform-origin",
-                    class: "tf-origin",
+                    class: "tf-orig",
                     values: {
                         "c": "center",
                         "t": "top",
@@ -598,15 +1015,27 @@ module.exports = {
                     property: "user-select",
                     values: ["auto", "none", "text", "all", "contain"]
                 },
+
                 verticalAlign: {
                     property: "vertical-align",
                     class: "v-align",
                     values: ["baseline", "sub", "sup", "text-top", "text-bottom", "middle", "top", "bottom"]
                 },
+                visibility: {
+                    property: "visibility",
+                    class: "visible",
+                    values: ["visible"]
+                },
+                inVisibility: {
+                    property: "visibility",
+                    class: "invisible",
+                    values: ["hidden"]
+                },
 
                 // word-break： 默认normal 可选break-all keep-all break-word
                 // overflow-wrap(原名word-wrap)： 默认normal值，可选break-word
-                // word-break的break-word未列入标准，一般使用overflow-wrap的break-word值 两者效果一样
+                // word-break的break-word未列入标准，一般使用overflow-wrap的break-word值
+                // 两者效果一样
                 overflowWrap: {
                     property: ["overflow-wrap", "word-break"],
                     class: "text-break",
@@ -619,6 +1048,11 @@ module.exports = {
                     property: "word-break",
                     class: "text",
                     values: ["break-all", "keep-all"]
+                },
+                wordSpacing: {
+                    property: "word-spacing",
+                    class: "ws",
+                    values: _.assign({}, {normal: "normal"}, variables.gaps)
                 },
                 whiteSpace: {
                     property: "white-space",

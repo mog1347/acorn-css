@@ -141,22 +141,17 @@ module.exports = {
             full: "100%"
         },
 
-        lineHeights: {},
+        lineHeights: {
+            0: 0,
+            1: 1,
+            2: 1.25,
+            3: 1.5,
+            4: 1.75,
+            5: 2.0
+        },
 
         order: {
             none: 0,
-            1: 1,
-            2: 2,
-            3: 3,
-            4: 4,
-            5: 5,
-            6: 6,
-            7: 7,
-            8: 8,
-            9: 9,
-            10: 10,
-            11: 11,
-            12: 12,
             first: -9999,
             last: 9999
         },
@@ -210,6 +205,23 @@ module.exports = {
             30: 30,
             40: 40,
             50: 50
+        },
+        inset: {
+            0: 0,
+            50: "50%",
+            100: "100%",
+            auto: "auto"
+        },
+        fontFamily: {
+            sans: "system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji",
+            serif: "Georgia, Cambria, \"Times New Roman\", Times, serif",
+            mono: "Menlo, Monaco, Consolas, \"Liberation Mono\", \"Courier New\", monospace",
+        },
+        borderRadius: {
+            sm: "0.125rem",
+            normal: "0.25rem",
+            md: "0.375rem",
+            lg: "0.5rem"
         }
     },
 
