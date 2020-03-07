@@ -20,22 +20,7 @@ In some cases, if you really want to use "col-auto", you should consider to use 
 
 [important: other flex properties will effect this layout]
  */
-@import "responsive";
-@import "helper";
-
-$layout: (
-    flex: (
-        disabled: false,
-        columns: 12,
-        gap: 1rem
-    )
-);
-
-$flex-layout: map-get($layout, "flex");
-$flex-layout-columns: map-get($flex-layout, "columns");
-$flex-layout-gap: map-get($flex-layout, "gap");
-
-@mixin build-flex-layout-row($gap: $flex-layout-gap) {
+@mixin build-flex-layout($columns, $gap) {
     %row {
         flex-direction: row;
         flex-wrap: wrap;
@@ -57,6 +42,7 @@ $flex-layout-gap: map-get($flex-layout, "gap");
     }
 
     @include build-responsive() using ($name, $width) {
+        //row
         @include class-content("row-space-between", $name) {
             margin: - $gap / 2;
             padding: 0;
@@ -89,12 +75,7 @@ $flex-layout-gap: map-get($flex-layout, "gap");
                 padding: 0;
             }
         }
-    }
-}
-
-@mixin build-flex-layout-col($columns: $flex-layout-columns, $gap: $flex-layout-gap) {
-
-    @include build-responsive() using ($name, $width) {
+        //col
         @for $i from 1 through $columns {
             @include class-content("col-#{$i}", $name) {
                 flex: 0 0 percentage($i / $columns);
@@ -106,24 +87,26 @@ $flex-layout-gap: map-get($flex-layout, "gap");
             flex-grow: 1;
             max-width: 100%;
         }
-        @include class-content("flex-order-first", $name) {
-            order: -1;
-        }
-        @include class-content("flex-order-last", $name) {
-            order: $columns + 1;
-        }
-        @include class-content("flex-order-none", $name) {
-            order: 0;
-        }
-        @for $i from 1 through $columns {
-            @include class-content("flex-order-#{$i}", $name) {
-                order: $i;
-            }
-        }
+        //col-offset
         @for $i from 0 through ($columns - 1) {
             @include class-content("col-offset-#{$i}", $name) {
                 $num: $i / $columns;
                 margin-left: if($num == 0, 0, percentage($num));
+            }
+        }
+        //col-order
+        //@include class-content("flex-order-first", $name) {
+        //    order: -1;
+        //}
+        //@include class-content("flex-order-last", $name) {
+        //    order: $columns + 1;
+        //}
+        //@include class-content("flex-order-none", $name) {
+        //    order: 0;
+        //}
+        @for $i from 0 through $columns {
+            @include class-content("col-order-#{$i}", $name) {
+                order: $i;
             }
         }
     }

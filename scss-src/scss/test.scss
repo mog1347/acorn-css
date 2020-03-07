@@ -1,11 +1,11 @@
 @import "asset/responsive";
 @import "asset/container";
-@import "asset/flex-layout";
+@import "asset/grid-layout";
 
 @if not map-get($container,"disabled") {
     @include build-container();
 }
-@if not map-get($flex-layout,"disabled") {
-    @include build-flex-layout-row();
-    @include build-flex-layout-col();
+@if not map-get($grid-layout,"disabled") {
+    @include build-grid-layout();
+    //@include build-flex-layout();
 }

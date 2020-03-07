@@ -4,12 +4,11 @@ $container: (
     centered: true
 );
 
-$container-centered: map-get($container, "centered");
-$container-padding: map-get($container, "padding");
 
-@mixin build-container() {
 
-    @include class-content("container"){
+@mixin build-container($container-centered,$container-padding) {
+
+    @include class-content("container") {
         width: 100%;
         @if $container-centered {
             margin-right: auto;
@@ -22,7 +21,7 @@ $container-padding: map-get($container, "padding");
     }
 
     @include build-responsive-always-up() using ($name, $width) {
-        @include class-content("container"){
+        @include class-content("container") {
             max-width: $width;
         }
     }

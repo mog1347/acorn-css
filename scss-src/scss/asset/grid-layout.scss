@@ -2,9 +2,105 @@
 Tailwind like grid layout
 
 div.d-grid
-div.grid grid-cols-1~12/none grid-rows-1~6/none grid-flow-row/col/row-dense/col-dense  grid-gap-0~7/px grid-row-gap-0~7 grid-col-gap-0~7/px
+div.grid grid-cols-1~12/none grid-rows-1~6/none grid-flow-row/col/row-dense/col-dense
+
+    grid-gap-0~7/px grid-row-gap-0~7 grid-col-gap-0~7/px
 
     div.col-span-1~12, div.col-start-1~13/auto, div.col-end-1~13/auto, div.col-auto
     div.row-span-1~6,  div.row-start-1~7/auto,  div.row-end-1~7/auto,  div.row-auto
 
  */
+@mixin build-grid-layout($columns, $rows, $gaps) {
+    @include build-responsive() using($name, $width) {
+
+        //grid-cols
+        @include class-content("grid-cols-none", $name) {
+            grid-template-columns: none;
+        }
+        @for $i from 1 through $columns {
+            @include class-content("grid-cols-#{$i}", $name) {
+                grid-template-columns: repeat($i, minmax(0, 1fr));
+            }
+        }
+        //grid-rows
+        @include class-content("grid-rows-none", $name) {
+            grid-template-rows: none;
+        }
+        @for $i from 1 through $rows {
+            @include class-content("grid-rows-#{$i}", $name) {
+                grid-template-rows: repeat($i, minmax(0, 1fr));
+            }
+        }
+        //grid-gaps
+        @each $key, $val in $gaps {
+            @include class-content("grid-gap-#{$key}", $name) {
+                grid-gap: $val;
+                gap: $val;
+            }
+            @include class-content("grid-row-gap-#{$key}", $name) {
+                grid-row-gap: $val;
+                row-gap: $val;
+            }
+            @include class-content("grid-col-gap-#{$key}", $name) {
+                grid-column-gap: $val;
+                column-gap: $val;
+            }
+        }
+        //grid-flow
+        @each $key, $val in (row: row, col: column, row-dense: row dense, col-dense: column dense) {
+            @include class-content("grid-flow-#{$key}", $name) {
+                grid-auto-flow: $val;
+            }
+        }
+
+        //col-span-1~12, col-start-1~13/auto, col-end-1~13/auto, col-auto
+        @include class-content("col-auto") {
+            grid-column: auto;
+        }
+        @include class-content("col-start-auto") {
+            grid-column-start: auto;
+        }
+        @include class-content("col-end-auto") {
+            grid-column-end: auto;
+        }
+        @for $i from 1 through $columns {
+            @include class-content("col-span-#{$i}", $name) {
+                grid-column: span $i / span $i;
+            }
+        }
+        @for $i from 1 through $columns + 1 {
+            @include class-content("col-start-#{$i}", $name) {
+                grid-column-start: $i;
+            }
+            @include class-content("col-end-#{$i}", $name) {
+                grid-column-end: $i;
+            }
+        }
+
+        //row-span-1~6, row-start-1~7/auto, row-end-1~7/auto, row-auto
+        @include class-content("row-auto") {
+            grid-row: auto;
+        }
+        @include class-content("row-start-auto") {
+            grid-row-start: auto;
+        }
+        @include class-content("row-end-auto") {
+            grid-row-end: auto;
+        }
+
+        @for $i from 1 through $rows {
+            @include class-content("row-span-#{$i}", $name) {
+                grid-row: span $i / span $i;
+            }
+        }
+        @for $i from 1 through $rows + 1 {
+            @include class-content("row-start-#{$i}", $name) {
+                grid-row-start: $i;
+            }
+            @include class-content("row-end-#{$i}", $name) {
+                grid-row-end: $i;
+            }
+        }
+    }
+}
+
