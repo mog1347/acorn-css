@@ -1,27 +1,11 @@
-$pseudo-class-list: (
-    link: "link",
-    visited: "visited",
-    any-link: "any-link",
-    hover: "hover",
-    active: "active",
-    focus: "focus",
-    focus-within: "focus-within",
-    checked: "checked",
-    disabled: "disabled",
-    read-only: "read-only",
-    invalid: "invalid",
-    valid: "valid",
-    first-child: "first-child",
-    last-child: "last-child",
-    odd-child: "nth-child(odd)",
-    even-child: "nth-child(even)"
-);
-
-
-@mixin build-pseudo-class($classname,$plist) {
+@function get-pseudo-class(){
 
 }
 
-@include build-pseudo-class() {
 
+@mixin build-pseudo-class($pseudo-classes) {
+    $pseudo-classes: join((null), $pseudo-classes);
+    @each $pseudo-class-name in $pseudo-classes {
+        @content($pseudo-class-name);
+    }
 }

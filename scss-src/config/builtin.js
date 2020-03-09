@@ -5,6 +5,28 @@
  */
 const _ = require('lodash')
 
+const pseudoClasses = {
+    link: "link",
+    visited: "visited",
+    "any-link": "any-link",
+    hover: "hover",
+    active: "active",
+    focus: "focus",
+    "focus-within": "focus-within",
+
+    checked: "checked",
+    disabled: "disabled",
+    "read-only": "read-only",
+    invalid: "invalid",
+    valid: "valid",
+
+    "first-child": "first-child",
+    "last-child": "last-child",
+    "odd-child": "nth-child(odd)",
+    "even-child": "nth-child(even)"
+}
+
+
 function generateNegativeClasses(variableObj, negativeTag, useCustomProperties = false) {
     return _.assign({}, variableObj, _.transform(variableObj, function (result, value, key) {
         //TODO 优化对0值的判断
@@ -31,7 +53,7 @@ function transformVariablesToCustomProperties(variables, namespace = null) {
         })
         _.assign(customProperties, propertyObj)
 
-        return _.mapValues(variableObj, function (value, key) {
+        return _.mapValues(variableObj, function (value) {
             return "var(" + _.findKey(propertyObj, value) + ")"
         })
     })
@@ -39,8 +61,20 @@ function transformVariablesToCustomProperties(variables, namespace = null) {
     return [customProperties, transformedVariables]
 }
 
-function checkAndTranslatePseudoClass() {
-
+function translatePseudoClass($pseudoClass) {
+    if (_.isArray($pseudoClass)) {
+        return _.map($pseudoClass, function (value) {
+            if (!!pseudoClasses[value]) {
+                return pseudoClasses[value]
+            }
+        })
+    }
+    if (_.isString($pseudoClass)) {
+        if (!!pseudoClasses[$pseudoClass]) {
+            return [pseudoClasses[value]]
+        }
+    }
+    return [];
 }
 
 module.exports = {
@@ -62,7 +96,7 @@ module.exports = {
             pseudoClass: theme.pseudoClass,
             responsive: theme.responsive,
             container: theme.container,
-            layout: theme.layout,
+            layout: _.merge(theme.layout, {grid: {gaps: theme.variables.gaps}}),
 
             builtin: {
                 alignContent: {
@@ -190,7 +224,7 @@ module.exports = {
                     }
                 },
                 backgroundColor: {
-                    pseudoClass: ["any-link", "hover", "active", "focus", "focus-within"],
+                    pseudoclass: ["any-link", "hover", "active", "focus", "focus-within"],
                     property: "background-color",
                     class: "bg",
                     values: _.assign({},

@@ -89,33 +89,3 @@
         }
     }
 }
-
-@mixin build-property($class, $values, $property) {
-    @if type-of($values) == "map" {
-        @each $k, $v in $values {
-            .#{$class}-#{$k} {
-                @if type-of($property) == "list" {
-                    @each $p in $property {
-                        #{$p}: $v;
-                    }
-                } @else {
-                    #{$property}: $v;
-                }
-            }
-        }
-    }
-
-    @if type-of($values) == "list" {
-        @each $v in $values {
-            .#{$class}-#{$v} {
-                @if type-of($property) == "list" {
-                    @each $p in $property {
-                        #{$p}: $v;
-                    }
-                } @else {
-                    #{$property}: $v;
-                }
-            }
-        }
-    }
-}

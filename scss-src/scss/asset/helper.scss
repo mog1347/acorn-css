@@ -2,11 +2,37 @@ $responsive-suffix: "@";
 $pseudo-class-suffix: ":";
 $namespace: "k";
 
-@function find-pseudo-class-name() {
 
+@mixin build-property($class, $values, $property) {
+    @if type-of($values) == "map" {
+        @each $k, $v in $values {
+            @include class-content(#{$class}-#{$k}, $responsive-name, $pseudo-class-name, $namespace) {
+                @if type-of($property) == "list" {
+                    @each $p in $property {
+                        #{$p}: $v;
+                    }
+                } @else {
+                    #{$property}: $v;
+                }
+            }
+        }
+    } @else if type-of($values) == "list" {
+        @each $v in $values {
+            @include class-content(#{$class}-#{$v}, $responsive-name, $pseudo-class-name, $namespace) {
+
+                @if type-of($property) == "list" {
+                    @each $p in $property {
+                        #{$p}: $v;
+                    }
+                } @else {
+                    #{$property}: $v;
+                }
+            }
+        }
+    }
 }
 
-@function class-name($class,$responsive-name: null,$pseudo-class-name: null, $namespace: $namespace) {
+@function class-name($class, $responsive-name: null,$pseudo-class-name: null, $namespace: $namespace) {
     @if breakpoint-width($responsive-name) == null {
         $responsive-name: null;
     }
@@ -25,32 +51,4 @@ $namespace: "k";
     .#{class-name($class, $responsive-name, $pseudo-class-name, $namespace)} {
         @content;
     }
-}
-
-@function str-split($string, $separator) {
-    $split-arr: ();
-    $index: str-index($string, $separator);
-
-    @while $index != null {
-        $item: str-slice($string, 1, $index - 1);
-        $split-arr: append($split-arr, $item);
-        $string: str-slice($string, $index + 1);
-        $index: str-index($string, $separator);
-    }
-
-    $split-arr: append($split-arr, $string);
-
-    @return $split-arr;
-}
-
-@function map-get-path($map, $path) {
-    $keys: str-split($path, ".");
-    $index: 0;
-    $map-loop: $map;
-
-    @while nth($keys,$index) != null {
-        $map-loop: map-get($map-loop, nth($keys, $index));
-        $index: $index+1;
-    }
-    @return $map-loop;
 }
