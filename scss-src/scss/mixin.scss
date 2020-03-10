@@ -59,11 +59,8 @@
             --transition-duration: 0s;
             --transition-timing-function: ease;
             --transition-delay: 0s;
-            transition: var(--transition-property);
-        var(--transition-duration) var(--transition-timing-function) var(--transition-delay);
+            transition: var(--transition-property) var(--transition-duration) var(--transition-timing-function) var(--transition-delay);
             transition-property: var(--transition-property);
-            transition-timing-function: var(--transition-timing-function);
-            transition-delay: var(--transition-delay);
         }
     }
 

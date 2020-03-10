@@ -6,6 +6,76 @@
 @import "asset/flex-layout";
 @import "asset/grid-layout";
 
+//$namespace
+//$useImportant,
+//useImportantOnDisplay,
+
+negativeTag: "n",
+pseudoClass: {
+    disabled: false,
+    suffix: ":",
+    list: {
+        link: "link",
+        visited: "visited",
+    "any-link": "any-link",
+    hover: "hover",
+    active: "active",
+    focus: "focus",
+    "focus-within": "focus-within",
+
+    checked: "checked",
+    disabled: "disabled",
+    "read-only": "read-only",
+    invalid: "invalid",
+    valid: "valid",
+
+    "first-child": "first-child",
+    "last-child": "last-child",
+    "odd-child": "nth-child(odd)",
+    "even-child": "nth-child(even)"
+    }
+},
+responsive: {
+    disabled: false,
+    suffix: "@",
+    type: "up",// or "down"
+    breakpoints: {
+        // when type is "up"
+        xs: null,
+        sm: "640px",
+        md: "768px",
+        lg: "1024px",
+        xl: "1280px"
+        // when type is "down"
+        // xs: "639px",
+        // sm: "767px",
+        // md: "1023px",
+        // lg: "1279px",
+        // xl: null
+    }
+},
+container: {
+    disabled: false,
+    padding: "0",
+    centered: true
+},
+layout: {
+    flex: {
+        disabled: false,
+        column: 12,
+        gap: "1rem"
+    },
+grid: {
+    disabled: false,
+    column: 12,
+    row: 6
+}
+},
+
+
+
+
+
 
 @if not map-get($container, "disabled") {
     $container-centered: map-get($container, "centered");

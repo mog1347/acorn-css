@@ -20,7 +20,7 @@ In some cases, if you really want to use "col-auto", you should consider to use 
 
 [important: other flex properties will effect this layout]
  */
-@mixin build-flex-layout($columns, $gap) {
+@mixin build-flex-layout($column, $gap) {
     %row {
         flex-direction: row;
         flex-wrap: wrap;
@@ -76,10 +76,10 @@ In some cases, if you really want to use "col-auto", you should consider to use 
             }
         }
         //col
-        @for $i from 1 through $columns {
+        @for $i from 1 through $column {
             @include class-content("col-#{$i}", $name) {
-                flex: 0 0 percentage($i / $columns);
-                max-width: percentage($i / $columns);
+                flex: 0 0 percentage($i / $column);
+                max-width: percentage($i / $column);
             }
         }
         @include class-content("col", $name) {
@@ -88,23 +88,14 @@ In some cases, if you really want to use "col-auto", you should consider to use 
             max-width: 100%;
         }
         //col-offset
-        @for $i from 0 through ($columns - 1) {
+        @for $i from 0 through ($column - 1) {
             @include class-content("col-offset-#{$i}", $name) {
-                $num: $i / $columns;
+                $num: $i / $column;
                 margin-left: if($num == 0, 0, percentage($num));
             }
         }
         //col-order
-        //@include class-content("flex-order-first", $name) {
-        //    order: -1;
-        //}
-        //@include class-content("flex-order-last", $name) {
-        //    order: $columns + 1;
-        //}
-        //@include class-content("flex-order-none", $name) {
-        //    order: 0;
-        //}
-        @for $i from 0 through $columns {
+        @for $i from 0 through $column {
             @include class-content("col-order-#{$i}", $name) {
                 order: $i;
             }

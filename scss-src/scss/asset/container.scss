@@ -1,11 +1,3 @@
-$container: (
-    disabled: false,
-    padding: 1rem,
-    centered: true
-);
-
-
-
 @mixin build-container($container-centered,$container-padding) {
 
     @include class-content("container") {

@@ -13,3 +13,11 @@ https://plugins.jetbrains.com/plugin/8578-postcss
 
 ### 智能提示
 //un-staged
+
+
+
+//TODO
+- 添加filter滤镜的支持
+- 添加对text-emphasis的支持
+- 增加对常见伪元素的支持 ::placehoder, ::scrollbar, ::selection
+- 考虑是否添加text-shadow的支持    

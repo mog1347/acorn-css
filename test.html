@@ -28,15 +28,24 @@
             content: "";
             clear: both;
         }
+        .round-full{
+            /*TL TR BR BL  100%* 50% 角 1/4/   width= height
+            /*T L B R  50% x100%  边  1/2 */
+
+            /*border-radius: 9999px;*/
+            /*border-radius: 50%;*/
+            /*border-top-left-radius: 10%;*/
+            border-top-right-radius: 50%;
+            /*border-bottom-right-radius: 50%;*/
+        }
+
 
     </style>
 </head>
 <body>
 <div class="container">
-    <div style="float: left; width: 400px; background: red">123123123</div>
-    <div style="float: right; width: 500px; background: blue">123123123</div>
-
-
+        <div class="round-full" style="width: 200px; height: 200px; background: red"></div>
+        <div class="round-full" style="width: 200px; height: 400px; background: blue"></div>
 <!--    <div class="d-flex row-no-gap sm@row-space-around md@row-space-between lg@row-space-evenly">-->
 <!--        <div class="col-12 sm@col-6 md@col-4 lg@col-3"><div>1</div></div>-->
 <!--        <div class="col-12 sm@col-6 md@col-4 lg@col-3"><div>2</div></div>-->
@@ -45,7 +54,20 @@
 <!--    </div>-->
 <!--    <div style="background:black;height: 200px"></div>-->
 </div>
+<script src="https://cdn.bootcss.com/lodash.js/4.17.15/lodash.min.js"></script>
+<script>
+var a=  _.mergeWith({a:1}, {b:[]}, function (dstValue, srcValue) {
+    console.log(dstValue,srcValue.length)
+    if (_.isArray(srcValue) && srcValue.length > 0) {
+        return srcValue
+    } else {
+        return;
+    }
+})
+console.log(a)
 
+
+</script>
 
 </body>
 </html>
