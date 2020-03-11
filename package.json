@@ -4,15 +4,8 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "watch-test": "sass --style=expanded --source-map --stop-on-error --watch ./test:./test_dist",
-        "sass-test": "sass --style=expanded --source-map --trace --stop-on-error ./src/_inset.scss:./dist/test.css",
-        "a": "sass --style=expanded --source-map --trace --stop-on-error ./scss-src/test_map.scss:./dist/test.css",
-        "sass-src": "sass --style=expanded --source-map --trace --stop-on-error ./src:./dist",
-        "p": "postcss ./postcss/css/at.pcss --output ./postcss/css/dist/at.scss",
-        "q": "node-sass --importer=./node_modules/node-sass-js-importer/dist/node-sass-js-importer.js  ./postcss/css/dist/at.scss --output ./postcss/css/dist/",
-        "b": "node-sass --importer=./node_modules/node-sass-js-importer/dist/node-sass-js-importer.js  ./json/test.scss --output ./json/test.css",
-        "c": "sass --style=expanded ./scss-src/scss/mixin/flex-layout.scss:./test.css",
-        "build": "node scss-src/kernel.js"
+        "apply": "postcss ./postcss/at.pcss --output ./postcss/dist/at.scss && sass ./postcss/dist/at.scss:./postcss/dist/at.css",
+        "build": "node src/kernel.js"
     },
     "keywords": [
         "css",

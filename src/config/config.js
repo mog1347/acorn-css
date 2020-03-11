@@ -101,6 +101,7 @@ module.exports = function (theme) {
                 values: nativeVariables.backgroundClip
             },
             backgroundColor: {
+                responsive: true,
                 pseudoClass: ["any-link", "hover", "active", "focus", "focus-within"],
                 property: "background-color",
                 class: "bg",
@@ -127,7 +128,7 @@ module.exports = function (theme) {
             },
             backgroundSize: {
                 property: "background-size",
-                class: "bg",
+                class: "bg-size",
                 values: nativeVariables.backgroundSize
             },
 
@@ -310,6 +311,7 @@ module.exports = function (theme) {
                 values: nativeVariables.cursor
             },
             color: {
+                pseudoClass: ["any-link", "hover", "active", "focus", "focus-within"],
                 property: "color",
                 class: "text",
                 values: _.assign({},

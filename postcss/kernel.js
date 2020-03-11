@@ -7,7 +7,7 @@ const
 
 const
     pluginName = "kernel",
-    kernelOutputFilePath = path.resolve(__dirname, './css/test.css'),
+    kernelOutputFilePath = path.resolve(__dirname, '../dist/kernel.css'),
     kernelOutput = fs.readFileSync(kernelOutputFilePath)
 
 function escapeClassName(className) {

@@ -9,67 +9,28 @@
     body {
         margin: 0
     }
-
-    .container {
-        margin: 0 auto;
-        width: 900px;
-        display: flex;
-        flex-wrap: wrap;
-    }
-
-    .color-item {
-        width: calc(900px / 9);
-        height: 100px;
-    }
-
-    .color-item-alt {
-        width: calc(900px / 17);
-        height: 100px;
-    }
     </style>
     <link rel="stylesheet" href="dist/kernel.css">
 </head>
 <body>
-<div style="width: 300px">
-    <div style="max-width: 1280px">
+<div class="d-flex row-no-gap sm@row-space-around md@row-space-between lg@row-space-evenly">
+    <div class="col bg-blue-1 hover:bg-blue-2 focus:bg-blue-4">
 
-        <div style="display:inline;background-color: red">123123</div>
+    </div>
+    <div class="col-6 sm@col-4 md@col-3"></div>
+    <div class="col"></div>
+    <div class="col"></div>
+    <div class="col"></div>
+</div>
 
-        <!--    <div id="colorful" class="container"></div>-->
-        <!--    <div id="neutral" class="container"></div>-->
+
+<div class="d-grid grid-cols-12 grid-rows-6">
+    <div class="bg-red col-span-2">
+        <div>123123</div>
     </div>
 </div>
-<!--<script>-->
-<!--let colorful = [-->
-<!--        'red',-->
-<!--        'volcano',-->
-<!--        'orange',-->
-<!--        'gold',-->
-<!--        'yellow',-->
-<!--        'lime',-->
-<!--        'green',-->
-<!--        'cyan',-->
-<!--        'ocean',-->
-<!--        'blue',-->
-<!--        'purple',-->
-<!--        'violet',-->
-<!--        'magenta'-->
-<!--    ],-->
-<!--    neutral = ['gray', 'slate']-->
 
-<!--for (let j = 0; j < colorful.length; j++) {-->
-<!--    for (let i = 9; i > 0; i&#45;&#45;) {-->
-<!--        document.querySelector('#colorful').innerHTML +=-->
-<!--            `<div class="color-item bg-${colorful[j]}-${i}"></div>`-->
-<!--    }-->
-<!--}-->
-<!--for (let j = 0; j < neutral.length; j++) {-->
-<!--    for (let i = 17; i > 0; i&#45;&#45;) {-->
-<!--        document.querySelector('#neutral').innerHTML +=-->
-<!--            `<div class="color-item-alt bg-${neutral[j]}-${i}"></div>`-->
-<!--    }-->
-<!--}-->
 
-<!--</script>-->
+<a class="text-white hover:text-blue-4 focus:bg-blue-9" href="asdf">12313</a>
 </body>
 </html>
