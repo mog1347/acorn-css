@@ -16,46 +16,71 @@ misc.withNegative = function (variableObj, negativeTag, useCustomProperty) {
     }, {}))
 }
 
-misc.toCustomProperty = function (variables, namespace = null) {
+misc.useCustomProperty = function (variables, namespace, useCustomProperty) {
+    let customProperties = {},
+        transformedVariables = {}
 
-    let customProperties = {}
-    let transformedVariables = _.map(variables, function (variableObj, variableKey) {
-        let propertyObj = _.mapKeys(variableObj, function (value, key) {
-            return !!namespace
-                ? "--" + namespace + "-" + _.kebabCase(variableKey) + "-" + _.kebabCase(key)
-                : "--" + _.kebabCase(variableKey) + "-" + _.kebabCase(key)
+    if (useCustomProperty) {
+        transformedVariables = _.mapValues(variables, function (variableObj, variableKey) {
+            let propertyObj = _.mapKeys(variableObj, function (value, key) {
+                return !!namespace
+                    ? namespace + "-" + _.kebabCase(variableKey) + "-" + _.kebabCase(key)
+                    : _.kebabCase(variableKey) + "-" + _.kebabCase(key)
+            })
+            let retObject = _.mapValues(variableObj, function (value) {
+                return "var( --" + _.findKey(propertyObj, function (v) {
+                    return v == value
+                }) + ")"
+            })
+            if (variableKey == "fontFamily" || variableKey == "boxShadow" || variableKey == "transitionProperty") {
+                propertyObj = misc.bracketValues(propertyObj)
+            }
+            _.assign(customProperties, propertyObj)
+            return retObject
         })
-        _.assign(customProperties, propertyObj)
-
-        return _.mapValues(variableObj, function (value) {
-            return "var(" + _.findKey(propertyObj, value) + ")"
+    } else {
+        transformedVariables = _.mapValues(variables, function (variableObj, variableKey) {
+            if (variableKey == "transitionProperty" || variableKey == "fontFamily" || variableKey == "boxShadow") {
+                return misc.bracketValues(variableObj)
+            } else {
+                return variableObj
+            }
         })
-    })
-
+    }
     return [customProperties, transformedVariables]
 }
 
 misc.quote = function (val) {
     return JSON.stringify(val)
 }
-
-misc.unquote = function (val) {
-    return JSON.parse(val)
+misc.quoteValues = function (obj) {
+    return _.mapValues(obj, function (value) {
+        return misc.quote(value)
+    })
 }
 
-misc.applyCustomization = function (builtin, customization) {
-    let builtinKeys = _.keys(builtin)
+misc.bracket = function (val) {
+    return `(${val})`
+}
+misc.bracketValues = function (obj) {
+    return _.mapValues(obj, function (value) {
+        return misc.bracket(value)
+    })
+}
+
+misc.applyCustomization = function (ultimate, customization) {
+    let ultimateKeys = _.keys(ultimate)
     let filteredCustomization =
         _(customization)
             .pickBy(function (value, key) {
-                return _.includes(builtinKeys, key)
+                return _.includes(ultimateKeys, key)
             })
             .mapValues(function (value) {
                 return _.pick(value, ["disabled", "responsive", "pseudoClass"])
             })
             .value()
 
-    return _.assign({}, builtin, filteredCustomization)
+    return _.merge(ultimate, filteredCustomization)
 }
 
 module.exports = misc

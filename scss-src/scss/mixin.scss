@@ -1,16 +1,14 @@
-@mixin kernel($mixinName) {
-    @if $mixinName == "clearfix" {
-        .clearfix {
-            &::after {
-                display: block;
-                content: "";
-                clear: both;
-            }
+@mixin kernel-mixin($mixin-name,$namespace: $namespace) {
+    @if $mixin-name == "clearfix" {
+        @include class-content("clearfix::after") {
+            display: block;
+            content: "";
+            clear: both;
         }
     }
 
-    @if $mixinName == "sr-only" {
-        .sr-only {
+    @if $mixin-name == "sr-only" {
+        @include class-content("sr-only") {
             position: absolute;
             width: 1px;
             height: 1px;
@@ -23,8 +21,8 @@
         }
     }
 
-    @if $mixinName == "not-sr-only" {
-        .not-sr-only {
+    @if $mixin-name == "not-sr-only" {
+        @include class-content("no-sr-only") {
             position: static;
             width: auto;
             height: auto;
@@ -34,8 +32,8 @@
         }
     }
 
-    @if $mixinName == "transform" {
-        .transform {
+    @if $mixin-name == "transform" {
+        @include class-content("transform") {
             --transform-translate-x: 0;
             --transform-translate-y: 0;
             --transform-rotate: 0;
@@ -47,39 +45,39 @@
         }
     }
 
-    @if $mixinName == "no-transform" {
-        .no-transform {
+    @if $mixin-name == "no-transform" {
+        @include class-content("no-transform") {
             transform: translate(0) rotate(0) skew(0) scale(0) !important;
         }
     }
 
-    @if $mixinName == "transition" {
-        .transition {
+    @if $mixin-name == "transition" {
+        @include class-content("transition") {
             --transition-property: all;
             --transition-duration: 0s;
             --transition-timing-function: ease;
             --transition-delay: 0s;
-            transition: var(--transition-property) var(--transition-duration) var(--transition-timing-function) var(--transition-delay);
-            transition-property: var(--transition-property);
+            transition: var(--transition-property) var(--transition-duration) var(--transition-timing-function) var(--transition-delay) !important;
+            transition-property: var(--transition-property) !important;
         }
     }
 
-    @if $mixinName == "no-transition" {
-        .no-transition {
+    @if $mixin-name == "no-transition" {
+        @include class-content("no-transition") {
             transition: none 0s ease 0s !important;
         }
     }
 
-    @if $mixinName == "text-clip" {
-        .text-clip {
+    @if $mixin-name == "text-clip" {
+        @include class-content("text-clip") {
             white-space: nowrap;
             overflow: hidden;
             text-overflow: clip;
         }
     }
 
-    @if $mixinName == "text-ellipsis" {
-        .text-ellipsis {
+    @if $mixin-name == "text-ellipsis" {
+        @include class-content("text-ellipsis") {
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;

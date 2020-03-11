@@ -1,6 +1,0 @@
-// stylelint-disable declaration-no-important
-
-// vertical-align: baseline; Browser default
-@each $value in $v-aligns {
-    .valign-#{$value} { vertical-align: $value !important;  }
-}

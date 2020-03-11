@@ -258,9 +258,8 @@ module.exports = {
                 7: "0 25px 50px -12px rgba(0, 0, 0, 0.25)"
             }, colorBoxShadow
         ),
-
         fontFamily: {
-            sans: "system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji",
+            sans: "system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
             serif: "Georgia, Cambria, \"Times New Roman\", Times, serif",
             mono: "Menlo, Monaco, Consolas, \"Liberation Mono\", \"Courier New\", monospace",
         },
@@ -273,5 +272,9 @@ module.exports = {
         },
     },
 
-    customization: {}
+    customization: {
+        alignContent: {
+            responsive: false
+        }
+    }
 }

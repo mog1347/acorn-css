@@ -6,76 +6,26 @@
 @import "asset/flex-layout";
 @import "asset/grid-layout";
 
-//$namespace
-//$useImportant,
-//useImportantOnDisplay,
+$namespace: if($namespace =="", "", "#{$namespace}-");
+//$use-important
+//$use-important-on-display
+//$custom-properties
+$pseudo-class-disabled: map-get($pseudo-class, "disabled");
+$pseudo-class-suffix: map-get($pseudo-class, "suffix");
+$pseudo-class-list: map-get($pseudo-class, "list");
 
-negativeTag: "n",
-pseudoClass: {
-    disabled: false,
-    suffix: ":",
-    list: {
-        link: "link",
-        visited: "visited",
-    "any-link": "any-link",
-    hover: "hover",
-    active: "active",
-    focus: "focus",
-    "focus-within": "focus-within",
+$responsive-disabled: map-get($responsive, "disabled");
+$responsive-suffix: map-get($responsive, "suffix");
+$responsive-type: map-get($responsive, "type");
+$responsive-breakpoints: map-get($responsive, "breakpoints");
 
-    checked: "checked",
-    disabled: "disabled",
-    "read-only": "read-only",
-    invalid: "invalid",
-    valid: "valid",
-
-    "first-child": "first-child",
-    "last-child": "last-child",
-    "odd-child": "nth-child(odd)",
-    "even-child": "nth-child(even)"
+@if length($custom-properties)!= 0 {
+    :root {
+        @each $c, $v in $custom-properties {
+            --#{$c}: #{$v};
+        }
     }
-},
-responsive: {
-    disabled: false,
-    suffix: "@",
-    type: "up",// or "down"
-    breakpoints: {
-        // when type is "up"
-        xs: null,
-        sm: "640px",
-        md: "768px",
-        lg: "1024px",
-        xl: "1280px"
-        // when type is "down"
-        // xs: "639px",
-        // sm: "767px",
-        // md: "1023px",
-        // lg: "1279px",
-        // xl: null
-    }
-},
-container: {
-    disabled: false,
-    padding: "0",
-    centered: true
-},
-layout: {
-    flex: {
-        disabled: false,
-        column: 12,
-        gap: "1rem"
-    },
-grid: {
-    disabled: false,
-    column: 12,
-    row: 6
 }
-},
-
-
-
-
-
 
 @if not map-get($container, "disabled") {
     $container-centered: map-get($container, "centered");
@@ -85,62 +35,64 @@ grid: {
 
 $flex-layout: map-get($layout, "flex");
 @if not map-get($flex-layout,"disabled") {
-    $flex-layout-columns: map-get($flex-layout, "columns");
+    $flex-layout-column: map-get($flex-layout, "column");
     $flex-layout-gap: map-get($flex-layout, "gap");
-    @include build-flex-layout($flex-layout-columns, $flex-layout-gap);
+    @include build-flex-layout($flex-layout-column, $flex-layout-gap);
 }
 
 $grid-layout: map-get($layout, "grid");
 @if not map-get($grid-layout,"disabled") {
-    $grid-layout-columns: map-get($grid-layout, "columns");
-    $grid-layout-rows: map-get($grid-layout, "rows");
-    $grid-layout-gaps: map-get($grid-layout, "gaps");
-    @include build-flex-layout($flex-layout-columns, $grid-layout-rows, $grid-layout-gaps);
+    $grid-layout-column: map-get($grid-layout, "column");
+    $grid-layout-row: map-get($grid-layout, "row");
+    $grid-layout-gap: map-get($grid-layout, "gap");
+    @include build-grid-layout($grid-layout-column, $grid-layout-row, $grid-layout-gap);
 }
 
-@each $key, $val in $builtin {
+@each $key, $val in $ultimate {
     @if map-get($val,"disabled") != true {
 
-        $pseudo-class: map-get($val, "pseudoClass");
         $responsive: map-get($val, "responsive");
-
-        $values: map-get($val, "values");
+        $pseudo-class: map-get($val, "pseudo-class");
         $property: map-get($val, "property");
         $class: map-get($val, "class");
+        $values: map-get($val, "values");
         $mixin: map-get($val, "mixin");
 
-
         @if $mixin == null {
+            @if type-of($values) != "map" {
+                @error "Values must be a map in: #{$key}";
+            }
+
             @if $class == null {
                 $class: $property;
             }
 
-            @if type-of($values) != "map" and type-of($values) != "list" {
-                @error "Values must be a map or list in : #{$key}";
+            $pseudo-class-enabled: false;
+            @if type-of($pseudo-class) == "list" and length($pseudo-class) != 0 {
+                $pseudo-class-enabled: true;
             }
 
-            @if $responsive and length($pseudo-class) != 0 {
-                @include build-responsive() using($name,$width){
-                    @include build-pseudo-class($pseudo-class) using($pseudo-name){
-                        @include build-property(){
-
-                        }
+            @if $responsive== true and $pseudo-class-enabled {
+                @include build-responsive() using($responsive-name,$responsive-width) {
+                    @include build-pseudo-class($pseudo-class) using($pseudo-class-name,$pseudo-class-selector) {
+                        @include build-class($class, $values, $property, $responsive-name, $pseudo-class-name, $pseudo-class-selector);
                     }
                 }
+            } @else if $responsive == false and $pseudo-class-enabled {
+                @include build-pseudo-class($pseudo-class) using($pseudo-class-name,$pseudo-class-selector) {
+                    @include build-class($class, $values, $property, null, $pseudo-class-name, $pseudo-class-selector);
+                }
+            } @else if $responsive ==true and not $pseudo-class-enabled {
+                @include build-responsive() using($responsive-name,$responsive-width) {
+                    @include build-class($class, $values, $property, $responsive-name);
+                }
             } @else {
-
-
+                @include build-class($class, $values, $property);
             }
 
-
-            @include build-property($class, $values, $property);
         } @else {
-            @if type-of($mixin) == "string" {
-                @include kernel($m);
-            } @else if type-of($mixin) == "list" {
-                @each $m in $mixin {
-                    @include kernel($m);
-                }
+            @each $m in $mixin {
+                @include kernel-mixin($m);
             }
         }
     }

@@ -3,25 +3,8 @@
  * Copyright 2020 FishEleven
  * Licensed under MIT (https://gitee.com/mog1347/kernel-css/LICENSE)
  */
-$suffixes: (
-    responsive: "@"
-);
-$responsive: (
-    disabled: false,
-    type: "up",
-    breakpoints: (
-        xs: null,
-        sm: 640px,
-        md: 768px,
-        lg: 1024px,
-        xl: 1280px
-    )
-);
 
-$breakpoints: map-get($responsive, "breakpoints");
-$responsive-type: map-get($responsive, "type");
-
-@function breakpoint-width($name, $breakpoints: $breakpoints) {
+@function breakpoint-width($name, $breakpoints: $responsive-breakpoints) {
     @return map-get($breakpoints, $name);
 }
 @function is-name-in-breakpoints($responsive-name,$responsive-names: map-keys($breakpoints)) {
@@ -61,9 +44,9 @@ $responsive-type: map-get($responsive, "type");
     }
 }
 
-@mixin build-responsive-always-up($responsive-names: map-keys($breakpoints)) {
+@mixin build-responsive-always-up($responsive-names: map-keys($responsive-breakpoints)) {
     @if $responsive-type == "up" {
-        @each $name, $width in $breakpoints {
+        @each $name, $width in $responsive-breakpoints {
             @if $width != null {
                 @media (min-width: $width) {
                     @content($name, $width);
@@ -73,9 +56,9 @@ $responsive-type: map-get($responsive, "type");
             }
         }
     } @else if $responsive-type == "down" {
-        @each $name, $width in $breakpoints {
+        @each $name, $width in $responsive-breakpoints {
             $n: index($responsive-names, $name);
-            $prev-width: if($n - 1 != 0, map-get($breakpoints, nth($responsive-names, $n - 1)), null);
+            $prev-width: if($n - 1 != 0, map-get($responsive-breakpoints, nth($responsive-names, $n - 1)), null);
             @if $prev-width != null {
                 @media (min-width: $prev-width + 1) {
                     @content($name, $prev-width + 1);
@@ -87,11 +70,11 @@ $responsive-type: map-get($responsive, "type");
     }
 }
 
-@mixin build-responsive-always-down($responsive-names: map-keys($breakpoints)) {
+@mixin build-responsive-always-down($responsive-names: map-keys($responsive-breakpoints)) {
     @if $responsive-type == "up" {
-        @each $name, $width in $breakpoints {
+        @each $name, $width in $responsive-breakpoints {
             $n: index($responsive-names, $name);
-            $next-width: if($n + 1 != length($responsive-names) + 1, map-get($breakpoints, nth($responsive-names, $n + 1)), null);
+            $next-width: if($n + 1 != length($responsive-names) + 1, map-get($responsive-breakpoints, nth($responsive-names, $n + 1)), null);
             @if $next-width != null {
                 @media (max-width: $next-width - 1) {
                     @content($name, $next-width - 1);
@@ -101,7 +84,7 @@ $responsive-type: map-get($responsive, "type");
             }
         }
     } @else if $responsive-type == "down" {
-        @each $name, $width in $breakpoints {
+        @each $name, $width in $responsive-breakpoints {
             @if $width != null {
                 @media (max-width: $width) {
                     @content($name, $width);
@@ -137,7 +120,7 @@ $responsive-type: map-get($responsive, "type");
             }
         }
     } @else {
-        @each $name, $width in $breakpoints {
+        @each $name, $width in $responsive-breakpoints {
             @include media-breakpoint($name, $width) {
                 @content($name, $width);
             }
@@ -146,7 +129,7 @@ $responsive-type: map-get($responsive, "type");
 }
 
 @mixin preload-responsive() {
-    @each $name, $width in $breakpoints {
+    @each $name, $width in $responsive-breakpoints {
         @content($name, $width);
     }
 }

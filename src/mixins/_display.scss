@@ -1,7 +1,0 @@
-@mixin display($value,$imp:null) {
-    @if index($displays,$value) ==null {
-        @warn "Potentially invalid value for displays list doesn't contain it !";
-    } @else {
-        display: $value $imp;
-    }
-}

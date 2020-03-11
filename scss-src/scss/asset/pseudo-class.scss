@@ -1,11 +1,10 @@
-@function get-pseudo-class(){
-
+@function pseudo-class-selector($pseudo-class-name,$pseudo-class-list: $pseudo-class-list) {
+    @return map-get($pseudo-class-list, $pseudo-class-name);
 }
 
-
-@mixin build-pseudo-class($pseudo-classes) {
-    $pseudo-classes: join((null), $pseudo-classes);
-    @each $pseudo-class-name in $pseudo-classes {
-        @content($pseudo-class-name);
+@mixin build-pseudo-class($pseudo-class,$pseudo-class-list:$pseudo-class-list) {
+    $pseudo-class: join((null), $pseudo-class);
+    @each $pseudo-class-name in $pseudo-class {
+        @content($pseudo-class-name, pseudo-class-selector($pseudo-class-name));
     }
 }

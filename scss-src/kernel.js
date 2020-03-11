@@ -5,9 +5,9 @@ const
     sassJsImporter = require('node-sass-js-importer')
 
 const distPath = path.resolve(__dirname, '../dist/kernel.css'),
-    builtinConfigPath = path.resolve(__dirname, './config/builtin.js'),
-    themeConfigPath = path.resolve(__dirname, './config/theme.js'),
-    kernelScssPath = path.resolve(__dirname, './scss/kernel.scss')
+    configPath = path.resolve(__dirname, './config/config.js'),
+    themePath = path.resolve(__dirname, './config/theme.js'),
+    scssPath = path.resolve(__dirname, './scss/kernel.scss')
 
 // Prevent file from being cached by Node's `require` on continuous builds.
 // https://github.com/Updater/node-sass-json-importer/issues/21
@@ -16,18 +16,17 @@ function deleteNodeRequireCache(...filePath) {
     filePath.forEach((f) => delete require.cache[require.resolve(f)])
 }
 
-deleteNodeRequireCache(builtinConfigPath, themeConfigPath);
+deleteNodeRequireCache(configPath, themePath);
 
-const kernelFunc = require(builtinConfigPath),
-    themeJson = require(themeConfigPath),
-    configJson = kernelFunc(themeJson)
+const configFunc = require(configPath),
+    theme = require(themePath),
+    configJson = configFunc(theme)
 
 let configScss = sassJsImporter.transformJSONtoSass(configJson),
-    kernelScss = fs.readFileSync(kernelScssPath, 'utf-8')
+    kernelScss = fs.readFileSync(scssPath, 'utf-8')
 
 sass.render({
-    // data: configScss + kernelScss,
-    data: kernelScss,
+    data: configScss + kernelScss,
     outFile: distPath,
     includePaths: [path.resolve(__dirname, './scss')],
     outputStyle: 'expanded'

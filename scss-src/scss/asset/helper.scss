@@ -1,54 +1,34 @@
-$responsive-suffix: "@";
-$pseudo-class-suffix: ":";
-$namespace: "k";
-
-
-@mixin build-property($class, $values, $property) {
-    @if type-of($values) == "map" {
-        @each $k, $v in $values {
-            @include class-content(#{$class}-#{$k}, $responsive-name, $pseudo-class-name, $namespace) {
-                @if type-of($property) == "list" {
-                    @each $p in $property {
-                        #{$p}: $v;
-                    }
-                } @else {
-                    #{$property}: $v;
+@mixin build-class($class, $values, $property, $responsive-name: null, $pseudo-class-name: null, $pseudo-class-selector: null, $namespace: $namespace) {
+    @each $k, $v in $values {
+        @include class-content(#{$class}-#{$k}, $responsive-name, $pseudo-class-name, $pseudo-class-selector, $namespace) {
+            @if type-of($property) == "list" {
+                @each $p in $property {
+                    #{$p}: $v;
                 }
-            }
-        }
-    } @else if type-of($values) == "list" {
-        @each $v in $values {
-            @include class-content(#{$class}-#{$v}, $responsive-name, $pseudo-class-name, $namespace) {
-
-                @if type-of($property) == "list" {
-                    @each $p in $property {
-                        #{$p}: $v;
-                    }
-                } @else {
-                    #{$property}: $v;
-                }
+            } @else {
+                #{$property}: $v;
             }
         }
     }
 }
 
-@function class-name($class, $responsive-name: null,$pseudo-class-name: null, $namespace: $namespace) {
+@function class-name($class, $responsive-name: null, $pseudo-class-name: null, $pseudo-class-selector:null, $namespace: $namespace) {
     @if breakpoint-width($responsive-name) == null {
         $responsive-name: null;
     }
     @if $responsive-name == null and $pseudo-class-name == null {
-        @return "#{$namespace}-#{$class}";
+        @return "#{$namespace}#{$class}";
     } @else if $responsive-name == null and $pseudo-class-name != null {
-        @return "#{$pseudo-class-name}\\#{$pseudo-class-suffix}#{$namespace}-#{$class}";
+        @return "#{$pseudo-class-name}\\#{$pseudo-class-suffix}#{$namespace}#{$class}:#{$pseudo-class-selector}";
     } @else if $responsive-name != null and $pseudo-class-name == null {
-        @return "#{$responsive-name}\\#{$responsive-suffix}#{$namespace}-#{$class}";
+        @return "#{$responsive-name}\\#{$responsive-suffix}#{$namespace}#{$class}";
     } @else {
-        @return "#{$responsive-name}\\#{$responsive-suffix}#{$pseudo-class-name}\\#{$pseudo-class-suffix}#{$namespace}-#{$class}";
+        @return "#{$responsive-name}\\#{$responsive-suffix}#{$pseudo-class-name}\\#{$pseudo-class-suffix}#{$namespace}#{$class}:#{$pseudo-class-selector}";
     }
 }
 
-@mixin class-content($class, $responsive-name: null, $pseudo-class-name: null, $namespace: $namespace) {
-    .#{class-name($class, $responsive-name, $pseudo-class-name, $namespace)} {
+@mixin class-content($class, $responsive-name: null, $pseudo-class-name: null, $pseudo-class-selector:null, $namespace: $namespace) {
+    .#{class-name($class, $responsive-name, $pseudo-class-name, $pseudo-class-selector, $namespace)} {
         @content;
     }
 }
