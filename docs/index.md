@@ -6,23 +6,18 @@ Acorn CSS is a simplified, elementary and flexible css framework. It provides ab
 
 ## Main idea
 
-- 
-
-- 提供以Js为输入的自定义Theme接口， 方便用户自定义
-
-- 不完全依赖Postcss，仍然以Sass/Scss作为编译样式的主要预处理器，方便大多数用户开发样式
-
-- 提供丰富的配置选项，用户可以自行定义Responsive和PseudoClass
-
- 
+- Learn from Atomic CSS thoughts, build non-semantic and basic css style classes.
+- Use javascript instead of scss to define themes. Make full use of the javascript's community and better programming features for customization.
+- Extend some useful feature like ```@apply``` by Postcss.
+- Still use Sass/Scss as the preprocessor for compiling styles, which is more familiar to most users.
+- Provide lots of configuration options, users can easily define responsive breakpoints and pseudo classes.
+- And many other idea.
 
 ## Requirements
 
 [sass](https://www.npmjs.com/package/sass)  >= 1.15.0
 
 [postcss](https://www.npmjs.com/package/postcss) >= 7.0.14
-
-
 
 ## Classes
 
