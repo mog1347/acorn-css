@@ -1,2 +1,11 @@
 title: Acorn-CSS
 description: Acorn-CSS is a simple css framework.
+theme: jekyll-theme-primer
+github:
+  private: false
+  license:
+    name: MIT
+    url: "https://github.com/mog1347/acorn-css/blob/master/LICENSE"
+  repository:
+    name: acorn-css
+    url: "https://github.com/mog1347/acorn-css"
