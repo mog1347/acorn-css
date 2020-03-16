@@ -1,10 +1,10 @@
+# Wish
 
+> Something large and successful often begins in a very small way.
 
-> Something large and successful often begins in a very small way
+# Main idea
 
-## 核心思想
-
-- 跟随AtomCss思想，构建最基本的原子Css样式
+- 
 
 - 提供以Js为输入的自定义Theme接口， 方便用户自定义
 
@@ -18,10 +18,10 @@
 
 
 
+## Classes
 
+ [Palcement](/placement.md)
 
-- [x] 你大爷
-- [ ] 
 
 
 

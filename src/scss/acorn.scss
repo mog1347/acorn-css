@@ -92,7 +92,7 @@ $grid-layout: map-get($layout, "grid");
 
         } @else {
             @each $m in $mixin {
-                @include kernel-mixin($m);
+                @include acorn-mixin($m);
             }
         }
     }

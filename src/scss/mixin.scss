@@ -1,4 +1,4 @@
-@mixin kernel-mixin($mixin-name,$namespace: $namespace) {
+@mixin acorn-mixin($mixin-name,$namespace: $namespace) {
     @if $mixin-name == "clearfix" {
         @include class-content("clearfix::after") {
             display: block;

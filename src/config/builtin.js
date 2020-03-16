@@ -360,7 +360,6 @@ const nativeVariables = {
 }
 
 const builtinVariables = {
-
     backgroundColor: {
         transparent: "transparent",
         current: "currentcolor",

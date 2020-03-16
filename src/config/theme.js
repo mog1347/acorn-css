@@ -45,7 +45,7 @@ module.exports = {
     namespace: "",
     useImportant: false,
     useImportantOnDisplay: false,
-    useCustomProperty: true,
+    useCustomProperty: false,
     negativeTag: "n",
     pseudoClass: {
         disabled: false,
@@ -92,7 +92,7 @@ module.exports = {
     },
     container: {
         disabled: false,
-        padding: "0",
+        padding: 0,
         centered: true
     },
     layout: {
@@ -105,6 +105,24 @@ module.exports = {
             disabled: false,
             column: 12,
             row: 6
+        }
+    },
+    preflight: {
+        root: {
+            lineHeight: "1.15em",
+            fontSize: "16px",
+            backgroundColor:"white",
+            color:"black",
+        },
+        body:{
+
+        },
+        heading:{
+
+        },
+        paragraph:{
+            lineHeight:"",
+            margin:""
         }
     },
     variables: {

@@ -1,5 +1,5 @@
 /*!
- * Kernel CSS v1.0.0 (https://gitee.com/mog1347/kernel-css)
+ * Acorn-CSS v1.0.0 (https://gitee.com/mog1347/kernel-css)
  * Copyright 2020 FishEleven
  * Licensed under MIT (https://gitee.com/mog1347/kernel-css/LICENSE)
  */

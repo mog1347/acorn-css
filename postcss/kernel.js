@@ -6,9 +6,9 @@ const
     parser = require('postcss-selector-parser')
 
 const
-    pluginName = "kernel",
-    kernelOutputFilePath = path.resolve(__dirname, '../dist/kernel.css'),
-    kernelOutput = fs.readFileSync(kernelOutputFilePath)
+    pluginName = "acorn",
+    acornOutputFilePath = path.resolve(__dirname, '../dist/acorn.css'),
+    acornOutput = fs.readFileSync(acornOutputFilePath)
 
 function escapeClassName(className) {
     const node = parser.className()
@@ -70,7 +70,7 @@ function findClass(classToApply, classTable, onError) {
 }
 
 
-function handleApply(atRule, classLookup, kernelLookup, config) {
+function handleApply(atRule, classLookup, acornLookup, config) {
     const classes = postcss.list.space(atRule.params)
 
     const decls = _(classes)
@@ -89,13 +89,13 @@ function handleApply(atRule, classLookup, kernelLookup, config) {
                     },
                     // Find exact class match in shadow lookup
                     () => {
-                        return findClass(classToApply, kernelLookup, onError)
+                        return findClass(classToApply, acornLookup, onError)
                     },
                     // Find prefixed version of class in shadow lookup
                     () => {
                         return findClass(
                             prefixSelector(config.prefix, classToApply),
-                            kernelLookup,
+                            acornLookup,
                             onError
                         )
                     },
@@ -103,7 +103,7 @@ function handleApply(atRule, classLookup, kernelLookup, config) {
                     () => {
                         return findClass(
                             increaseSpecificity(config.important, classToApply),
-                            kernelLookup,
+                            acornLookup,
                             onError
                         )
                     },
@@ -114,7 +114,7 @@ function handleApply(atRule, classLookup, kernelLookup, config) {
                                 config.important,
                                 prefixSelector(config.prefix, classToApply)
                             ),
-                            kernelLookup,
+                            acornLookup,
                             onError
                         )
                     },
@@ -141,9 +141,9 @@ module.exports = postcss.plugin(pluginName, function (config) {
 
     return function (css) {
         const classLookup = buildClassTable(css)
-        const kernelLookup = buildClassTable(postcss.parse(kernelOutput, {from: kernelOutputFilePath}))
+        const acornLookup = buildClassTable(postcss.parse(acornOutput, {from: acornOutputFilePath}))
         css.walkAtRules('apply', atRule => {
-            handleApply(atRule, classLookup, kernelLookup, config)
+            handleApply(atRule, classLookup, acornLookup, config)
         })
     }
 })

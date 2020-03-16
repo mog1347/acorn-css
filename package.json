@@ -1,18 +1,18 @@
 {
-    "name": "kernel-css",
-    "version": "1.0.0",
+    "name": "acorn-css",
+    "version": "0.1.0",
     "description": "",
     "main": "index.js",
     "scripts": {
         "apply": "postcss ./postcss/at.pcss --output ./postcss/dist/at.scss && sass ./postcss/dist/at.scss:./postcss/dist/at.css",
-        "build": "node src/kernel.js"
+        "build": "node src/acorn.js"
     },
     "keywords": [
         "css",
         "framework"
     ],
-    "author": "",
-    "license": "ISC",
+    "author": "Acorn-CSS Designer&Developer",
+    "license": "MIT",
     "devDependencies": {
         "node-sass-js-importer": "^4.0.1",
         "postcss": "^7.0.27",
