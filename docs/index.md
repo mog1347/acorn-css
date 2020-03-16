@@ -1,8 +1,10 @@
-# Wish
+# Acorn CSS
 
 > Something large and successful often begins in a very small way.
 
-# Main idea
+Acorn CSS is a simplified, elementary and flexible css framework. It provides about 250+ css classes which are highly customizable. With Acorn CSS, you can build your own semantic css classes using  extended Sass/Scss at rule ```@apply``` and other useful mixins like ```build-responsive``` and ```build-pseudo-class```.
+
+## Main idea
 
 - 
 
@@ -14,7 +16,11 @@
 
  
 
-[Theme](theme.md)
+## Requirements
+
+[sass](https://www.npmjs.com/package/sass)  >= 1.15.0
+
+[postcss](https://www.npmjs.com/package/postcss) >= 7.0.14
 
 
 
@@ -22,6 +28,15 @@
 
  [Palcement](/placement.md)
 
+
+
+
+
+
+
+## Customization
+
+[Theme](theme.md)
 
 
 
