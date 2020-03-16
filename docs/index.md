@@ -1,4 +1,4 @@
-![](https://ac.fisheleven.com/asset/logo.svg)
+
 
 > Something large and successful often begins in a very small way
 
