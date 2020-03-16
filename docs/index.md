@@ -1,4 +1,4 @@
-![](/media/fisheleven/private/Acorn-CSS/docs/asset/logo.svg)
+![](htttp://ac.fisheleven.com/asset/logo.svg)
 
 ## 核心思想
 
