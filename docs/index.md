@@ -1,5 +1,7 @@
 ![](https://ac.fisheleven.com/asset/logo.svg)
 
+> Something large and successful often begins in a very small way
+
 ## 核心思想
 
 - 跟随AtomCss思想，构建最基本的原子Css样式
