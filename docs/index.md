@@ -7,10 +7,10 @@ Acorn CSS is a simplified, elementary and flexible css framework. It provides ab
 ## Main idea
 
 - Learn from Atomic CSS thoughts, build non-semantic and basic css style classes.
-- Use javascript instead of scss to define themes. Make full use of the javascript's community and better programming features for customization.
+- Use javascript instead of scss to define a theme. Make full use of the javascript's community and better programming features for customization.
 - Extend some useful feature like ```@apply``` by Postcss.
 - Still use Sass/Scss as the preprocessor for compiling styles, which is more familiar to most users.
-- Provide lots of configuration options, users can easily define responsive breakpoints and pseudo classes.
+- Provide a bunch of configuration options, users can easily define responsive breakpoints and pseudo classes.
 - And many other ideas.
 
 ## Requirements
