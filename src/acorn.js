@@ -4,10 +4,10 @@ const
     fs = require('fs'),
     sassJsImporter = require('node-sass-js-importer')
 
-const distPath = path.resolve(__dirname, '../dist/kernel.css'),
+const distPath = path.resolve(__dirname, '../dist/acorn.css'),
     configPath = path.resolve(__dirname, './config/config.js'),
     themePath = path.resolve(__dirname, './config/theme.js'),
-    scssPath = path.resolve(__dirname, './scss/kernel.scss')
+    scssPath = path.resolve(__dirname, './scss/acorn.scss')
 
 // Prevent file from being cached by Node's `require` on continuous builds.
 // https://github.com/Updater/node-sass-json-importer/issues/21
@@ -23,10 +23,10 @@ const configFunc = require(configPath),
     configJson = configFunc(theme)
 
 let configScss = sassJsImporter.transformJSONtoSass(configJson),
-    kernelScss = fs.readFileSync(scssPath, 'utf-8')
+    acornScss = fs.readFileSync(scssPath, 'utf-8')
 
 sass.render({
-    data: configScss + kernelScss,
+    data: configScss + acornScss,
     outFile: distPath,
     includePaths: [path.resolve(__dirname, './scss')],
     outputStyle: 'expanded'
