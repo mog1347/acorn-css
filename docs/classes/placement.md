@@ -1,4 +1,4 @@
-# [Index](/) : Class > Placement
+# Classes > Placement
 
 ## alignContent
 > Native variables only
