@@ -1,4 +1,4 @@
-![](htttp://ac.fisheleven.com/asset/logo.svg)
+![](https://ac.fisheleven.com/asset/logo.svg)
 
 ## 核心思想
 
@@ -18,7 +18,8 @@
 
 
 
-
+- [x] 你大爷
+- [ ] 
 
 
 
