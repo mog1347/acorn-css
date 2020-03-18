@@ -2,15 +2,16 @@
 
 ## appearance
 
-> Native variables only
-
-**Property**: appearance
-
-**Class**: appearance-*
+| ClassDetail                        | Customization         |
+| ---------------------------------- | --------------------- |
+| **Properties**: appearance         | **Disabled**: false   |
+| **ClassName**: ```.appearance-*``` | **Responsive**: false |
+|                                    | **PseudoClass**: null |
 
 **Values**:
 
 ```json
+//Native:
 {	
     none: "none"
 }

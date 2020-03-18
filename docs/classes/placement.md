@@ -1,14 +1,17 @@
 # Classes > Placement
 
 ## alignContent
-**Property**: align-content
 
-**Class**: ```.align-content-*```
+| ClassDetail                           | Customization         |
+| ------------------------------------- | --------------------- |
+| **Properties**: align-content         | **Disabled**: false   |
+| **ClassName**: ```.align-content-*``` | **Responsive**: true  |
+|                                       | **PseudoClass**: null |
 
 **Values**:
 
 ```json
-//Native
+//Native:
 {	
     normal: "normal",
     start: "start",
@@ -26,15 +29,16 @@
 
 ## alignItems
 
-> Native variables only
-
-**Property**: align-items
-
-**Class**: ```align-items-*```
+| ClassDetail                         | Customization         |
+| ----------------------------------- | --------------------- |
+| **Properties**: align-items         | **Disabled**: false   |
+| **ClassName**: ```.align-items-*``` | **Responsive**: false |
+|                                     | **PseudoClass**: null |
 
 **Values**:
 
 ```json
+//Native:
 {
     normal: "normal",
     start: "start",
@@ -49,15 +53,16 @@
 
 ## alignSelf
 
-> Native variables only
-
-**Property**: align-self
-
-**Class**: ```align-self-*```
+| ClassDetail                        | Customization         |
+| ---------------------------------- | --------------------- |
+| **Properties**: align-self         | **Disabled**: false   |
+| **ClassName**: ```.align-self-*``` | **Responsive**: false |
+|                                    | **PseudoClass**: null |
 
 **Values**:
 
 ```json
+//Native:
 {
     auto: "auto",
     start: "start",
@@ -72,15 +77,16 @@
 
 ## justifyContent
 
-> Native variables only
-
-**Property**: justify-content
-
-**Class**: ```justify-content-*```
+| ClassDetail                             | Customization         |
+| --------------------------------------- | --------------------- |
+| **Properties**: justify-content         | **Disabled**: false   |
+| **ClassName**: ```.justify-content-*``` | **Responsive**: false |
+|                                         | **PseudoClass**: null |
 
 **Values**:
 
 ```json
+//Native:
 {
     normal: "normal",
     start: "start",
@@ -98,11 +104,11 @@
 
 ## justifyItems
 
-> Native variables only
-
-**Property**: justify-items
-
-**Class**: justify-items-*
+| ClassDetail                           | Customization         |
+| ------------------------------------- | --------------------- |
+| **Properties**: justify-items         | **Disabled**: false   |
+| **ClassName**: ```.justify-items-*``` | **Responsive**: false |
+|                                       | **PseudoClass**: null |
 
 **Values**:
 
@@ -121,11 +127,11 @@
 
 ## justifySelf
 
-> Native variables only
-
-**Property**: justify-self
-
-**Class**: justify-self-*
+| ClassDetail                          | Customization         |
+| ------------------------------------ | --------------------- |
+| **Properties**: justify-self         | **Disabled**: false   |
+| **ClassName**: ```.justify-self-*``` | **Responsive**: false |
+|                                      | **PseudoClass**: null |
 
 **Values**:
 
