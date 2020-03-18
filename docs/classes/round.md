@@ -2,7 +2,7 @@
 
 ## borderRadius
 
-| ClassDetail                   | Customization         |
+| ClassDetail                   | Default               |
 | ----------------------------- | --------------------- |
 | **Properties**: border-radius | **Disabled**: false   |
 | **ClassName**: ```.round-*``` | **Responsive**: false |
@@ -23,7 +23,7 @@
 
 ##  borderTopRadius
 
-| ClassDetail                                                  | Customization         |
+| ClassDetail                                                  | Default               |
 | ------------------------------------------------------------ | --------------------- |
 | **Properties**: ["border-top-left-radius", "border-top-right-radius"] | **Disabled**: false   |
 | **ClassName**: ```.round-t-*```                              | **Responsive**: false |
@@ -44,7 +44,7 @@
 
 ##  borderRightRadius
 
-| ClassDetail                                                  | Customization         |
+| ClassDetail                                                  | Default               |
 | ------------------------------------------------------------ | --------------------- |
 | **Properties**: ["border-top-right-radius", "border-bottom-right-radius"] | **Disabled**: false   |
 | **ClassName**: ```.round-r-*```                              | **Responsive**: false |
@@ -65,7 +65,7 @@
 
 ##  borderBottomRadius
 
-| ClassDetail                                                  | Customization         |
+| ClassDetail                                                  | Default               |
 | ------------------------------------------------------------ | --------------------- |
 | **Properties**: ["border-bottom-right-radius", "border-bottom-left-radius"] | **Disabled**: false   |
 | **ClassName**: ```.round-b-*```                              | **Responsive**: false |
@@ -86,7 +86,7 @@
 
 ##  borderLeftRadius
 
-| ClassDetail                                                  | Customization         |
+| ClassDetail                                                  | Default               |
 | ------------------------------------------------------------ | --------------------- |
 | **Properties**: ["border-top-left-radius", "border-bottom-left-radius"] | **Disabled**: false   |
 | **ClassName**: ```.round-l-*```                              | **Responsive**: false |
@@ -107,7 +107,7 @@
 
 ##  borderTopLeftRadius
 
-| ClassDetail                            | Customization         |
+| ClassDetail                            | Default               |
 | -------------------------------------- | --------------------- |
 | **Properties**: border-top-left-radius | **Disabled**: false   |
 | **ClassName**: ```.round-tl-*```       | **Responsive**: false |
@@ -128,7 +128,7 @@
 
 ##  borderTopRightRadius
 
-| ClassDetail                             | Customization         |
+| ClassDetail                             | Default               |
 | --------------------------------------- | --------------------- |
 | **Properties**: border-top-right-radius | **Disabled**: false   |
 | **ClassName**: ```.round-tr-*```        | **Responsive**: false |
@@ -149,7 +149,7 @@
 
 ##  borderBottomLeftRadius
 
-| ClassDetail                               | Customization         |
+| ClassDetail                               | Default               |
 | ----------------------------------------- | --------------------- |
 | **Properties**: border-bottom-left-radius | **Disabled**: false   |
 | **ClassName**: ```.round-bl-*```          | **Responsive**: false |
@@ -170,7 +170,7 @@
 
 ##  borderBottomRightRadius
 
-| ClassDetail                                | Customization         |
+| ClassDetail                                | Default               |
 | ------------------------------------------ | --------------------- |
 | **Properties**: border-bottom-right-radius | **Disabled**: false   |
 | **ClassName**: ```.round-br-*```           | **Responsive**: false |

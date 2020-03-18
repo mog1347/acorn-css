@@ -1,0 +1,22 @@
+# Classes > Background
+
+## backgroundAttachment
+
+| ClassDetail                           | Customization         |
+| ------------------------------------- | --------------------- |
+| **Properties**: background-attachment | **Disabled**: false   |
+| **ClassName**: ```.bg-attach-*```     | **Responsive**: false |
+|                                       | **PseudoClass**: null |
+
+**Values**:
+
+```json
+//Native:
+{	
+    local: "local",
+    fixed: "fixed",
+    scroll: "scroll"
+}
+```
+
+##  

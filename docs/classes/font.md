@@ -1,29 +1,32 @@
-# Classes > Misc
+# Classes > Font
 
-## appearance
+## fontFamily
 
-| ClassDetail                        | Default               |
-| ---------------------------------- | --------------------- |
-| **Properties**: appearance         | **Disabled**: false   |
-| **ClassName**: ```.appearance-*``` | **Responsive**: false |
-|                                    | **PseudoClass**: null |
+| ClassDetail                         | Default               |
+| ----------------------------------- | --------------------- |
+| **Properties**: font-family         | **Disabled**: false   |
+| **ClassName**: ```.font-family-*``` | **Responsive**: false |
+|                                     | **PseudoClass**: null |
 
 **Values**:
 
 ```json
-//Native:
+//Builtin:
 {	
-    none: "none"
+    sans: "system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", \"Microsoft YaHei\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji",
+    serif: "\"Droid Serif\", Lucida, Georgia, Palatino, \"Palatino Linotype\", \"Times New Roman\", Times, serif",
+    mono: "SFMono-Regular, Menlo, Monaco, Consolas, \"Liberation Mono\", \"Courier New\", monospace"
 }
+//Can be extend or replace by "variables.fontFamily"
 ```
 
-## cursor
+## fontKerning
 
-| ClassDetail                    | Default               |
-| ------------------------------ | --------------------- |
-| **Properties**: cursor         | **Disabled**: false   |
-| **ClassName**: ```.cursor-*``` | **Responsive**: false |
-|                                | **PseudoClass**: null |
+| ClassDetail                          | Default               |
+| ------------------------------------ | --------------------- |
+| **Properties**: font-kerning         | **Disabled**: false   |
+| **ClassName**: ```.font-kerning-*``` | **Responsive**: false |
+|                                      | **PseudoClass**: null |
 
 **Values**:
 
@@ -31,16 +34,8 @@
 //Native:
 {	
     auto: "auto",
-    default: "default",
-    pointer: "pointer",
-    crosshair: "crosshair",
-    move: "move",
-    text: "text",
-    wait: "wait",
-    help: "help",
-    "not-allowed": "not-allowed",
-    "zoom-in": "zoom-in",
-    "zoom-out": "zoom-out"
+    normal: "normal",
+    none: "none"
 }
 ```
 

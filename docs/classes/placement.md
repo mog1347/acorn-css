@@ -2,7 +2,7 @@
 
 ## alignContent
 
-| ClassDetail                           | Customization         |
+| ClassDetail                           | Default               |
 | ------------------------------------- | --------------------- |
 | **Properties**: align-content         | **Disabled**: false   |
 | **ClassName**: ```.align-content-*``` | **Responsive**: true  |
@@ -29,7 +29,7 @@
 
 ## alignItems
 
-| ClassDetail                         | Customization         |
+| ClassDetail                         | Default               |
 | ----------------------------------- | --------------------- |
 | **Properties**: align-items         | **Disabled**: false   |
 | **ClassName**: ```.align-items-*``` | **Responsive**: false |
@@ -53,7 +53,7 @@
 
 ## alignSelf
 
-| ClassDetail                        | Customization         |
+| ClassDetail                        | Default               |
 | ---------------------------------- | --------------------- |
 | **Properties**: align-self         | **Disabled**: false   |
 | **ClassName**: ```.align-self-*``` | **Responsive**: false |
@@ -77,7 +77,7 @@
 
 ## justifyContent
 
-| ClassDetail                             | Customization         |
+| ClassDetail                             | Default               |
 | --------------------------------------- | --------------------- |
 | **Properties**: justify-content         | **Disabled**: false   |
 | **ClassName**: ```.justify-content-*``` | **Responsive**: false |
@@ -104,7 +104,7 @@
 
 ## justifyItems
 
-| ClassDetail                           | Customization         |
+| ClassDetail                           | Default               |
 | ------------------------------------- | --------------------- |
 | **Properties**: justify-items         | **Disabled**: false   |
 | **ClassName**: ```.justify-items-*``` | **Responsive**: false |
@@ -127,7 +127,7 @@
 
 ## justifySelf
 
-| ClassDetail                          | Customization         |
+| ClassDetail                          | Default               |
 | ------------------------------------ | --------------------- |
 | **Properties**: justify-self         | **Disabled**: false   |
 | **ClassName**: ```.justify-self-*``` | **Responsive**: false |

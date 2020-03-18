@@ -2,7 +2,7 @@
 
 ## backgroundAttachment
 
-| ClassDetail                           | Customization         |
+| ClassDetail                           | Default               |
 | ------------------------------------- | --------------------- |
 | **Properties**: background-attachment | **Disabled**: false   |
 | **ClassName**: ```.bg-attach-*```     | **Responsive**: false |
@@ -11,7 +11,8 @@
 **Values**:
 
 ```json
-//Native:
+//This class is constant, its values are native and does not accept modification.
+//Native values:
 {	
     local: "local",
     fixed: "fixed",
@@ -21,16 +22,17 @@
 
 ##  backgroundBlendMode
 
-| ClassDetail                           | Customization         |
-| ------------------------------------- | --------------------- |
-| **Properties**: background-blend-mode | **Disabled**: true    |
-| **ClassName**: ```.bg-blend-*```      | **Responsive**: false |
-|                                       | **PseudoClass**: null |
+| ClassDetail                           | Default                |
+| ------------------------------------- | ---------------------- |
+| **Properties**: background-blend-mode | **Disabled**: ==true== |
+| **ClassName**: ```.bg-blend-*```      | **Responsive**: false  |
+|                                       | **PseudoClass**: null  |
 
 **Values**:
 
 ```json
-//Native:
+//This class is constant, its values are native and does not accept modification.
+//Native values:
 {	
     normal: "normal",
     multiply: "multiply",
@@ -53,16 +55,17 @@
 
 ## backgroundClip
 
-| ClassDetail                     | Customization         |
-| ------------------------------- | --------------------- |
-| **Properties**: background-clip | **Disabled**: true    |
-| **ClassName**: ```.bg-clip-*``` | **Responsive**: false |
-|                                 | **PseudoClass**: null |
+| ClassDetail                     | Default                |
+| ------------------------------- | ---------------------- |
+| **Properties**: background-clip | **Disabled**: ==true== |
+| **ClassName**: ```.bg-clip-*``` | **Responsive**: false  |
+|                                 | **PseudoClass**: null  |
 
 **Values**:
 
 ```json
-//Native:
+//This class is constant, its values are native and does not accept modification.
+//Native values:
 {	
     border: "border-box",
     content: "content-box",
@@ -71,9 +74,9 @@
 }
 ```
 
-## backgroundColor
+## ==backgroundColor==
 
-| ClassDetail                      | Customization                                                |
+| ClassDetail                      | Default                                                      |
 | -------------------------------- | ------------------------------------------------------------ |
 | **Properties**: background-color | **Disabled**: false                                          |
 | **ClassName**: ```.bg-*```       | **Responsive**: true                                         |
@@ -82,19 +85,22 @@
 **Values**:
 
 ```json
-//Builtin:
+//The values of this class accept modification.
+//Builtin values:
 {	
     transparent: "transparent",
     current: "currentcolor",
     black: "black",
     white: "white",
 }
-//Theme: "variables.color"
+//Values will be extend or replace by following theme data in order:
+//"variables.color"
+//"customization.backgroundColor"
 ```
 
 ## backgroundOrigin
 
-| ClassDetail                       | Customization         |
+| ClassDetail                       | Default               |
 | --------------------------------- | --------------------- |
 | **Properties**: background-origin | **Disabled**: false   |
 | **ClassName**: ```.bg-orig-*```   | **Responsive**: false |
@@ -103,7 +109,8 @@
 **Values**:
 
 ```json
-//Native:
+//This class is constant, its values are native and does not accept modification.
+//Native values:
 {	
     border: "border-box",
     content: "content-box",
@@ -113,7 +120,7 @@
 
 ## backgroundPosition
 
-| ClassDetail                         | Customization         |
+| ClassDetail                         | Default               |
 | ----------------------------------- | --------------------- |
 | **Properties**: background-position | **Disabled**: false   |
 | **ClassName**: ```.bg-pos-*```      | **Responsive**: false |
@@ -122,7 +129,8 @@
 **Values**:
 
 ```json
-//Native:
+//This class is constant, its values are native and does not accept modification.
+//Native values:
 {	
     top: "top",
     right: "right",
@@ -138,7 +146,7 @@
 
 ## backgroundRepeat
 
-| ClassDetail                       | Customization         |
+| ClassDetail                       | Default               |
 | --------------------------------- | --------------------- |
 | **Properties**: background-repeat | **Disabled**: false   |
 | **ClassName**: ```.bg-*```        | **Responsive**: false |
@@ -147,7 +155,8 @@
 **Values**:
 
 ```json
-//Native:
+//This class is constant, its values are native and does not accept modification.
+//Native values:
 {	
     repeat: "repeat",
     "no-repeat": "no-repeat",
@@ -160,7 +169,7 @@
 
 ## backgroundSize
 
-| ClassDetail                     | Customization         |
+| ClassDetail                     | Default               |
 | ------------------------------- | --------------------- |
 | **Properties**: background-size | **Disabled**: false   |
 | **ClassName**: ```.bg-size-*``` | **Responsive**: false |
@@ -169,7 +178,8 @@
 **Values**:
 
 ```json
-//Native:
+//This class is constant, its values are native and does not accept modification.
+//Native values:
 {
     auto: "auto",
     cover: "cover",

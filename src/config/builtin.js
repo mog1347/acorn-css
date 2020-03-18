@@ -395,7 +395,7 @@ const builtinVariables = {
         transparent: "transparent",
         currentColor: "currentcolor",
         black: "black",
-        white: "white",
+        white: "white"
     },
     flex: {
         init: "0 1 auto",
