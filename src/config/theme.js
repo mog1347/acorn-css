@@ -291,8 +291,8 @@ module.exports = {
     },
 
     customization: {
-        alignContent: {
-            responsive: false
-        }
+        // alignContent: {
+        //     responsive: false
+        // }
     }
 }

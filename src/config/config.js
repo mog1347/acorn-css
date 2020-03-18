@@ -102,7 +102,7 @@ module.exports = function (theme) {
             },
             backgroundColor: {
                 responsive: true,
-                pseudoClass: ["any-link", "hover", "active", "focus", "focus-within"],
+                pseudoClass: ["hover", "active", "focus", "focus-within"],
                 property: "background-color",
                 class: "bg",
                 values: _.assign({},
@@ -311,7 +311,7 @@ module.exports = function (theme) {
                 values: nativeVariables.cursor
             },
             color: {
-                pseudoClass: ["any-link", "hover", "active", "focus", "focus-within"],
+                pseudoClass: ["hover", "active", "focus", "focus-within"],
                 property: "color",
                 class: "text",
                 values: _.assign({},
@@ -882,14 +882,12 @@ module.exports = function (theme) {
                 values: nativeVariables.transformOrigin
             },
             translateX: {
-                responsive: true,
                 pseudoClass: ["hover", "focus"],
                 property: "--transform-translate-x",
                 class: "tf-translate-x",
                 values: withNegative(builtinVariables.translate)
             },
             translateY: {
-                responsive: true,
                 pseudoClass: ["hover", "focus"],
                 property: "--transform-translate-y",
                 class: "tf-translate-y",
@@ -901,35 +899,28 @@ module.exports = function (theme) {
                 values: withNegative(builtinVariables.rotate)
             },
             skewX: {
-                responsive: true,
-                pseudoClass: ["hover", "focus"],
                 property: "--transform-skew-x",
                 class: "tf-skew-x",
                 values: withNegative(builtinVariables.skew)
             },
             skewY: {
-                responsive: true,
-                pseudoClass: ["hover", "focus"],
                 property: "--transform-skew-y",
                 class: "tf-skew-y",
                 values: withNegative(builtinVariables.skew)
             },
             scale: {
-                responsive: true,
                 pseudoClass: ["hover", "focus"],
                 property: ["--transform-scale-x", "--transform-scale-y"],
                 class: "tf-scale",
                 values: builtinVariables.scale
             },
             scaleX: {
-                responsive: true,
                 pseudoClass: ["hover", "focus"],
                 property: "--transform-scale-x",
                 class: "tf-scale-x",
                 values: builtinVariables.scale
             },
             scaleY: {
-                responsive: true,
                 pseudoClass: ["hover", "focus"],
                 property: "--transform-scale-y",
                 class: "tf-scale-y",

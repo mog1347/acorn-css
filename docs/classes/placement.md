@@ -1,15 +1,14 @@
 # Classes > Placement
 
 ## alignContent
-> Native variables only
-
 **Property**: align-content
 
-**Class**: align-content-*
+**Class**: ```.align-content-*```
 
 **Values**:
 
 ```json
+//Native
 {	
     normal: "normal",
     start: "start",
@@ -31,7 +30,7 @@
 
 **Property**: align-items
 
-**Class**: align-items-*
+**Class**: ```align-items-*```
 
 **Values**:
 
@@ -54,7 +53,7 @@
 
 **Property**: align-self
 
-**Class**: align-self-*
+**Class**: ```align-self-*```
 
 **Values**:
 
@@ -77,7 +76,7 @@
 
 **Property**: justify-content
 
-**Class**: justify-content-*
+**Class**: ```justify-content-*```
 
 **Values**:
 

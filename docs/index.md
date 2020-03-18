@@ -19,15 +19,23 @@ Acorn CSS is a simplified, elementary and flexible css framework. It provides ab
 
 [postcss](https://www.npmjs.com/package/postcss) >= 7.0.14
 
-## Classes
-
- [Palcement](/classes/placement.md)
- [Background](/classes/background.md)
 
 
+## All Classes
+
+> Note: All classes can be defined as whether support responsive and whether applied to certain pseudo-classes through theme customization.
 
 
- [Misc](/classes/misc.md)
+
+
+
+[Palcement](/classes/placement.md)
+
+[Background](/classes/background.md)
+
+
+
+[Misc](/classes/misc.md)
 
 ## Customization
 
