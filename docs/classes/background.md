@@ -14,9 +14,9 @@
 //This class is constant, its values are native and does not accept modification.
 //Native values:
 {	
-    local: "local",
-    fixed: "fixed",
-    scroll: "scroll"
+    "local": "local",
+    "fixed": "fixed",
+    "scroll": "scroll"
 }
 ```
 
@@ -30,7 +30,7 @@
 
 **Values**:
 
-```json
+```js
 //This class is constant, its values are native and does not accept modification.
 //Native values:
 {	
@@ -55,11 +55,11 @@
 
 ## backgroundClip
 
-| ClassDetail                     | Default                |
-| ------------------------------- | ---------------------- |
-| **Properties**: background-clip | **Disabled**: ==true== |
-| **ClassName**: ```.bg-clip-*``` | **Responsive**: false  |
-|                                 | **PseudoClass**: null  |
+| ClassDetail                     | Default               |
+| ------------------------------- | --------------------- |
+| **Properties**: background-clip | **Disabled**: `true`  |
+| **ClassName**: ```.bg-clip-*``` | **Responsive**: false |
+|                                 | **PseudoClass**: null |
 
 **Values**:
 
