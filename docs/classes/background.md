@@ -10,10 +10,9 @@
 
 **Values**:
 
-```js
+```javascript
 //This class is constant, its values are native and does not accept modification.
-//Native values:
-{	
+NativeValues={	
     local: "local",
     fixed: "fixed",
     scroll: "scroll"
