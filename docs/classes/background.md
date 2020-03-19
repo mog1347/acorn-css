@@ -22,11 +22,11 @@
 
 ##  backgroundBlendMode
 
-| ClassDetail                           | Default                |
-| ------------------------------------- | ---------------------- |
-| **Properties**: background-blend-mode | **Disabled**: ==true== |
-| **ClassName**: ```.bg-blend-*```      | **Responsive**: false  |
-|                                       | **PseudoClass**: null  |
+| ClassDetail                           | Default               |
+| ------------------------------------- | --------------------- |
+| **Properties**: background-blend-mode | **Disabled**: true    |
+| **ClassName**: ```.bg-blend-*```      | **Responsive**: false |
+|                                       | **PseudoClass**: null |
 
 **Values**:
 
