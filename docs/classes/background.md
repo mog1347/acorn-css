@@ -12,6 +12,8 @@
 
 ```javascript
 //This class is constant, its values are native and does not accept modification.
+var a = 1;
+
 NativeValues={	
     local: "local",
     fixed: "fixed",
