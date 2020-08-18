@@ -26,7 +26,7 @@ let configScss = sassJsImporter.transformJSONtoSass(configJson),
     acornScss = fs.readFileSync(scssPath, 'utf-8')
 
 sass.render({
-    data: configScss + acornScss,
+    data: configScss + "\n" + acornScss,
     outFile: distPath,
     includePaths: [path.resolve(__dirname, './scss')],
     outputStyle: 'expanded'
@@ -41,7 +41,7 @@ sass.render({
             }
         })
     } else {
-        console.log(err)
+        console.warn(err)
     }
 })
 

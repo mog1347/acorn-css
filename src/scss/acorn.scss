@@ -58,6 +58,7 @@ $grid-layout: map-get($layout, "grid");
         $class: map-get($val, "class");
         $values: map-get($val, "values");
         $mixin: map-get($val, "mixin");
+        
 
         @if $mixin == null {
             @if type-of($values) != "map" {
@@ -67,23 +68,27 @@ $grid-layout: map-get($layout, "grid");
             @if $class == null {
                 $class: $property;
             }
+            
+            @if $responsive == null {
+                $responsive: false;   
+            }
 
             $pseudo-class-enabled: false;
             @if type-of($pseudo-class) == "list" and length($pseudo-class) != 0 {
                 $pseudo-class-enabled: true;
             }
 
-            @if $responsive== true and $pseudo-class-enabled {
+            @if $responsive and $pseudo-class-enabled {
                 @include build-responsive() using($responsive-name,$responsive-width) {
                     @include build-pseudo-class($pseudo-class) using($pseudo-class-name,$pseudo-class-selector) {
                         @include build-class($class, $values, $property, $responsive-name, $pseudo-class-name, $pseudo-class-selector);
                     }
                 }
-            } @else if $responsive == false and $pseudo-class-enabled {
+            } @else if not $responsive and $pseudo-class-enabled {
                 @include build-pseudo-class($pseudo-class) using($pseudo-class-name,$pseudo-class-selector) {
                     @include build-class($class, $values, $property, null, $pseudo-class-name, $pseudo-class-selector);
                 }
-            } @else if $responsive ==true and not $pseudo-class-enabled {
+            } @else if $responsive and not $pseudo-class-enabled {
                 @include build-responsive() using($responsive-name,$responsive-width) {
                     @include build-class($class, $values, $property, $responsive-name);
                 }

@@ -1,6 +1,6 @@
 # Classes > Background
 
-## backgroundAttachment
+## :page_facing_up:backgroundAttachment
 
 | ClassDetail                           | Default               |
 | ------------------------------------- | --------------------- |
@@ -12,29 +12,27 @@
 
 ```javascript
 //This class is constant, its values are native and does not accept modification.
-var a = 1;
-
-NativeValues={	
+NativeValues = {
     local: "local",
     fixed: "fixed",
     scroll: "scroll"
 }
 ```
 
-##  backgroundBlendMode
+##  :page_facing_up:backgroundBlendMode
 
-| ClassDetail                           | Default               |
-| ------------------------------------- | --------------------- |
-| **Properties**: background-blend-mode | **Disabled**: true    |
-| **ClassName**: ```.bg-blend-*```      | **Responsive**: false |
-|                                       | **PseudoClass**: null |
+
+| ClassDetail                           | Default                       |
+| ------------------------------------- | ----------------------------- |
+| **Properties**: background-blend-mode | :bell:**Disabled**: true      |
+| **ClassName**: ```.bg-blend-*```      | **Responsive**: false         |
+|                                       | **PseudoClass**: null         |
 
 **Values**:
 
 ```js
 //This class is constant, its values are native and does not accept modification.
-//Native values:
-{	
+NativeValues = {
     normal: "normal",
     multiply: "multiply",
     screen: "screen",
@@ -54,13 +52,13 @@ NativeValues={
 }
 ```
 
-## backgroundClip
+## :page_facing_up:backgroundClip
 
-| ClassDetail                     | Default               |
-| ------------------------------- | --------------------- |
-| **Properties**: background-clip | **Disabled**: `true`  |
-| **ClassName**: ```.bg-clip-*``` | **Responsive**: false |
-|                                 | **PseudoClass**: null |
+| ClassDetail                     | Default                                               |
+| ------------------------------- | ----------------------------------------------------- |
+| **Properties**: background-clip | :bell:**Disabled**: true        |
+| **ClassName**: ```.bg-clip-*``` | **Responsive**: false           |
+|                                 | **PseudoClass**: null           |
 
 **Values**:
 
@@ -75,13 +73,15 @@ NativeValues={
 }
 ```
 
-## ==backgroundColor==
+## :bookmark_tabs:backgroundColor
 
 | ClassDetail                      | Default                                                      |
 | -------------------------------- | ------------------------------------------------------------ |
 | **Properties**: background-color | **Disabled**: false                                          |
 | **ClassName**: ```.bg-*```       | **Responsive**: true                                         |
-|                                  | **PseudoClass**: ["hover", "active", "focus", "focus-within"] |
+|                                  | :bell:**PseudoClass**: ["hover", "active", "focus", "focus-within"] |
+
+
 
 **Values**:
 

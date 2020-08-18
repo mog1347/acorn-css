@@ -38,7 +38,7 @@ module.exports = function (theme) {
             grid: _.assign({}, theme.layout.grid, {
                 gap: _.assign({},
                     builtinVariables.gridGap,
-                    themeVariables.gap
+                    themeVariables.prototype.gap
                 )
             })
         },
@@ -107,7 +107,7 @@ module.exports = function (theme) {
                 class: "bg",
                 values: _.assign({},
                     builtinVariables.backgroundColor,
-                    themeVariables.color
+                    themeVariables.prototype.color
                 )
             },
             backgroundOrigin: {
@@ -144,7 +144,7 @@ module.exports = function (theme) {
                 class: "b",
                 values: _.assign({},
                     builtinVariables.borderColor,
-                    themeVariables.color
+                    themeVariables.prototype.color
                 )
             },
             borderStyle: {
@@ -159,7 +159,7 @@ module.exports = function (theme) {
                 class: "b",
                 values: _.assign({},
                     builtinVariables.borderWidth,
-                    themeVariables.lineWidth
+                    themeVariables.prototype.lineWidth
                 )
             },
             borderTopWidth: {
@@ -168,7 +168,7 @@ module.exports = function (theme) {
                 class: "bt",
                 values: _.assign({},
                     builtinVariables.borderWidth,
-                    themeVariables.lineWidth
+                    themeVariables.prototype.lineWidth
                 )
             },
             borderRightWidth: {
@@ -177,7 +177,7 @@ module.exports = function (theme) {
                 class: "br",
                 values: _.assign({},
                     builtinVariables.borderWidth,
-                    themeVariables.lineWidth
+                    themeVariables.prototype.lineWidth
                 )
             },
             borderBottomWidth: {
@@ -186,7 +186,7 @@ module.exports = function (theme) {
                 class: "bb",
                 values: _.assign({},
                     builtinVariables.borderWidth,
-                    themeVariables.lineWidth
+                    themeVariables.prototype.lineWidth
                 )
             },
             borderLeftWidth: {
@@ -195,7 +195,7 @@ module.exports = function (theme) {
                 class: "bl",
                 values: _.assign({},
                     builtinVariables.borderWidth,
-                    themeVariables.lineWidth
+                    themeVariables.prototype.lineWidth
                 )
             },
             borderXWidth: {
@@ -204,7 +204,7 @@ module.exports = function (theme) {
                 class: "bx",
                 values: _.assign({},
                     builtinVariables.borderWidth,
-                    themeVariables.lineWidth
+                    themeVariables.prototype.lineWidth
                 )
             },
             borderYWidth: {
@@ -213,7 +213,7 @@ module.exports = function (theme) {
                 class: "by",
                 values: _.assign({},
                     builtinVariables.borderWidth,
-                    themeVariables.lineWidth
+                    themeVariables.prototype.lineWidth
                 )
             },
 
@@ -311,12 +311,13 @@ module.exports = function (theme) {
                 values: nativeVariables.cursor
             },
             color: {
+                // responsive:true,
                 pseudoClass: ["hover", "active", "focus", "focus-within"],
                 property: "color",
                 class: "text",
                 values: _.assign({},
                     builtinVariables.color,
-                    themeVariables.color
+                    themeVariables.prototype.color
                 )
             },
             caretColor: {
@@ -324,7 +325,7 @@ module.exports = function (theme) {
                 class: "caret",
                 values: _.assign({},
                     builtinVariables.caretColor,
-                    themeVariables.color
+                    themeVariables.prototype.color
                 )
             },
             clear: {
@@ -416,7 +417,7 @@ module.exports = function (theme) {
             },
             fontWeight: {
                 property: "font-weight",
-                values: builtinVariables.fontWeight
+                values: nativeVariables.fontWeight
             },
             letterSpacing: {
                 property: "letter-spacing",
@@ -516,7 +517,7 @@ module.exports = function (theme) {
                 class: "m",
                 values: withNegative(_.assign({},
                     builtinVariables.margin,
-                    themeVariables.gap,
+                    themeVariables.prototype.gap,
                     themeVariables.margin)
                 )
             },
@@ -526,7 +527,7 @@ module.exports = function (theme) {
                 class: "mt",
                 values: withNegative(_.assign({},
                     builtinVariables.margin,
-                    themeVariables.gap,
+                    themeVariables.prototype.gap,
                     themeVariables.margin)
                 )
             },
@@ -536,7 +537,7 @@ module.exports = function (theme) {
                 class: "mr",
                 values: withNegative(_.assign({},
                     builtinVariables.margin,
-                    themeVariables.gap,
+                    themeVariables.prototype.gap,
                     themeVariables.margin)
                 )
             },
@@ -546,7 +547,7 @@ module.exports = function (theme) {
                 class: "mb",
                 values: withNegative(_.assign({},
                     builtinVariables.margin,
-                    themeVariables.gap,
+                    themeVariables.prototype.gap,
                     themeVariables.margin)
                 )
             },
@@ -556,7 +557,7 @@ module.exports = function (theme) {
                 class: "ml",
                 values: withNegative(_.assign({},
                     builtinVariables.margin,
-                    themeVariables.gap,
+                    themeVariables.prototype.gap,
                     themeVariables.margin)
                 )
             },
@@ -566,7 +567,7 @@ module.exports = function (theme) {
                 class: "mx",
                 values: withNegative(_.assign({},
                     builtinVariables.margin,
-                    themeVariables.gap,
+                     themeVariables.prototype.gap,
                     themeVariables.margin)
                 )
             },
@@ -576,7 +577,7 @@ module.exports = function (theme) {
                 class: "my",
                 values: withNegative(_.assign({},
                     builtinVariables.margin,
-                    themeVariables.gap,
+                     themeVariables.prototype.gap,
                     themeVariables.margin)
                 )
             },
@@ -589,7 +590,7 @@ module.exports = function (theme) {
                 class: "w",
                 values: _.assign({},
                     builtinVariables.width,
-                    themeVariables.space,
+                    themeVariables.prototype.space,
                     themeVariables.width
                 )
             },
@@ -600,7 +601,7 @@ module.exports = function (theme) {
                 class: "h",
                 values: _.assign({},
                     builtinVariables.height,
-                    themeVariables.space,
+                    themeVariables.prototype.space,
                     themeVariables.height
                 )
             },
@@ -609,7 +610,7 @@ module.exports = function (theme) {
                 class: "max-w",
                 values: _.assign({},
                     builtinVariables.maxWidth,
-                    themeVariables.space,
+                    themeVariables.prototype.space,
                     themeVariables.maxWidth
                 )
             },
@@ -618,7 +619,7 @@ module.exports = function (theme) {
                 class: "min-w",
                 values: _.assign({},
                     builtinVariables.minWidth,
-                    themeVariables.space,
+                    themeVariables.prototype.space,
                     themeVariables.minWidth
                 )
             },
@@ -627,7 +628,7 @@ module.exports = function (theme) {
                 class: "max-h",
                 values: _.assign({},
                     builtinVariables.maxHeight,
-                    themeVariables.space,
+                    themeVariables.prototype.space,
                     themeVariables.maxHeight
                 )
             },
@@ -636,7 +637,7 @@ module.exports = function (theme) {
                 class: "min-h",
                 values: _.assign({},
                     builtinVariables.minHeight,
-                    themeVariables.space,
+                    themeVariables.prototype.space,
                     themeVariables.minHeight
                 )
             },
@@ -666,7 +667,7 @@ module.exports = function (theme) {
                 property: "outline-width",
                 values: _.assign({},
                     builtinVariables.outlineWidth,
-                    themeVariables.lineWidth
+                    themeVariables.prototype.lineWidth
                 )
             },
             outlineStyle: {
@@ -677,7 +678,7 @@ module.exports = function (theme) {
                 property: "outline-color",
                 values: _.assign({},
                     builtinVariables.outlineColor,
-                    themeVariables.color
+                    themeVariables.prototype.color
                 )
             },
             outlineOffset: {
@@ -708,7 +709,7 @@ module.exports = function (theme) {
                 class: "p",
                 values: _.assign({},
                     builtinVariables.padding,
-                    themeVariables.gap,
+                     themeVariables.prototype.gap,
                     themeVariables.padding
                 )
             },
@@ -718,7 +719,7 @@ module.exports = function (theme) {
                 class: "pt",
                 values: _.assign({},
                     builtinVariables.padding,
-                    themeVariables.gap,
+                     themeVariables.prototype.gap,
                     themeVariables.padding
                 )
             },
@@ -728,7 +729,7 @@ module.exports = function (theme) {
                 class: "pr",
                 values: _.assign({},
                     builtinVariables.padding,
-                    themeVariables.gap,
+                     themeVariables.prototype.gap,
                     themeVariables.padding
                 )
             },
@@ -738,7 +739,7 @@ module.exports = function (theme) {
                 class: "pb",
                 values: _.assign({},
                     builtinVariables.padding,
-                    themeVariables.gap,
+                     themeVariables.prototype.gap,
                     themeVariables.padding
                 )
             },
@@ -748,7 +749,7 @@ module.exports = function (theme) {
                 class: "pl",
                 values: _.assign({},
                     builtinVariables.padding,
-                    themeVariables.gap,
+                     themeVariables.prototype.gap,
                     themeVariables.padding
                 )
             },
@@ -758,7 +759,7 @@ module.exports = function (theme) {
                 class: "px",
                 values: _.assign({},
                     builtinVariables.padding,
-                    themeVariables.gap,
+                     themeVariables.prototype.gap,
                     themeVariables.padding
                 )
             },
@@ -768,7 +769,7 @@ module.exports = function (theme) {
                 class: "py",
                 values: _.assign({},
                     builtinVariables.padding,
-                    themeVariables.gap,
+                    themeVariables.prototype.gap,
                     themeVariables.padding
                 )
             },
@@ -822,7 +823,7 @@ module.exports = function (theme) {
                 class: "text-decr",
                 values: _.assign({},
                     builtinVariables.textDecorationColor,
-                    themeVariables.color
+                    themeVariables.prototype.color
                 )
             },
             textDecorationStyle: {
@@ -977,7 +978,7 @@ module.exports = function (theme) {
             },
             zoom: {
                 property: "zoom",
-                values: builtinVariables.zoom
+                values: themeVariables.zoom
             }
         }
     }

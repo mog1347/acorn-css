@@ -32,39 +32,6 @@ const nativeVariables = {
         baseline: "baseline",
         stretch: "stretch"
     },
-    justifyContent: {
-        normal: "normal",
-        start: "start",
-        end: "end",
-        "flex-start": "flex-start",
-        "flex-end": "flex-end",
-        center: "center",
-        baseline: "baseline",
-        between: "space-between",
-        around: "space-around",
-        evenly: "space-evenly",
-        stretch: "stretch"
-    },
-    justifyItems: {
-        normal: "normal",
-        start: "start",
-        end: "end",
-        "flex-start": "flex-start",
-        "flex-end": "flex-end",
-        center: "center",
-        baseline: "baseline",
-        stretch: "stretch"
-    },
-    justifySelf: {
-        auto: "auto",
-        start: "start",
-        end: "end",
-        "flex-start": "flex-start",
-        "flex-end": "flex-end",
-        center: "center",
-        baseline: "baseline",
-        stretch: "stretch"
-    },
     appearance: {
         none: "none"
     },
@@ -142,6 +109,12 @@ const nativeVariables = {
         border: "border-box",
         content: "content-box",
     },
+    clear: {
+        none: "none",
+        left: "left",
+        right: "right",
+        both: "both"
+    },
     cursor: {
         auto: "auto",
         default: "default",
@@ -155,11 +128,9 @@ const nativeVariables = {
         "zoom-in": "zoom-in",
         "zoom-out": "zoom-out"
     },
-    clear: {
-        none: "none",
-        left: "left",
-        right: "right",
-        both: "both"
+    direction: {
+        ltr: "ltr",
+        rtl: "rtl"
     },
     display: {
         none: "none",
@@ -167,13 +138,10 @@ const nativeVariables = {
         block: "block",
         "inline-block": "inline-block",
         flex: "flex",
+        "flow-root": "flow-root",
         "inline-flex": "inline-flex",
         grid: "grid",
         "inline-grid": "inline-grid"
-    },
-    direction: {
-        ltr: "ltr",
-        rtl: "rtl"
     },
     emptyCells: {
         show: "show",
@@ -204,12 +172,63 @@ const nativeVariables = {
         normal: "normal",
         italic: "italic"
     },
+    fontWeight: {
+        thin: 100,
+        "extra-light": 200,
+        light: 300,
+        "semi-light": 350,
+        normal: 400,
+        medium: 500,
+        "semi-bold": 600,
+        bold: 700,
+        "extra-bold": 800,
+        black: 900,
+        bolder: "bolder",
+        lighter: "lighter"
+    },
+    justifyContent: {
+        normal: "normal",
+        start: "start",
+        end: "end",
+        "flex-start": "flex-start",
+        "flex-end": "flex-end",
+        center: "center",
+        baseline: "baseline",
+        between: "space-between",
+        around: "space-around",
+        evenly: "space-evenly",
+        stretch: "stretch"
+    },
+    justifyItems: {
+        normal: "normal",
+        start: "start",
+        end: "end",
+        "flex-start": "flex-start",
+        "flex-end": "flex-end",
+        center: "center",
+        baseline: "baseline",
+        stretch: "stretch"
+    },
+    justifySelf: {
+        auto: "auto",
+        start: "start",
+        end: "end",
+        "flex-start": "flex-start",
+        "flex-end": "flex-end",
+        center: "center",
+        baseline: "baseline",
+        stretch: "stretch"
+    },
     lineBreak: {
         auto: "auto",
         loose: "loose",
         normal: "normal",
         strict: "strict",
         anywhere: "anywhere"
+    },
+    listStylePosition: {
+        inside: "inside",
+        outside: "outside"
     },
     listStyleType: {
         none: "none",
@@ -223,9 +242,12 @@ const nativeVariables = {
         "lower-alpha": "lower-alpha",
         "upper-alpha": "upper-alpha"
     },
-    listStylePosition: {
-        inside: "inside",
-        outside: "outside"
+    objectFit: {
+        fill: "fill",
+        contain: "contain",
+        cover: "cover",
+        none: "none",
+        "scale-down": "scale-down"
     },
     objectPosition: {
         top: "top",
@@ -237,13 +259,6 @@ const nativeVariables = {
         "left-top": "left top",
         "right-bottom": "right bottom",
         "right-top": "right top"
-    },
-    objectFit: {
-        fill: "fill",
-        contain: "contain",
-        cover: "cover",
-        none: "none",
-        "scale-down": "scale-down"
     },
     outlineStyle: {
         auto: "auto",
@@ -258,6 +273,10 @@ const nativeVariables = {
         hidden: "hidden",
         scroll: "scroll",
         auto: "auto"
+    },
+    overflowWrap: {
+        normal: "normal",
+        word: "break-word"
     },
     pointerEvents: {
         auto: "auto",
@@ -342,20 +361,16 @@ const nativeVariables = {
         visible: "visible",
         hidden: "hidden"
     },
-    overflowWrap: {
-        normal: "normal",
-        word: "break-word"
-    },
-    wordBreak: {
-        "break-all": "break-all",
-        "keep-all": "keep-all"
-    },
     whiteSpace: {
         wrap: "normal",
         nowrap: "nowrap",
         pre: "pre",
         "pre-line": "pre-line",
         "pre-wrap": "pre-wrap"
+    },
+    wordBreak: {
+        "break-all": "break-all",
+        "keep-all": "keep-all"
     }
 }
 
@@ -363,8 +378,10 @@ const builtinVariables = {
     backgroundColor: {
         transparent: "transparent",
         current: "currentcolor",
-        black: "black",
-        white: "white",
+    },
+    borderColor: {
+        current: "currentcolor",
+        transparent: "transparent",
     },
     borderRadius: {
         0: 0,
@@ -372,31 +389,24 @@ const builtinVariables = {
         full: "100%",
         auto: "9999px"
     },
-    boxShadow: {
-        none: "none",
-        inner: "inset 0 2px 4px 0 rgba(0, 0, 0, 0.05)"  //TODO 这个值到底特殊不特殊
-    },
-    borderColor: {
-        current: "currentcolor",
-        transparent: "transparent",
-        black: "black",
-        white: "white",
-    },
     borderWidth: {
         0: 0
     },
+    boxShadow: {
+        none: "none",
+    },
+
     color: {
         transparent: "transparent",
-        black: "black",
-        white: "white",
     },
     caretColor: {
         auto: "auto",
         transparent: "transparent",
-        currentColor: "currentcolor",
-        black: "black",
-        white: "white"
+        current: "currentcolor",
     },
+
+    display: {},
+
     flex: {
         init: "0 1 auto",
         none: "0 0 auto",
@@ -416,38 +426,18 @@ const builtinVariables = {
         0: 0,
         1: 1
     },
-    fontFamily: {
-        sans: "system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", \"Microsoft YaHei\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji",
-        serif: "\"Droid Serif\", Lucida, Georgia, Palatino, \"Palatino Linotype\", \"Times New Roman\", Times, serif",
-        mono: "SFMono-Regular, Menlo, Monaco, Consolas, \"Liberation Mono\", \"Courier New\", monospace",
-    },
-    fontWeight: {
-        100: 100,
-        200: 200,
-        300: 300,
-        400: 400,
-        500: 500,
-        600: 600,
-        700: 700,
-        800: 800,
-        900: 900
-    },
-    // start gap related
-    // gridGap, margin, padding
+    fontFamily: {},
+    fontSize: {},
     gridGap: {
         0: 0,
-        px: "1px"
     },
     padding: {
-        0: 0,
-        px: "1px"
+        0: 0
     },
     margin: {
         0: 0,
-        px: "1px",
-        auto: "auto" //只有margin有个auto的内部值
+        auto: "auto"
     },
-    // end gap related
     letterSpacing: {
         normal: "normal",
         0: 0
@@ -458,27 +448,12 @@ const builtinVariables = {
     inset: {
         auto: "auto",
         0: 0,
-        50: "50%",
-        100: "100%",
+        half: "50%",
+        full: "100%",
     },
     width: {
         auto: "auto",
         0: 0,
-        px: "1px",
-        // "13": "33.333333%",
-        // "2/3": "66.666667%",
-        // "1/4": "25%",
-        // "2/4": "50%",
-        // "3/4": "75%",
-        // "1/5": "20%",
-        // "2/5": "40%",
-        // "3/5": "60%",
-        // "4/5": "80%",
-        // "1/6": "16.666667%",
-        // "2/6": "33.333333%",
-        // "3/6": "50%",
-        // "4/6": "66.666667%",
-        // "5/6": "83.333333%",
         half: "50%",
         full: "100%",
         "half-screen": "50vw",
@@ -523,17 +498,10 @@ const builtinVariables = {
         "half-screen": "50vh",
         "full-screen": "100vh",
     },
+
+
     opacity: {
         100: 1,
-        90: 0.9,
-        80: 0.8,
-        70: 0.7,
-        60: 0.6,
-        50: 0.5,
-        40: 0.4,
-        30: 0.3,
-        20: 0.2,
-        10: 0.1,
         0: 0
     },
     order: {
@@ -546,50 +514,26 @@ const builtinVariables = {
     },
     outlineColor: {
         current: "currentcolor",
-        black: "black",
-        white: "white",
     },
     outlineOffset: {
-        0: 0,
-        px: "1px",
+        0: 0
     },
     tabSize: {
-        0: 0,
-        2: 2,
-        4: 4,
-        8: 8
+        0: 0
     },
     textDecorationColor: {
         current: "currentcolor",
-        transparent: "transparent",
-        black: "black",
-        white: "white",
+        transparent: "transparent"
     },
     textIndent: {
-        0: 0,
-        2: "2em",
-        4: "4em",
-        6: "6em",
-        8: "8em"
+        0: 0
     },
     transitionProperty: {
         none: "none",
-        all: "all",
-        color: "background-color, border-color, color, fill, stroke",
-        space: "width, height, max-width, max-height, margin, padding",
-        opacity: "opacity",
-        shadow: "box-shadow",
-        transform: "transform"
+        all: "all"
     },
     transitionDuration: {
-        0: "0s",
-        250: "250ms",
-        500: "500ms",
-        1000: "1000ms",
-        1500: "1500ms",
-        2000: "2000ms",
-        2500: "2500ms",
-        3000: "3000ms"
+        0: "0s"
     },
     transitionTimingFunction: {
         ease: "ease",
@@ -599,68 +543,29 @@ const builtinVariables = {
         linear: "linear"
     },
     transitionDelay: {
-        0: "0s",
-        250: "250ms",
-        500: "500ms",
-        1000: "1000ms",
-        1500: "1500ms",
-        2000: "2000ms",
-        2500: "2500ms",
-        3000: "3000ms"
+        0: "0s"
     },
     translate: {
         0: 0,
-        50: "50%",
-        100: "100%"
+        half: "50%",
+        full: "100%"
     },
     rotate: {
-        0: 0,
-        30: "30deg",
-        45: "45deg",
-        60: "60deg",
-        90: "90deg",
-        180: "180deg",
+        0: 0
     },
     skew: {
-        0: 0,
-        3: "3deg",
-        6: "6deg",
-        12: "12deg",
+        0: 0
     },
     scale: {
-        0: 0,
-        50: 0.5,
-        75: 0.75,
-        90: 0.9,
-        95: 0.95,
-        100: 1,
-        105: 1.05,
-        110: 1.10,
-        125: 1.25,
-        150: 1.5,
-        200: 2
+        0: 0
     },
     wordSpacing: {
         normal: "normal",
-        0: 0,
-        px: "1px"
+        0: 0
     },
     zIndex: {
         auto: "auto",
         0: 0,
-    },
-    zoom: {
-        0: 0,
-        50: 0.5,
-        75: 0.75,
-        90: 0.9,
-        95: 0.95,
-        100: 1,
-        105: 1.05,
-        110: 1.10,
-        125: 1.25,
-        150: 1.5,
-        200: 2
     }
 }
 
