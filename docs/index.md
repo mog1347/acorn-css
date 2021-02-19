@@ -29,7 +29,7 @@ Acorn CSS is a simplified, elementary and flexible css framework. It provides ab
 
 
 
-[Palcement](/classes/placement.md)
+[Placement](/classes/placement.md)
 
 [Background](/classes/background.md)
 
